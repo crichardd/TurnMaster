@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Login from './Login';
 import LandingPage from './LandingPage';
@@ -19,14 +19,14 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
+      <Switch>
         <Route path="/" element={<App />}></Route>
         <Route path="/connect" element={<Login />}></Route>
         <Route path='/landingpage' element={<LandingPage/>}></Route>
         <Route path='/Friends' element={<Friends/>}></Route>
         <Route path='/Message' element={<Message/>}></Route>
         <Route path='/User' element={<User/>}></Route>
-      </Routes>
+      </Switch>
     </BrowserRouter>
   </React.StrictMode>
 );
