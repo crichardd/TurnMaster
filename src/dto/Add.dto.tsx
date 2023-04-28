@@ -3,11 +3,11 @@ export interface InscriptionDTO {
     firstname: string;
     email: string;
     password: string;
-  }
+}
   
-  export const InscriptionTransformer: (
+export const InscriptionTransformer: (
     item: any
-  ) => InscriptionDTO | undefined = (item: any) => {
+) => InscriptionDTO | undefined = (item: any) => {
     const properties = item.properties;
     if (
       properties &&
@@ -24,4 +24,4 @@ export interface InscriptionDTO {
       };
     }
     return undefined;
-  };
+};
