@@ -7,8 +7,6 @@ import { LoginDTO } from './dto/Login.dto';
 import { InscriptionDTO } from './dto/Add.dto';
 import { InscriptionService } from './services/Inscription.service';
 
-
-
 function Login(){
   const [pseudo, setPseudo] = useState('');
   const [email, setEmail] = useState('');
