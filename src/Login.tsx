@@ -90,7 +90,7 @@ function Login(){
       <main className='LandingPage-main'>
         <section className="forms-section">
 
-          //Connexion
+          
           
           <div className="forms">
             <div className="form-wrapper is-active">
@@ -114,7 +114,7 @@ function Login(){
               </form>
             </div>
 
-            //Inscription
+            
             <div className="form-wrapper">
               <button type="button" className="switcher switcher-signup">
                 Sign Up
