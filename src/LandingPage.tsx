@@ -2,7 +2,7 @@ import './css/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState} from 'react';
 import Header from './header';
-import './css/burgerMenu.css';
+import './css/Menu.css';
 
 
 function LandingPage() {
