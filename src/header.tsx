@@ -24,10 +24,9 @@ function Header({ connect }: { connect: boolean }){
         navigate("/Menu/user", { state: { connect: true } });
     }
     return (
-        
         <header>
             {location.pathname.indexOf("user") !== -1 || connect === true ? (
-                <Navbar bg="light" expand="lg" style={{ height: "80px", minHeight: "80px", position: "fixed", width: "100%" }}>
+                <Navbar bg="light" expand="lg" style={{ height: "80px", minHeight: "80px",  width: "100%" }}>
                     <Container>
                         <Navbar.Brand href="" onClick={handleLandingPage}>
                             <div className='mint titleMain'><h1>Stime</h1> </div>
@@ -51,8 +50,7 @@ function Header({ connect }: { connect: boolean }){
             ):(
                 <div> </div>
             )}
-        </header>
-
+        </header> 
     );
 
 }
