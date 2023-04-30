@@ -24,6 +24,7 @@ function Header({ connect }: { connect: boolean }){
         navigate("/Menu/user", { state: { connect: true } });
     }
     return (
+        
         <header>
             {location.pathname.indexOf("user") !== -1 || connect === true ? (
                 <Navbar bg="light" expand="lg" style={{ height: "80px", minHeight: "80px", position: "fixed", width: "100%" }}>
@@ -51,6 +52,7 @@ function Header({ connect }: { connect: boolean }){
                 <div> </div>
             )}
         </header>
+
     );
 
 }

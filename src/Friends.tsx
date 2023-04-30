@@ -9,12 +9,10 @@ function Friends() {
     return (
         
         <div className="App">
-            <div>
-                <Header connect={true}/>
-            </div>
-            <div className="cardDiv"> 
+            <Header connect={true}/>
+            <main className='LandingPage-main bg-dark'>
                 <CardFriends/> 
-            </div>
+            </main>
         </div>
     );
 }
