@@ -1,3 +1,5 @@
+import '../css/menu.css'
+
 function Card(){
     return (
         <div >

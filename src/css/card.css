@@ -15,10 +15,6 @@
     position : relative;
 }
 
-.cardDiv {
-    margin-top: 10px;
-}
-
 .main-friends {
     margin-top: 100px; /* ajustez la valeur en fonction de la hauteur de votre Header */
 }
