@@ -29,7 +29,7 @@ function Header({ connect }: { connect: boolean }){
                 <Navbar bg="light" expand="lg" style={{ height: "80px", minHeight: "80px",  width: "100%" }}>
                     <Container>
                         <Navbar.Brand href="" onClick={handleLandingPage}>
-                            <div className='mint titleMain'><h1>Stime</h1> </div>
+                            <div className='mint titleMain'><h1> TurnMaster </h1> </div>
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
