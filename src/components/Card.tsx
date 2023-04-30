@@ -18,7 +18,7 @@ function Card(){
                 </div>
                 <p className="p">1000 points</p>
                 <div className="modal-footer">
-                  <button type="button" className="btn btn-info" data-dismiss="modal">Cancel</button>
+                  <button type="button" className="btn btn-info" data-dismiss="modal" onClick={handleMessages}> Message</button>
                   <button type="button" className="btn btn-danger">Delete</button>
                 </div>
             </div>
