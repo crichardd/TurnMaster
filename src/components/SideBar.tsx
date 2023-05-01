@@ -14,11 +14,11 @@ function SideBar() {
             <div id="sidebarMenu">
                 <ul className="sidebarMenuInner">
                 <li>Bar de recherche <span> à venir</span></li>
-                <li><a href="" target="_blank"> Pierre</a></li>
-                <li><a href="" target="_blank">Paul</a></li>
-                <li><a href="" target="_blank">Jacques</a></li>
-                <li><a href="" target="_blank">Toto</a></li>
-                <li><a href="" target="_blank">Tata</a></li>
+                <li><a href="" target="_blank"> Pierre</a><span className="cross-stand-alone"></span></li>
+                <li><a href="" target="_blank">Paul</a><span className="cross-stand-alone"></span></li>
+                <li><a href="" target="_blank">Jacques</a><span className="cross-stand-alone"></span></li>
+                <li><a href="" target="_blank">Toto</a><span className="cross-stand-alone"></span></li>
+                <li><a href="" target="_blank">Tata</a><span className="cross-stand-alone"></span></li>
                 </ul>
             </div>
 

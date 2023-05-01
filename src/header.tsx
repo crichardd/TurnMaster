@@ -26,11 +26,9 @@ function Header({ connect }: { connect: boolean }){
     }
     return (
         <header className="header">
-
-                <div className='mint titleMain'><h1> TurnMaster </h1> </div>
-
-            
-            
+                <nav>
+                    <a href="#"className='mint titleMain' onClick={handleLandingPage}><h1> TurnMaster </h1> </a>
+                </nav>
         </header> 
     );
 

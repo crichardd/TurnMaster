@@ -12,7 +12,6 @@ function Friends() {
             <Header connect={true}/>
             <main>
                 <SideBar/>
-
             </main>
             
         </div>
