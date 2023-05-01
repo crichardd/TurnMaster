@@ -4,10 +4,10 @@ import { useState } from 'react';
 
 function SideBar() {
 
-    const [showSide1, setShowSide1] = useState(true);
+    const [toggleState, setToggleState] = useState(false);
 
-    const handleClickToggle = () => {
-      setShowSide1(!showSide1);
+    const handleToggle = () => {
+    setToggleState(!toggleState);
     };
     
 
@@ -22,28 +22,25 @@ function SideBar() {
             </label>
 
             <div id="sidebarMenu">
-                <div>
-                    <button onClick={handleClickToggle}>
-                        {showSide1 ? "Afficher side2" : "Afficher side1"}
-                    </button>
+                <div className={`toggle-bar ${toggleState ? 'on' : 'off'}`} onClick={handleToggle}>
+                    <div className="toggle-button"></div>
                 </div>
-            
-                
-                {showSide1 ? (
+
+                {toggleState ? (
+                    <ul>
+                    <li><a href="" target="_blank"> Pierre</a><span className="cross-stand-alone"></span></li>
+                    <li><a href="" target="_blank">Paul</a><span className="cross-stand-alone"></span></li>
+                    <li><a href="" target="_blank">Jacques</a><span className="cross-stand-alone"></span></li>
+                    <li><a href="" target="_blank">Toto</a><span className="cross-stand-alone"></span></li>
+                    <li><a href="" target="_blank">Tata</a><span className="cross-stand-alone"></span></li>
+                </ul>
+                ) : (
                     <ul>
                         <li><a href="" target="_blank"> Pierre</a></li>
                         <li><a href="" target="_blank">Paul</a></li>
                         <li><a href="" target="_blank">Jacques</a></li>
                         <li><a href="" target="_blank">Toto</a></li>
                         <li><a href="" target="_blank">Tata</a></li>
-                    </ul>
-                ) : (
-                    <ul>
-                        <li><a href="" target="_blank"> Pierre</a><span className="cross-stand-alone"></span></li>
-                        <li><a href="" target="_blank">Paul</a><span className="cross-stand-alone"></span></li>
-                        <li><a href="" target="_blank">Jacques</a><span className="cross-stand-alone"></span></li>
-                        <li><a href="" target="_blank">Toto</a><span className="cross-stand-alone"></span></li>
-                        <li><a href="" target="_blank">Tata</a><span className="cross-stand-alone"></span></li>
                     </ul>
                 )}
             </div>
