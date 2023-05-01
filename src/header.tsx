@@ -8,13 +8,7 @@ function Header({ connect }: { connect: boolean }){
 
     const navigate = useNavigate();
     const location = useLocation();
-
-    function handleFriends() {
-        navigate("/Friends");
-    }
-    function handleMessages() {
-        navigate("/Message");
-    }
+    
     function handleProfil() {
         navigate("/User");
     }
@@ -27,7 +21,8 @@ function Header({ connect }: { connect: boolean }){
     return (
         <header className="header">
                 <nav>
-                    <a href="#"className='mint titleMain' onClick={handleLandingPage}><h1> TurnMaster </h1> </a>
+                    <a href="#" className='mint titleMain' onClick={handleLandingPage}><h1> TurnMaster </h1> </a>
+                    <a href="#" onClick={handleProfil}><h1> profil </h1> </a>
                 </nav>
         </header> 
     );
