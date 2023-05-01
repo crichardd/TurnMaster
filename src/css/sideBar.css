@@ -197,29 +197,29 @@ li span.cross-stand-alone {
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-  }
-  
-  .toggle-bar.on {
+}
+
+.toggle-bar.on {
     background-color: #8bc34a;
-  }
-  
-  .toggle-button {
+}
+
+.toggle-button {
     width: 30px;
     height: 30px;
     background-color: #fff;
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
-  }
+}
   
-  .toggle-bar.on .toggle-button {
+.toggle-bar.on .toggle-button {
     transform: translateX(40px);
-  }
+}
   
-  .toggle-bar.off .toggle-button {
+.toggle-bar.off .toggle-button {
     transform: translateX(0px);
-  }
+}
   
-  .side1, .side2 {
+.side1, .side2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -228,13 +228,30 @@ li span.cross-stand-alone {
     font-size: 24px;
     font-weight: bold;
     color: #fff;
-  }
+}
   
-  .side1 {
+.side1 {
     background-color: #8bc34a;
-  }
+}
   
-  .side2 {
+.side2 {
     background-color: #f44336;
-  }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+	text-decoration: none;
+}
+  
+li {
+    text-decoration: none;
+    color: #000;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
   
