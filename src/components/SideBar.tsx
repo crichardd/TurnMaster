@@ -6,13 +6,10 @@ function SideBar() {
 
     const [showSide1, setShowSide1] = useState(true);
 
-    const handleClick1 = () => {
-      setShowSide1(true);
+    const handleClickToggle = () => {
+      setShowSide1(!showSide1);
     };
-  
-    const handleClick2 = () => {
-      setShowSide1(false);
-    };
+    
 
     return (
         <div> 
@@ -26,10 +23,12 @@ function SideBar() {
 
             <div id="sidebarMenu">
                 <div>
-                    <button onClick={handleClick1}>Afficher side1</button>
-                    <button onClick={handleClick2}>Afficher s</button>
+                    <button onClick={handleClickToggle}>
+                        {showSide1 ? "Afficher side2" : "Afficher side1"}
+                    </button>
                 </div>
             
+                
                 {showSide1 ? (
                     <ul>
                         <li><a href="" target="_blank"> Pierre</a></li>
