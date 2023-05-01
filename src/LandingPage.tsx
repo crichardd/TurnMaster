@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState} from 'react';
 import Header from './header';
 import './css/menu.css';
+import SideBar from './components/SideBar';
 
 
 function LandingPage() {
@@ -11,9 +12,7 @@ function LandingPage() {
     <div className="App">
       <Header connect={true}/>
 
-      <main className='LandingPage-main bg-dark'>
-     
-      </main>
+      <SideBar/>
     </div>
   );
 }
