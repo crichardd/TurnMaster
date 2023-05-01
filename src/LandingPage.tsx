@@ -11,7 +11,6 @@ function LandingPage() {
   return (
     <div className="App">
       <Header connect={true}/>
-
       <SideBar/>
     </div>
   );
