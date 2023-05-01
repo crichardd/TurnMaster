@@ -13,7 +13,6 @@ function SideBar() {
 
     return (
         <div> 
-            ICI
             <input type="checkbox" className="openSidebarMenu" id="openSidebarMenu"/>
             <label htmlFor="openSidebarMenu" className="sidebarIconToggle">
                 <div className="spinner diagonal part-1"></div>
