@@ -15,7 +15,7 @@ export class LoginService {
 
   async username(username: any): Promise<LoginDTO | undefined> {
     const response = await axios.post(
-      "http://63.33.61.128:3000/api/auth/login",
+      "http://localhost:8080/api/friendship/login",
       username
     );
     console.log(response);
