@@ -1,14 +1,28 @@
 import '../css/sideBar.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
+interface Friend {
+    id: string;
+    username: string;
+}
 
 function SideBar() {
 
     const [toggleState, setToggleState] = useState(false);
+    const [friends, setFriends] = useState<Friend[]>([]);
 
     const handleToggle = () => {
     setToggleState(!toggleState);
     };
+
+    useEffect(() => {
+        const fetchFriends = async () => {
+          const response = await fetch('http://localhost:8080/api/friendship/list');
+          const data = await response.json();
+          setFriends(data.friends);
+        };
+        fetchFriends();
+    }, []);
     
 
     return (
@@ -27,21 +41,26 @@ function SideBar() {
 
                 {toggleState ? (
                     <ul>
-                    <li><a href="" target="_blank"> Pierre</a><span className="cross-stand-alone"></span></li>
-                    <li><a href="" target="_blank">Paul</a><span className="cross-stand-alone"></span></li>
-                    <li><a href="" target="_blank">Jacques</a><span className="cross-stand-alone"></span></li>
-                    <li><a href="" target="_blank">Toto</a><span className="cross-stand-alone"></span></li>
-                    <li><a href="" target="_blank">Tata</a><span className="cross-stand-alone"></span></li>
-                </ul>
-                ) : (
-                    <ul>
-                        <li><a href="" target="_blank"> Pierre</a></li>
-                        <li><a href="" target="_blank">Paul</a></li>
-                        <li><a href="" target="_blank">Jacques</a></li>
-                        <li><a href="" target="_blank">Toto</a></li>
-                        <li><a href="" target="_blank">Tata</a></li>
+                        {friends.map((Friend) => (
+                        <li key={Friend.username}>
+                            <a href="" target="_blank">
+                            {Friend.username}
+                            </a>
+                            <span className="cross-stand-alone"></span>
+                        </li>
+                        ))}
                     </ul>
-                )}
+                    ) : (
+                    <ul>
+                        {friends.map((Friend) => (
+                        <li key={Friend.username}>
+                            <a href="" target="_blank">
+                            {Friend.username}
+                            </a>
+                        </li>
+                        ))}
+                    </ul>
+                    )}
             </div>
 
         </div>
