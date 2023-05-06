@@ -13,14 +13,14 @@ export class LoginService {
 
   private constructor() {}
 
-  async email(email: any): Promise<LoginDTO | undefined> {
+  async username(username: any): Promise<LoginDTO | undefined> {
     const response = await axios.post(
       "http://63.33.61.128:3000/api/auth/login",
-      email
+      username
     );
     console.log(response);
     if (response) {
-      return email;
+      return username;
     }
     return undefined;
   }

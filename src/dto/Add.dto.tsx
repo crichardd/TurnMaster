@@ -1,7 +1,5 @@
 export interface InscriptionDTO {
-    name: string;
-    firstname: string;
-    email: string;
+    username: string;
     password: string;
 }
   
@@ -11,16 +9,12 @@ export const InscriptionTransformer: (
     const properties = item.properties;
     if (
       properties &&
-      typeof properties.email === "string" &&
-      typeof properties.password === "string" &&
-      typeof properties.name === "string" &&
-      typeof properties.firstname === "string" 
+      typeof properties.username === "string" &&
+      typeof properties.password === "string" 
     ) {
       return {
-        email: properties.email,
-        password: properties.password,
-        name: properties.name,
-        firstname: properties.firstname
+        username: properties.username,
+        password: properties.password
       };
     }
     return undefined;

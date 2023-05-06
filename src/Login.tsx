@@ -8,9 +8,6 @@ import { InscriptionDTO } from './dto/Add.dto';
 import { InscriptionService } from './services/Inscription.service';
 
 function Login(){
-  const [pseudo, setPseudo] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [connect, setConnect] = useState<LoginDTO>();
   const [status, setStatus] = useState<boolean>(false);
   const navigate = useNavigate();
@@ -42,8 +39,8 @@ function Login(){
 
   }, []);
 
-  async function handlelogin(email: any) {
-    const result = await LoginService.getInstance().email(email);
+  async function handlelogin(username: any) {
+    const result = await LoginService.getInstance().username(username);
     setConnect(result);
     
     setStatus(true);
@@ -54,10 +51,10 @@ function Login(){
       event.preventDefault();
       
       const formData = new FormData(event.target);
-      const email = formData.get("email");
+      const username = formData.get("username");
       const password = formData.get("password");
     
-      handlelogin({ email, password });
+      handlelogin({ username, password });
   };
 
   const [inscription, setInscription] = useState<InscriptionDTO>();
@@ -67,20 +64,17 @@ function Login(){
       inscription
     );
     setInscription(result);
-    navigate("/user", { state: { email: inscription.email } });
+    navigate("/user", { state: { username: inscription.username } });
   }
 
   const handleSubmitInscription = (event: any) => {
     event.preventDefault();
 
-    const email = event.target.email.value;
-    const name = event.target.name.value;
-    const firstname = event.target.firstname.value;
+    const username = event.target.username.value;
     const password = event.target.elements.password.value;
 
-    handleInscription({ email, name, firstname, password });
+    handleInscription({ username, password });
   };
-
 
   return (
     <div className="App">
@@ -90,8 +84,6 @@ function Login(){
       <main className='LandingPage-main'>
         <section className="forms-section">
 
-          
-          
           <div className="forms">
             <div className="form-wrapper is-active">
               <button type="button" className="switcher switcher-login">
@@ -100,14 +92,14 @@ function Login(){
               </button>
               <form className="form form-login" onSubmit={handleSubmit}>
                 <fieldset>
-                  <legend>Please, enter your email and password for login.</legend>
+                  <legend>Please, enter your username and password for login.</legend>
                   <div className="input-block">
-                    <label htmlFor="login-email">E-mail</label>
-                    <input id="login-email" type="email" required/>
+                    <label htmlFor="login-email">Username</label>
+                    <input id="login-email" name="username" required/>
                   </div>
                   <div className="input-block">
-                    <label htmlFor="login-password">Password</label>
-                    <input id="login-password" type="password" required/>
+                    <label htmlFor="login-password">Mot de passe</label>
+                    <input id="login-password" type="password" name="password" required/>
                   </div>
                 </fieldset>
                 <button type="submit" className="btn-login">Login</button>
@@ -122,14 +114,14 @@ function Login(){
               </button>
               <form className="form form-signup" onSubmit={handleSubmitInscription}>
                 <fieldset>
-                  <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+                  <legend>Please, enter your username, password and password confirmation for sign up.</legend>
                   <div className="input-block">
                     <label htmlFor="signup-email">E-mail</label>
-                    <input id="signup-email" type="email" required/>
+                    <input id="signup-email" name="username" required/>
                   </div>
                   <div className="input-block">
                     <label htmlFor="signup-password">Password</label>
-                    <input id="signup-password" type="password" required/>
+                    <input id="signup-password" name="password" type="password" required/>
                   </div>
                   <div className="input-block">
                     <label htmlFor="signup-password-confirm">Confirm password</label>

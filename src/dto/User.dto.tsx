@@ -1,7 +1,5 @@
 export interface UserDTO {
-    lastname: string;
-    firstname: string;
-    email: string;
+    username: string;
 }
   
 export const UserTransformer: (item: any) => UserDTO | undefined = (
@@ -10,12 +8,10 @@ export const UserTransformer: (item: any) => UserDTO | undefined = (
     const properties = item.properties;
     if (
       properties &&
-      typeof properties.email === "string" &&
-      typeof properties.lastname === "string" &&
-      typeof properties.firstname === "string"
+      typeof properties.username === "string" 
     ) {
       return {
-        email: properties.email,
+        username: properties.username,
         lastname: properties.lastname,
         firstname: properties.firstname,
       };

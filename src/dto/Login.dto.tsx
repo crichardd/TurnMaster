@@ -1,5 +1,5 @@
 export interface LoginDTO {
-    email: string;
+  username: string;
     password: string;
 }
   
@@ -9,11 +9,11 @@ export const LoginTransformer: (item: any) => LoginDTO | undefined = (
     const properties = item.properties;
     if (
       properties &&
-      typeof properties.email === "string" &&
+      typeof properties.username === "string" &&
       typeof properties.password === "string"
     ) {
       return {
-        email: properties.email,
+        username: properties.username,
         password: properties.password
       };
     }

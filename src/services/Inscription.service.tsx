@@ -14,13 +14,13 @@ export class InscriptionService {
   private constructor() {}
 
   async inscription(inscription: any): Promise<InscriptionDTO | undefined> {
-    const email = await axios.post(
+    const username = await axios.post(
       "http://63.33.61.128:3000/api/auth/signup",
       inscription
     );
 
-    if (email) {
-      console.log(email);
+    if (username) {
+      console.log(username);
       return inscription;
     }
     return undefined;
