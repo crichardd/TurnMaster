@@ -15,7 +15,7 @@ export class InscriptionService {
 
   async inscription(inscription: any): Promise<InscriptionDTO | undefined> {
     const username = await axios.post(
-      "http://63.33.61.128:3000/api/auth/signup",
+      "http://localhost:8080/api/auth/register",
       inscription
     );
 

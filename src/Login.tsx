@@ -95,7 +95,7 @@ function Login(){
                   <legend>Please, enter your username and password for login.</legend>
                   <div className="input-block">
                     <label htmlFor="login-email">Username</label>
-                    <input id="login-email" name="username" required/>
+                    <input id="signup-email" name="username" type="text" required/>
                   </div>
                   <div className="input-block">
                     <label htmlFor="login-password">Mot de passe</label>
@@ -116,8 +116,8 @@ function Login(){
                 <fieldset>
                   <legend>Please, enter your username, password and password confirmation for sign up.</legend>
                   <div className="input-block">
-                    <label htmlFor="signup-email">E-mail</label>
-                    <input id="signup-email" name="username" required/>
+                    <label htmlFor="signup-email">Username</label>
+                    <input id="signup-email" name="username" type="text" required/>
                   </div>
                   <div className="input-block">
                     <label htmlFor="signup-password">Password</label>
