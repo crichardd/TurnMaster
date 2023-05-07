@@ -39,7 +39,7 @@ function SideBar() {
                     <div className="toggle-button"></div>
                 </div>
 
-                {toggleState ? (
+                {friends && friends.length > 0 && toggleState ? (
                     <ul>
                         {friends.map((Friend) => (
                         <li key={Friend.username}>
@@ -60,7 +60,8 @@ function SideBar() {
                         </li>
                         ))}
                     </ul>
-                )}
+                    )}
+
             </div>
 
         </div>

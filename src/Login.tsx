@@ -1,4 +1,5 @@
 import './css/App.css';
+import './css/Login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useRef, useEffect} from 'react';
 import { LoginService } from './services/Login.service';
@@ -128,7 +129,7 @@ export default function Login() {
             <div className="face face-back">
               <div className="content">
                 <h2>Mot de passe oublié ?</h2>
-                <small>Entrez votre e-mail pour recevoir un lien de réinitialisation de votre mot de passe</small>
+                <small>Entrez votre username pour recevoir un lien de réinitialisation de votre mot de passe</small>
                 <form onSubmit={(event) => event.preventDefault()}>
                   <div className="field-wrapper">
                     <input type="text" name="username" placeholder="e-mail"/>
