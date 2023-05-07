@@ -87,11 +87,9 @@ export default function Login() {
       event.preventDefault();
 
       const username = event.target.username.value;
-      const name = event.target.name.value;
-      const firstname = event.target.firstname.value;
       const password = event.target.elements.password.value;
   
-      handleInscription({ username, name, firstname, password });
+      handleInscription({ username, password });
     };
 
   return (
@@ -102,26 +100,11 @@ export default function Login() {
         <ul className="nav">
           <li onClick={showSignin}>Connexion</li>
           <li onClick={showSignup}>Inscription</li>
-          <li onClick={showSubscribe}>News Letter</li>
           <li onClick={showContactUs}>Contactez-nous</li>
         </ul>
         <div className="wrapper">
           <div className="rec-prism">
-            <div className="face face-top">
-              <div className="content">
-              <h2>News Letter</h2>
-              <small>Entrez votre username pour recevoir les dernières mises à jour !</small>
-              <form onSubmit={(event) => event.preventDefault()}>
-                <div className="field-wrapper">
-                  <input type="text" name="username" placeholder="e-mail"/>
-                  <label>Username</label>
-                </div>
-                <div className="field-wrapper">
-                  <input type="submit" onClick={showThankYou}/>
-                </div>
-                </form>
-              </div>
-            </div>
+            
             <div className="face face-front">
               <div className="content">
                 <h2>Connexion</h2>
@@ -164,14 +147,6 @@ export default function Login() {
                   <div className="field-wrapper">
                     <input type="text" name="username" placeholder="username"/>
                     <label>Username</label>
-                  </div>
-                  <div className="field-wrapper">
-                    <input type="text" name="name" placeholder="name"/>
-                    <label>Nom</label>
-                  </div>
-                  <div className="field-wrapper">
-                    <input type="text" name="firstname" placeholder="firstname"/>
-                    <label>Prénom</label>
                   </div>
                   <div className="field-wrapper">
                     <input type="password" name="password" placeholder="password" autoComplete="new-password"/>
