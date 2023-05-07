@@ -95,7 +95,8 @@ export default function Login() {
 
   return (
     <div className="Login">
-      <header className="Login-header">
+      <header className="App-header bg-light">
+        <div className='mint titleMain'><h1>TurnMaster</h1> </div>
       </header>
       <body className='tmp'>
         <ul className="nav">
