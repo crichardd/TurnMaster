@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import LandingPage from './LandingPage';
 import App from './App';
-import './css/index.css';
+import './css/Index.css';
 import User from './User';
 import Message from './Message';
 import Friends from './Friends';

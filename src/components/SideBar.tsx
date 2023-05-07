@@ -1,4 +1,4 @@
-import '../css/sideBar.css';
+import '../css/SideBar.css';
 import { useState, useEffect } from 'react';
 
 interface Friend {
@@ -60,7 +60,7 @@ function SideBar() {
                         </li>
                         ))}
                     </ul>
-                    )}
+                )}
             </div>
 
         </div>

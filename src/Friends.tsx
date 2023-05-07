@@ -1,6 +1,5 @@
 import Header from "./header";
-import CardFriends from "./components/Card";
-import './css/card.css';
+import './css/Card.css';
 import SideBar from "./components/SideBar";
 
 
@@ -13,7 +12,6 @@ function Friends() {
             <main>
                 <SideBar/>
             </main>
-            
         </div>
     );
 }

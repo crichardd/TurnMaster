@@ -1,4 +1,4 @@
-import '../css/menu.css'
+import '../css/Menu.css'
 import { useLocation, useNavigate } from "react-router-dom";
 import '../css/button.css'
 
