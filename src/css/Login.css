@@ -1,33 +1,21 @@
-* {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Tahoma, Verdana, Segoe, sans-serif;
-    font-size: 14px;
-    background: #f6fffd;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .wrapper {
+.wrapper {
     width: 250px;
     height: 350px;
     margin: 60px auto;
     perspective: 600px;
     text-align: left;
-  }
+}
   
-  .rec-prism {
+.rec-prism {
     width: 100%;
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
     transform: translateZ(-100px);
     transition: transform 0.5s ease-in;
-  }
+}
   
-  .face {
+.face {
     position: absolute;
     width: 250px;
     height: 350px;
@@ -35,19 +23,19 @@
     background: rgba(250, 250, 250, 0.96);
     border: 3px solid #07ad90;
     border-radius: 3px;
-  }
-  .face .content {
+}
+.face .content {
     color: #666;
-  }
-  .face .content h2 {
+}
+.face .content h2 {
     font-size: 1.2em;
     color: #07ad90;
-  }
-  .face .content .field-wrapper {
+}
+.face .content .field-wrapper {
     margin-top: 30px;
     position: relative;
-  }
-  .face .content .field-wrapper label {
+}
+.face .content .field-wrapper label {
     position: absolute;
     pointer-events: none;
     font-size: 0.85em;
@@ -56,39 +44,39 @@
     transform: translateY(-50%);
     transition: all ease-in 0.25s;
     color: #999999;
-  }
-  .face .content .field-wrapper input[type=text], .face .content .field-wrapper input[type=password], .face .content .field-wrapper input[type=submit], .face .content .field-wrapper textarea {
+}
+.face .content .field-wrapper input[type=text], .face .content .field-wrapper input[type=password], .face .content .field-wrapper input[type=submit], .face .content .field-wrapper textarea {
     -webkit-appearance: none;
     appearance: none;
-  }
-  .face .content .field-wrapper input[type=text]:focus, .face .content .field-wrapper input[type=password]:focus, .face .content .field-wrapper input[type=submit]:focus, .face .content .field-wrapper textarea:focus {
+}
+.face .content .field-wrapper input[type=text]:focus, .face .content .field-wrapper input[type=password]:focus, .face .content .field-wrapper input[type=submit]:focus, .face .content .field-wrapper textarea:focus {
     outline: none;
-  }
-  .face .content .field-wrapper input[type=text], .face .content .field-wrapper input[type=password], .face .content .field-wrapper textarea {
+}
+.face .content .field-wrapper input[type=text], .face .content .field-wrapper input[type=password], .face .content .field-wrapper textarea {
     width: 100%;
     border: none;
     background: transparent;
     line-height: 2em;
     border-bottom: 1px solid #07ad90;
     color: #666;
-  }
-  .face .content .field-wrapper input[type=text]::-webkit-input-placeholder, .face .content .field-wrapper input[type=password]::-webkit-input-placeholder, .face .content .field-wrapper textarea::-webkit-input-placeholder {
+}
+.face .content .field-wrapper input[type=text]::-webkit-input-placeholder, .face .content .field-wrapper input[type=password]::-webkit-input-placeholder, .face .content .field-wrapper textarea::-webkit-input-placeholder {
     opacity: 0;
-  }
-  .face .content .field-wrapper input[type=text]::-moz-placeholder, .face .content .field-wrapper input[type=password]::-moz-placeholder, .face .content .field-wrapper textarea::-moz-placeholder {
+}
+.face .content .field-wrapper input[type=text]::-moz-placeholder, .face .content .field-wrapper input[type=password]::-moz-placeholder, .face .content .field-wrapper textarea::-moz-placeholder {
     opacity: 0;
-  }
-  .face .content .field-wrapper input[type=text]:-ms-input-placeholder, .face .content .field-wrapper input[type=password]:-ms-input-placeholder, .face .content .field-wrapper textarea:-ms-input-placeholder {
+}
+.face .content .field-wrapper input[type=text]:-ms-input-placeholder, .face .content .field-wrapper input[type=password]:-ms-input-placeholder, .face .content .field-wrapper textarea:-ms-input-placeholder {
     opacity: 0;
-  }
-  .face .content .field-wrapper input[type=text]:-moz-placeholder, .face .content .field-wrapper input[type=password]:-moz-placeholder, .face .content .field-wrapper textarea:-moz-placeholder {
+}
+.face .content .field-wrapper input[type=text]:-moz-placeholder, .face .content .field-wrapper input[type=password]:-moz-placeholder, .face .content .field-wrapper textarea:-moz-placeholder {
     opacity: 0;
-  }
-  .face .content .field-wrapper input[type=text]:focus + label, .face .content .field-wrapper input[type=text]:not(:placeholder-shown) + label, .face .content .field-wrapper input[type=password]:focus + label, .face .content .field-wrapper input[type=password]:not(:placeholder-shown) + label, .face .content .field-wrapper textarea:focus + label, .face .content .field-wrapper textarea:not(:placeholder-shown) + label {
+}
+.face .content .field-wrapper input[type=text]:focus + label, .face .content .field-wrapper input[type=text]:not(:placeholder-shown) + label, .face .content .field-wrapper input[type=password]:focus + label, .face .content .field-wrapper input[type=password]:not(:placeholder-shown) + label, .face .content .field-wrapper textarea:focus + label, .face .content .field-wrapper textarea:not(:placeholder-shown) + label {
     top: -35%;
     color: #42509e;
-  }
-  .face .content .field-wrapper input[type=submit] {
+}
+.face .content .field-wrapper input[type=submit] {
     -webkit-appearance: none;
     appearance: none;
     cursor: pointer;
@@ -99,21 +87,21 @@
     border: 1px solid #07ad90;
     border-radius: 3px;
     padding: 5px;
-  }
-  .face .content .field-wrapper input[type=submit]:hover {
+}
+.face .content .field-wrapper input[type=submit]:hover {
     opacity: 0.9;
-  }
-  .face .content .field-wrapper input[type=submit]:active {
+}
+.face .content .field-wrapper input[type=submit]:active {
     transform: scale(0.96);
-  }
-  .face .content .field-wrapper textarea {
+}
+.face .content .field-wrapper textarea {
     resize: none;
     line-height: 1em;
-  }
-  .face .content .field-wrapper textarea:focus + label, .face .content .field-wrapper textarea:not(:placeholder-shown) + label {
+}
+.face .content .field-wrapper textarea:focus + label, .face .content .field-wrapper textarea:not(:placeholder-shown) + label {
     top: -25%;
-  }
-  .face .thank-you-msg {
+}
+.face .thank-you-msg {
     position: absolute;
     width: 200px;
     height: 130px;
@@ -123,8 +111,8 @@
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
-  }
-  .face .thank-you-msg:after {
+}
+.face .thank-you-msg:after {
     position: absolute;
     content: "";
     width: 50px;
@@ -139,33 +127,33 @@
     -webkit-animation: success ease-in 0.15s forwards;
     animation: success ease-in 0.15s forwards;
     animation-delay: 2.5s;
-  }
-  .face-front {
+}
+.face-front {
     transform: rotateY(0deg) translateZ(125px);
   }
-  .face-top {
+.face-top {
     height: 250px;
     transform: rotateX(90deg) translateZ(125px);
-  }
-  .face-back {
+}
+.face-back {
     transform: rotateY(180deg) translateZ(125px);
-  }
-  .face-right {
+}
+.face-right {
     transform: rotateY(90deg) translateZ(125px);
-  }
-  .face-left {
+} 
+.face-left {
     transform: rotateY(-90deg) translateZ(125px);
-  }
-  .face-bottom {
+}
+.face-bottom {
     height: 250px;
     transform: rotateX(-90deg) translateZ(225px);
-  }
+}
   
-  .nav {
+.nav {
     margin: 20px 0;
     padding: 0;
-  }
-  .nav li {
+}
+.nav li {
     display: inline-block;
     list-style-type: none;
     font-size: 1em;
@@ -173,8 +161,8 @@
     color: #42509e;
     position: relative;
     cursor: pointer;
-  }
-  .nav li:after {
+}
+.nav li:after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -182,29 +170,29 @@
     width: 20px;
     border-bottom: 1px solid #42509e;
     transition: all ease-in 0.25s;
-  }
-  .nav li:hover:after {
+}
+.nav li:hover:after {
     width: 100%;
-  }
+}
   
-  .psw, .signup, .singin {
+.psw, .signup, .singin {
     display: block;
     margin: 20px 0;
     font-size: 0.75em;
     text-align: center;
     color: #42509e;
     cursor: pointer;
-  }
+}
   
-  small {
+small {
     font-size: 0.7em;
-  }
+}
   
-  @-webkit-keyframes success {
+@-webkit-keyframes success {
     from {
       -webkit-transform: translate(-50%, -50%) rotate(0) scale(0);
     }
     to {
       -webkit-transform: translate(-50%, -50%) rotate(-45deg) scale(1);
     }
-  }
+}
