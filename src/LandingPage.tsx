@@ -1,8 +1,8 @@
-import './css/App.css';
+import './css/app.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState} from 'react';
 import Header from './header';
-import './css/Menu.css';
+import './css/menu.css';
 import SideBar from './components/SideBar';
 
 

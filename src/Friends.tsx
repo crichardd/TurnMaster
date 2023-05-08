@@ -1,5 +1,5 @@
 import Header from "./header";
-import './css/Card.css';
+import './css/card.css';
 import SideBar from "./components/SideBar";
 
 

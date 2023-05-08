@@ -1,4 +1,4 @@
-import '../css/SideBar.css';
+import '../css/sideBar.css';
 import { useState, useEffect } from 'react';
 
 interface Friend {
