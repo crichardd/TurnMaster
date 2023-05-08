@@ -39,7 +39,15 @@ function SideBar() {
                     <div className="toggle-button"></div>
                 </div>
 
-                {friends && friends.length > 0 && toggleState ? (
+                
+
+            </div>
+
+        </div>
+    );
+}
+
+/* {friends && friends.length > 0 && toggleState ? (
                     <ul>
                         {friends.map((Friend) => (
                         <li key={Friend.username}>
@@ -60,12 +68,6 @@ function SideBar() {
                         </li>
                         ))}
                     </ul>
-                    )}
-
-            </div>
-
-        </div>
-    );
-}
+                )} */
 
 export default SideBar;

@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import './css/header.css'
+import '../css/header.css'
 
 function HeaderComponents({ connect }: { connect: boolean }){
 

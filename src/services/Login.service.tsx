@@ -15,7 +15,7 @@ export class LoginService {
 
   async username(username: any): Promise<LoginDTO | undefined> {
     const response = await axios.post(
-      "http://localhost:8080/api/friendship/login",
+      "http://localhost:8080/api/auth/login",
       username
     );
     console.log(response);
