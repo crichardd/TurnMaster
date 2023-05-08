@@ -8,7 +8,7 @@ import Login from './Login';
 import LandingPage from './LandingPage';
 import App from './App';
 import './css/index.css';
-import User from './User';
+import User from './components/UserComponents';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

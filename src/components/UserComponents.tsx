@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { UserDTO } from "./dto/User.dto";
-import { UserService } from './services/User.service';
+import { UserDTO } from "../dto/User.dto";
+import { UserService } from '../services/User.service';
 
 interface stateType {
   username: string;
