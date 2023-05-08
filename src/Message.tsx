@@ -5,7 +5,7 @@ function Message() {
 
     return (
         <div className="App">
-            <Header connect={true}/>
+            <Header/>
             <main className='LandingPage-main bg-dark'>
             </main>
         </div>

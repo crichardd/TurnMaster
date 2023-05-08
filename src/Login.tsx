@@ -61,7 +61,7 @@ export default function Login() {
       setConnect(result);
       
       setStatus(true);
-      navigate("/LandingPage");
+      navigate("/LandingPage", { state: { username: username } });
     }
 
     const handleSubmit = (event: any) => {
@@ -82,6 +82,7 @@ export default function Login() {
       );
       setInscription(result);
       navigate("/landingPage", { state: { username: inscription.username } });
+
     }
 
     const handleSubmitInscription = (event: any) => {

@@ -4,13 +4,17 @@ import { useState} from 'react';
 import Header from './components/HeaderComponents';
 import './css/menu.css';
 import SideBar from './components/SideBar';
+import { useLocation } from 'react-router-dom';
 
 
 function LandingPage() {
 
+  const location = useLocation();
+  const { state } = location;
+
   return (
     <div className="App">
-      <Header connect={true}/>
+      <Header/>
       <SideBar/>
     </div>
   );

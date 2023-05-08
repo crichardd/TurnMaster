@@ -6,7 +6,7 @@ import SideBar from "./components/SideBar";
 function Friends() {
     return (
         <div className="App">
-            <Header connect={true}/>
+            <Header/>
             <main>
                 <SideBar/>
             </main>
