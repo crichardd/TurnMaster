@@ -9,8 +9,6 @@ import LandingPage from './LandingPage';
 import App from './App';
 import './css/index.css';
 import User from './User';
-import Message from './Message';
-import Friends from './Friends';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -23,8 +21,6 @@ root.render(
         <Route path="/" element={<App />}></Route>
         <Route path="/connect" element={<Login />}></Route>
         <Route path='/landingpage' element={<LandingPage/>}></Route>
-        <Route path='/Friends' element={<Friends/>}></Route>
-        <Route path='/Message' element={<Message/>}></Route>
         <Route path='/User' element={<User/>}></Route>
       </Routes>
     </BrowserRouter>
