@@ -81,7 +81,7 @@ export default function Login() {
         inscription
       );
       setInscription(result);
-      navigate("/user", { state: { username: inscription.username } });
+      navigate("/landingPage", { state: { username: inscription.username } });
     }
 
     const handleSubmitInscription = (event: any) => {

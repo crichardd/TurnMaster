@@ -24,7 +24,6 @@ function SideBar() {
         fetchFriends();
     }, []);
     
-
     return (
         <div> 
             <input type="checkbox" className="openSidebarMenu" id="openSidebarMenu"/>
