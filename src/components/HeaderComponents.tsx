@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import './css/header.css'
 
-function Header({ connect }: { connect: boolean }){
+function HeaderComponents({ connect }: { connect: boolean }){
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -26,4 +26,4 @@ function Header({ connect }: { connect: boolean }){
 
 }
 
-export default Header;
+export default HeaderComponents;

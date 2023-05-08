@@ -98,7 +98,7 @@ export default function Login() {
       <header className="App-header bg-light">
         <div className='mint titleMain'><h1>TurnMaster</h1> </div>
       </header>
-      <body className='tmp'>
+      <div className='tmp'>
         <ul className="nav">
           <li onClick={showSignin}>Connexion</li>
           <li onClick={showSignup}>Inscription</li>
@@ -196,7 +196,7 @@ export default function Login() {
             </div>
           </div>
         </div>
-      </body>
+      </div>
     </div>
   );
 }

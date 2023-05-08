@@ -1,7 +1,7 @@
 import './css/app.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState} from 'react';
-import Header from './header';
+import Header from './components/HeaderComponents';
 import './css/menu.css';
 import SideBar from './components/SideBar';
 
