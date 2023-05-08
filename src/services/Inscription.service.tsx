@@ -1,4 +1,3 @@
-import '../Interceptors';
 import axios from "axios";
 import { InscriptionDTO } from "../dto/Add.dto";
 

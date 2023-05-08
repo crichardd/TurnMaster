@@ -1,6 +1,5 @@
 import axios from "axios";
 import { LoginDTO } from "../dto/Login.dto";
-import '../Interceptors';
 
 export class LoginService {
   private static instance?: LoginService;
