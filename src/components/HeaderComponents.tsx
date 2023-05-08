@@ -1,7 +1,14 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import '../css/header.css'
+import { useEffect, useState } from "react";
+import { UserDTO } from "../dto/User.dto";
+import User from "../User";
 
-function HeaderComponents({ connect }: { connect: boolean }){
+interface stateType {
+    username: string;
+}
+  
+function HeaderComponents(){
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -18,9 +25,10 @@ function HeaderComponents({ connect }: { connect: boolean }){
     return (
         <header className="header">
                 <nav>
-                    <a href="#" className='mint titleMain' onClick={handleLandingPage}><h1> TurnMaster </h1> </a>
+                    <a href="#" className='mint titleMain' onClick={handleLandingPage}><h1> <User/></h1> </a>
                     <a href="#" onClick={handleProfil}><h1> profil </h1> </a>
                 </nav>
+            
         </header> 
     );
 

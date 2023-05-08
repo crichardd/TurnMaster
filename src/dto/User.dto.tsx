@@ -12,8 +12,6 @@ export const UserTransformer: (item: any) => UserDTO | undefined = (
     ) {
       return {
         username: properties.username,
-        lastname: properties.lastname,
-        firstname: properties.firstname,
       };
     }
     return undefined;

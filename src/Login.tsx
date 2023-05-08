@@ -55,13 +55,13 @@ export default function Login() {
     const [connect, setConnect] = useState<LoginDTO>();
     const [status, setStatus] = useState<boolean>(false);
     const navigate = useNavigate();
-  
+    
     async function handlelogin(username: any) {
       const result = await LoginService.getInstance().username(username);
       setConnect(result);
-      
+          
       setStatus(true);
-      navigate("/LandingPage", { state: { username: username } });
+      navigate("/LandingPage", { state: { "username": username.username } });
     }
 
     const handleSubmit = (event: any) => {
