@@ -1,8 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import '../css/header.css'
-import { useEffect, useState } from "react";
-import { UserDTO } from "../dto/User.dto";
-import User from "./UserComponents";
 
 interface stateType {
     username: string;
