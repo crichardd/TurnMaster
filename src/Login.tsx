@@ -8,6 +8,7 @@ import { LoginDTO } from './dto/Login.dto';
 import { InscriptionDTO } from './dto/Add.dto';
 import { InscriptionService } from './services/Inscription.service';
 
+
 export const showSignin = () => {
   const prism = document.querySelector(".rec-prism") as HTMLElement;
   if (prism) {
@@ -55,13 +56,13 @@ export default function Login() {
     const [connect, setConnect] = useState<LoginDTO>();
     const [status, setStatus] = useState<boolean>(false);
     const navigate = useNavigate();
-    
+
     async function handlelogin(username: any) {
       const result = await LoginService.getInstance().username(username);
       setConnect(result);
           
       setStatus(true);
-      navigate("/LandingPage", { state: { "username": username.username } });
+      navigate("/LandingPage", { state: { username: username.username } });
     }
 
     const handleSubmit = (event: any) => {

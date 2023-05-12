@@ -10,7 +10,6 @@ import { useLocation } from 'react-router-dom';
 function LandingPage() {
 
   const location = useLocation();
-  const { state } = location;
 
   return (
     <div className="App">
