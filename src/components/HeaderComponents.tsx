@@ -19,6 +19,9 @@ function HeaderComponents(){
     function handleMenuConnected() {
         navigate("/Menu/user", { state: { connect: true } });
     }
+
+    if (!location.state || !location.state.username) return null;
+    
     return (
         <header className="header">
                 <nav>
