@@ -1,9 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import '../css/header.css'
-
-interface stateType {
-    username: string;
-}
   
 function HeaderComponents(){
 
