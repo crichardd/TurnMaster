@@ -6,15 +6,15 @@ function LibraryComponents(){
     return (
         <div className="wrapper">
 
-            <h2><strong>All Games<span>( 4 )</span></strong></h2>
+            <h2><strong>All Games( 1 )</strong></h2>
 
             <div className="cards">
 
                 <figure className="card">
 
-                    <img src="https://www.linkpicture.com/q/1_1484.jpg" />
+                    <img src="https://developpement-web-facile.com/wp-content/uploads/2020/12/snake-game.jpg?is-pending-load=1" />
 
-                    <figcaption>Snake</figcaption>
+                    <figcaption>1 joueurs</figcaption>
 
                 </figure>
 
