@@ -254,4 +254,42 @@ a {
     text-decoration: none;
     color: #000;
 }
-  
+
+.btn-friend-container {
+    width: 90%;
+    height: 50px;
+    background-color: #ddd;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.btn-friend {
+    width: 50%;
+    height: 100%;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-friend.on {
+    background-color: #0077cc;
+}
+
+.btn-friend.off {
+    background-color: #ddd;
+}
+
+.sidebarMenuContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
