@@ -1,6 +1,16 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import '../css/library.css';
+import GameService from "../services/Game.Service";
+
 function LibraryComponents(){
+
+    const [games, setGames] = useState([]);
+
+    useEffect(() => {
+      GameService.getGames().then((response) => {
+        setGames(response.data);
+      });
+    }, []);
 
 
     return (

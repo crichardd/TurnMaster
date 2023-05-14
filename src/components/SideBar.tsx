@@ -38,8 +38,6 @@ function SideBar() {
                     <div className="toggle-button"></div>
                 </div>
 
-                
-
             </div>
 
         </div>
