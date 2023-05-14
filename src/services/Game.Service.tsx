@@ -1,12 +1,18 @@
-import axios from 'axios'
+import Game from "../interfaces/Game.Interface";
 
-const GAMES_REST_API_URL = 'http://localhost:8080/api/game/list';
+export default class GameService {
+    private readonly baseUrl: string;
 
-class GameService {
+    constructor() {
+        this.baseUrl = "http://localhost:8080/api";
+    }
 
-    getUsers(){
-        return axios.get(GAMES_REST_API_URL);
+    async getGames(): Promise<Game[]> {
+        const response = await fetch(`${this.baseUrl}/game/list`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch games: ${response.statusText}`);
+        }
+        const data = await response.json();
+        return data as Game[];
     }
 }
-
-export default new GameService();
