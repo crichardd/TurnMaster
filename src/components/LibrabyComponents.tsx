@@ -4,12 +4,15 @@ import GameService from "../services/Game.Service";
 
 function LibraryComponents(){
 
-    const [games, setGames] = useState([]);
+    const [games, setGames] = useState<Game[]>([]);
 
     useEffect(() => {
-      GameService.getGames().then((response) => {
-        setGames(response.data);
-      });
+        const service = new GameService();
+        service.getGames().then(data => {
+            setGames(data);
+        }).catch(error => {
+            console.error(error);
+        });
     }, []);
 
 
@@ -19,6 +22,8 @@ function LibraryComponents(){
             <h2><strong>All Games( 1 )</strong></h2>
 
             <div className="cards">
+
+                //ici le nom des jeux
 
                 <figure className="card">
 
