@@ -1,4 +1,4 @@
-import Game from "../interfaces/Game.Interface";
+import {Game} from "../interfaces/Game.Interface";
 
 export default class GameService {
     private readonly baseUrl: string;
