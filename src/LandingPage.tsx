@@ -5,7 +5,7 @@ import Header from './components/HeaderComponents';
 import './css/menu.css';
 import SideBar from './components/SideBar';
 import { useLocation } from 'react-router-dom';
-import LibrabyComponents from './components/LibrabyComponents';
+import LibraryComponents from './components/LibraryComponents';
 
 
 function LandingPage() {
@@ -17,7 +17,7 @@ function LandingPage() {
       <Header/>
       <SideBar/>
       <div className="library-container">
-        <LibrabyComponents/>
+        <LibraryComponents/>
       </div>
     </div>
   );
