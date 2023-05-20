@@ -90,7 +90,6 @@ h2:after {
 }
 .cards .card{
   margin: 20px;
-  width: 195px;
   height: 137px;
   overflow: hidden;
   box-shadow: 0 5px 10px rgba(0,0,0,0.8);

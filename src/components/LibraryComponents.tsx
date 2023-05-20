@@ -64,7 +64,7 @@ function LibraryComponents(){
             {isPopupOpen && (
                 <div id="container" className="popup-container">
                     <div className="popup-content popup container-inner">
-                        <h3>Ajouter votre Jeux</h3>
+                        <h3 className="h3Game">Ajouter votre Jeux</h3>
                         <form onSubmit={handleSubmit}>
                             <div className="content">
                                 <label>Nom</label>
