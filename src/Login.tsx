@@ -1,5 +1,5 @@
-import './css/app.css';
-import './css/login.css';
+import './css/App.css';
+import './css/Login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useRef, useEffect} from 'react';
 import { LoginService } from './services/Login.service';
