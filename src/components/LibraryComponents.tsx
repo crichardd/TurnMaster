@@ -75,7 +75,7 @@ function LibraryComponents(){
             </div>
             <div className="buttonDiv">
   
-            <button onClick={openPopup} className="buttonAddGame">Create Game</button>
+              <button onClick={openPopup} className="buttonAddGame">Create Game</button>
 
               {isPopupOpen && (
                   <div id="container" className="popup-container">

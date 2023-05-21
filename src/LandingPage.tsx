@@ -1,9 +1,9 @@
-import './css/App.css';
+import './css/app.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState} from 'react';
 import Header from './components/HeaderComponents';
-import './css/Menu.css';
-import SideBar from './components/SideBar';
+import './css/menu.css';
+import SideBarTest from './components/SideBarTest';
 import { useLocation } from 'react-router-dom';
 import LibraryComponents from './components/LibraryComponents';
 
