@@ -21,4 +21,14 @@
     padding: 14px 16px;
     text-decoration: none;
 }
-  
+
+.landing-page {
+    position: relative;
+}
+
+.library-container {
+    position: absolute;
+    top: 80px; /* ajuster en fonction de la hauteur de votre header */
+    left: 0;
+    right: 0;
+}
