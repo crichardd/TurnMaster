@@ -59,32 +59,6 @@ function LibraryComponents(){
 
             <h2><strong>All Games( {games.length} )</strong></h2>
 
-            <button onClick={openPopup}>Create Game</button>
-
-            {isPopupOpen && (
-                <div id="container" className="popup-container">
-                    <div className="popup-content popup container-inner">
-                        <h3 className="h3Game">Ajouter votre Jeux</h3>
-                        <form onSubmit={handleSubmit}>
-                            <div className="content">
-                                <label>Nom</label>
-                                <input className="nameGameInput addGameInput" type="text" name="name" placeholder="Nom du Jeu"/>
-                                <label>De </label> 
-                                <input className="nbInput addGameInput" type="number" min="0" name="nbMinPlayer"/> 
-                                <label>à</label>
-                                <input className="nbInput addGameInput" min="0" type="number" name="nbMaxPlayer" /> 
-                                <label> Joueurs </label>
-                            </div>
-                            <div className="buttons">
-                                <button type="submit" className="confirm button">Create</button>
-                                <button onClick={closePopup} className="cancel button">Cancel</button>
-                            </div>
-                            
-                        </form>
-                    </div>
-                </div>
-            )}
-
             <div className="cards">
 
                 {games.map(game => (
@@ -98,6 +72,34 @@ function LibraryComponents(){
                     </figure>
                 ))}
 
+            </div>
+            <div className="buttonDiv">
+  
+            <button onClick={openPopup} className="buttonAddGame">Create Game</button>
+
+              {isPopupOpen && (
+                  <div id="container" className="popup-container">
+                      <div className="popup-content popup container-inner">
+                          <h3 className="h3Game">Ajouter votre Jeux</h3>
+                          <form onSubmit={handleSubmit}>
+                              <div className="content">
+                                  <label>Nom</label>
+                                  <input className="nameGameInput addGameInput" type="text" name="name" placeholder="Nom du Jeu"/>
+                                  <label>De </label> 
+                                  <input className="nbInput addGameInput" type="number" min="0" name="nbMinPlayer"/> 
+                                  <label>à</label>
+                                  <input className="nbInput addGameInput" min="0" type="number" name="nbMaxPlayer" /> 
+                                  <label> Joueurs </label>
+                              </div>
+                              <div className="buttons">
+                                  <button type="submit" className="confirm button">Create</button>
+                                  <button onClick={closePopup} className="cancel button">Cancel</button>
+                              </div>
+                              
+                          </form>
+                      </div>
+                  </div>
+              )}
             </div>
 
         </div>

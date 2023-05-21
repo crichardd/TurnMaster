@@ -58,6 +58,7 @@ body {
   font-family: 'Alegreya Sans';
 }
 .wrapper {
+  width: 75%;
 }
 h2 {
   padding: 10px;
@@ -98,7 +99,7 @@ h2:after {
   transform: translateZ(0);
   transition: 0.3s;
 }
-.cards .card img{
+.card img{
   width: 100%;
   min-height: 100%;
 }
@@ -114,7 +115,7 @@ h2:after {
   transform: translateY(100%);
   transition: 0.3s;
 }
-.cards .card:after{
+.card:after{
   content: '';
   z-index: 10;
   width: 200%;
@@ -143,4 +144,7 @@ h2:after {
   transform: rotate(25deg);
   top: -40%;
   opacity: 0.15;
+}
+.card{
+width: 28%;
 }
