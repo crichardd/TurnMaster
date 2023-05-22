@@ -58,33 +58,31 @@ export default function Login() {
         <title>Slide Navbar</title>
         <link rel="stylesheet" type="text/css" href="slide navbar style.css"/>
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet"/>
-      </div>
-          <div className='loginContainer'>
+      </div>  
+      <div className='loginContainer'>
         <div className="main">  	
-          <input type="checkbox" id="chk" aria-hidden="true"/>
+          <input type="checkbox" className='loginInput'  id="chk" aria-hidden="true"/>
 
           <div className="signup">
             <form onSubmit={handleSubmitInscription}>
-              <label htmlFor="chk" aria-hidden="true"> Inscription</label>
-              <input type="text" name="username" placeholder="username"/>
-              <input type="password" name="password" placeholder="password" autoComplete="new-password"/>
-              <input type="password" name="password2" placeholder="password" autoComplete="new-password"/>
-              <button type="submit">Sign up</button>
+              <label className='loginLabel' htmlFor="chk" aria-hidden="true"> Inscription</label>
+              <input className='loginInput' type="text" name="username" placeholder="username"/>
+              <input className='loginInput' type="password" name="password" placeholder="password" autoComplete="new-password"/>
+              <input className='loginInput' type="password" name="password2" placeholder="password" autoComplete="new-password"/>
+              <button className='loginButton' type="submit">Sign up</button>
             </form>
           </div>
 
           <div className="login">
             <form onSubmit={handleSubmit}>
-              <label htmlFor="chk" aria-hidden="true"> Connexion </label>
-              <input type="text" name="username" placeholder="nom d'utilisateur"/>
-              <input type="password" name="password" placeholder="mot de passe" autoComplete="new-password"/>
-              <button type="submit">Connexion</button>
+              <label htmlFor="chk" aria-hidden="true" className='loginLabel'> Connexion </label>
+              <input className='loginInput' type="text" name="username" placeholder="nom d'utilisateur"/>
+              <input className='loginInput' type="password" name="password" placeholder="mot de passe" autoComplete="new-password"/>
+              <button className='loginButton' type="submit">Connexion</button>
             </form>
           </div>
         </div>
       </div>
-      
     </div>
-
   );
 }
