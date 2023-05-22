@@ -60,7 +60,7 @@ export default function Login() {
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet"/>
       </div>  
       <div className='loginContainer'>
-        <div className="main">  	
+        <div className="mainLogin">  	
           <input type="checkbox" className='loginInput'  id="chk" aria-hidden="true"/>
 
           <div className="signup">
@@ -69,7 +69,7 @@ export default function Login() {
               <input className='loginInput' type="text" name="username" placeholder="username"/>
               <input className='loginInput' type="password" name="password" placeholder="password" autoComplete="new-password"/>
               <input className='loginInput' type="password" name="password2" placeholder="password" autoComplete="new-password"/>
-              <button className='loginButton' type="submit">Sign up</button>
+              <button className='loginButton signUpButton' type="submit">Sign up</button>
             </form>
           </div>
 
@@ -78,7 +78,7 @@ export default function Login() {
               <label htmlFor="chk" aria-hidden="true" className='loginLabel'> Connexion </label>
               <input className='loginInput' type="text" name="username" placeholder="nom d'utilisateur"/>
               <input className='loginInput' type="password" name="password" placeholder="mot de passe" autoComplete="new-password"/>
-              <button className='loginButton' type="submit">Connexion</button>
+              <button className='loginButton signInButton' type="submit">Connexion</button>
             </form>
           </div>
         </div>
