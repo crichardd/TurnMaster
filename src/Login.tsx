@@ -1,5 +1,5 @@
-import './css/App.css';
-import './css/Login.css';
+import './css/app.css';
+import './css/login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useRef, useEffect} from 'react';
 import { LoginService } from './services/Login.service';
@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { LoginDTO } from './dto/Login.dto';
 import { InscriptionDTO } from './dto/Add.dto';
 import { InscriptionService } from './services/Inscription.service';
-
 
 export const showSignin = () => {
   const prism = document.querySelector(".rec-prism") as HTMLElement;

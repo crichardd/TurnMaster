@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {UserDTO} from "../dto/User.dto";
+import {FriendshipDTO} from "../dto/Friendship.dto";
 
 const REST_API_URL = 'http://localhost:8080/api';
 
@@ -35,8 +36,8 @@ export default class FriendService {
         }
     }
 
-    static async acceptFriendshipRequest(senderUser: string, receiverUser: string) {
-        await axios.post(`${REST_API_URL}/friendship/listFriendshipRequestReceived`, { senderUser, receiverUser });
+    static async acceptFriendshipRequest(friendshipDto:FriendshipDTO) {
+        await axios.post(`${REST_API_URL}/friendship/listFriendshipRequestReceived`, { friendshipDto });
     }
 
 }
