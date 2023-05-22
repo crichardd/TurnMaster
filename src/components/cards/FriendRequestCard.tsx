@@ -12,20 +12,17 @@ const FriendRequestCard = (props: { user: UserDTO }) => {
   const { user } : { user: UserDTO } = props;
 
     const location = useLocation();
-    const currentUser = location.state?.username;
+    const currentUsername = location.state?.username;
 
     const friendshipDto: FriendshipDTO = {
-        senderUser: "chloe",
-        receiverUser: currentUser,
+        senderUser: user.username,
+        receiverUser: currentUsername,
     };
 
-    function addFriend() {
+    const addFriend = () => {
         FriendService.acceptFriendshipRequest(friendshipDto)
             .then(function (response) {
                 console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
             });
     }
 
