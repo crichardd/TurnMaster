@@ -46,4 +46,28 @@ export default class FriendService {
         );
     }
 
+    static async declineFriendshipRequest(friendshipDto: FriendshipDTO) {
+        await axios.post(
+            `${REST_API_URL}/friendship/declineFriendshipRequest`,
+            JSON.stringify(friendshipDto),
+            { headers: {'Content-Type': 'application/json'}}
+        );
+    }
+
+    static async deleteFriendship(friendshipDto: FriendshipDTO) {
+        await axios.post(
+            `${REST_API_URL}/friendship/deleteFriendship`,
+            JSON.stringify(friendshipDto),
+            { headers: {'Content-Type': 'application/json'}}
+        );
+    }
+
+    static async sendFriendshipRequest(friendshipDto: FriendshipDTO) {
+        await axios.post(
+            `${REST_API_URL}/friendship/sendFriendshipRequest`,
+            JSON.stringify(friendshipDto),
+            { headers: {'Content-Type': 'application/json'}}
+        );
+    }
+
 }

@@ -19,8 +19,15 @@ const FriendRequestCard = (props: { user: UserDTO }) => {
         receiverUser: currentUsername,
     };
 
-    const addFriend = () => {
+    const acceptRequest = () => {
         FriendService.acceptFriendshipRequest(friendshipDto)
+            .then(function (response) {
+                console.log(response);
+            });
+    }
+
+    const declineRequest = () => {
+        FriendService.declineFriendshipRequest(friendshipDto)
             .then(function (response) {
                 console.log(response);
             });
@@ -30,8 +37,8 @@ const FriendRequestCard = (props: { user: UserDTO }) => {
         <div className="user-card">
           <p className="card-title">{user.username}</p>
             <div className="btn-card-container">
-                <button type="button" className="btn btn-card"><FontAwesomeIcon icon={faCircleXmark} /></button>
-                <button type="button" className="btn btn-card" onClick={addFriend}><FontAwesomeIcon icon={faCircleCheck} /></button>
+                <button type="button" className="btn btn-card" onClick={declineRequest}><FontAwesomeIcon icon={faCircleXmark} /></button>
+                <button type="button" className="btn btn-card" onClick={acceptRequest}><FontAwesomeIcon icon={faCircleCheck} /></button>
             </div>
 
         </div>
