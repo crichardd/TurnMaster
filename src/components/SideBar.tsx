@@ -30,9 +30,6 @@ function SideBar() {
                     <FriendsComponent/>
                 </main>
             </div>
-
-
-
         </div>
     );
 }
