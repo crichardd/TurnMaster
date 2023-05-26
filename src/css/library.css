@@ -84,3 +84,13 @@
   }
 }
 
+.gameWrapper{
+  margin-left: 250px;
+  padding: 20px;
+}
+
+.library-content {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+}

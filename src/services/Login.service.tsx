@@ -18,7 +18,6 @@ export class LoginService {
       "http://localhost:8080/api/auth/login",
       username
     );
-    console.log(response);
     if (response) {
       return username;
     }

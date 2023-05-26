@@ -20,7 +20,6 @@ export class InscriptionService {
     );
 
     if (username) {
-      console.log(username);
       return inscription;
     }
     return undefined;

@@ -20,4 +20,7 @@ body {
     height: 60px!important;
     overflow: hidden;
     z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
 }

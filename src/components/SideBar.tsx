@@ -14,13 +14,7 @@ function SideBar() {
     };
 
     return (
-        <div>
-            <input type="checkbox" className="openSidebarMenu" id="openSidebarMenu"/>
-            <label htmlFor="openSidebarMenu" className="sidebarIconToggle">
-                <div className="spinner diagonal part-1"></div>
-                <div className="spinner horizontal"></div>
-                <div className="spinner diagonal part-2"></div>
-            </label>
+        <div className='sidebar-container'>
             <div id="sidebarMenu">
                 <div className="sidebarMenuContent">
                     <div className="btn-friend-container">
