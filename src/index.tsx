@@ -9,6 +9,7 @@ import LandingPage from './LandingPage';
 import App from './App';
 import './css/index.css';
 
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

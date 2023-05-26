@@ -8,7 +8,6 @@ import { LoginDTO } from './dto/Login.dto';
 import { InscriptionDTO } from './dto/Add.dto';
 import { InscriptionService } from './services/Inscription.service';
 
-
 export const showSignin = () => {
   const prism = document.querySelector(".rec-prism") as HTMLElement;
   if (prism) {
