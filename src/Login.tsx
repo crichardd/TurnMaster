@@ -55,8 +55,7 @@ export default function Login() {
   return (
     <div>
       <div>
-        <title>Slide Navbar</title>
-        <link rel="stylesheet" type="text/css" href="slide navbar style.css"/>
+        <link rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet"/>
       </div>  
       <div className='loginContainer'>
