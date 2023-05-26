@@ -55,21 +55,20 @@ function LibraryComponents(){
   };
   
     return (
-        <div className="wrapper">
+        <div className="gameWrapper">
 
-            <h2><strong>All Games( {games.length} )</strong></h2>
+            <h2 className="gameH2"><strong>All Games( {games.length} )</strong></h2>
 
             <div className="cards">
 
                 {games.map(game => (
 
-                    <figure className="card">
+                        <div className="card">
 
-                        <img src="https://developpement-web-facile.com/wp-content/uploads/2020/12/snake-game.jpg?is-pending-load=1" />
-
-                        <figcaption>{game.name} ({game.nbMinPlayer} - {game.nbMaxPlayer} joueurs)</figcaption>
-
-                    </figure>
+                            <img className="gameImg" src="https://developpement-web-facile.com/wp-content/uploads/2020/12/snake-game.jpg?is-pending-load=1" />
+                            <label className="gameLabel">{game.name} ({game.nbMinPlayer} - {game.nbMaxPlayer} joueurs)</label>
+                        </div>
+                        
                 ))}
 
             </div>

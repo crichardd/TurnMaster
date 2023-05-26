@@ -28,7 +28,7 @@
 
 .library-container {
     position: absolute;
-    top: 80px; /* ajuster en fonction de la hauteur de votre header */
+    top: 80px;
     left: 0;
     right: 0;
 }

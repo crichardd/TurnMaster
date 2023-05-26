@@ -4,7 +4,7 @@ html, body {
     height: 100%;
 }
 body {
-    background: #24282f;
+    background: #333333;
     padding: 0;
     margin: 0;
     font-family: 'Varela Round', sans-serif;
@@ -15,7 +15,7 @@ body {
     width: 100%;
     max-width: 100%;
     box-shadow: none;
-    background-color: #FC466B;
+    background-color: #573b8a;
     position: fixed;
     height: 60px!important;
     overflow: hidden;
