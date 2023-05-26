@@ -57,7 +57,7 @@ function LibraryComponents(){
     return (
         <div className="gameWrapper">
 
-            <h2><strong>All Games( {games.length} )</strong></h2>
+            <h2 className="gameH2"><strong>All Games( {games.length} )</strong></h2>
 
             <div className="cards">
 

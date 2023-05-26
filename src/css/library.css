@@ -5,8 +5,20 @@
   margin-top: 20px;
 }
 
+.gameWrapper{
+  padding-left: 25%;
+}
+
+.gameH2{
+  vertical-align: middle;
+  position: relative;
+  vertical-align: middle;
+  color: aliceblue;
+  
+}
+
 .card {
-  width: 15%;
+  width: 18%;
   height: 250px;
   margin: 20px;
   overflow: hidden;
@@ -30,14 +42,12 @@
   color: #ffffff;
 }
 
-/* Affichage de 5 cartes par ligne */
 @media (max-width: 1200px) {
   .cards {
     justify-content: flex-start;
   }
 }
 
-/* Affichage de 4 cartes par ligne */
 @media (max-width: 992px) {
   .cards {
     justify-content: flex-start;
@@ -47,7 +57,6 @@
   }
 }
 
-/* Affichage de 3 cartes par ligne */
 @media (max-width: 768px) {
   .cards {
     justify-content: center;
@@ -57,7 +66,6 @@
   }
 }
 
-/* Affichage de 2 cartes par ligne */
 @media (max-width: 576px) {
   .cards {
     justify-content: center;
@@ -67,7 +75,6 @@
   }
 }
 
-/* Affichage d'une carte par ligne */
 @media (max-width: 400px) {
   .cards {
     justify-content: center;
