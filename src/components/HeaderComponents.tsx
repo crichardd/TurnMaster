@@ -25,7 +25,7 @@ function HeaderComponents(){
     return (
         <header className="header">
                 <nav>
-                    <a href="#" className='mint titleMain' onClick={handleLandingPage}><h1>Bienvenue, {location.state.username}!</h1></a>
+                    <a href="#" className='mint titleMain' onClick={handleLandingPage}><h1>TurnMaster</h1></a>
                 </nav>
             
         </header> 
