@@ -53,7 +53,7 @@ export default function Login() {
     };
 
   return (
-    <div>
+    <div className='help'>
       <div>
         <link rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet"/>
@@ -68,7 +68,7 @@ export default function Login() {
               <input className='loginInput' type="text" name="username" placeholder="username"/>
               <input className='loginInput' type="password" name="password" placeholder="password" autoComplete="new-password"/>
               <input className='loginInput' type="password" name="password2" placeholder="password" autoComplete="new-password"/>
-              <button className='loginButton signUpButton' type="submit">Sign up</button>
+              <button className='loginButton signUpButton' type="submit">S'incrire</button>
             </form>
           </div>
 

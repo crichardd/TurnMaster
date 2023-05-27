@@ -34,8 +34,6 @@ function SideBar() {
                 </div>
             </div>
 
-
-
         </div>
     );
 };
