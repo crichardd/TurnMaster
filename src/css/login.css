@@ -105,3 +105,18 @@
 #chk:checked ~ .signup .loginLabel{
 	transform: scale(.6);
 }
+
+.loginError{
+	color :red;
+	text-align: center;
+}
+
+.shake {
+	transform: translateX(-5px);
+	transition: transform 0.1s ease-in-out;
+}
+
+.shake.active {
+	transform: translateX(5px);
+}
+  

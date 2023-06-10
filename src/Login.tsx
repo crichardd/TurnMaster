@@ -12,15 +12,28 @@ export default function Login() {
 
     const [connect, setConnect] = useState<LoginDTO>();
     const [status, setStatus] = useState<boolean>(false);
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const [inscription, setInscription] = useState<InscriptionDTO>();
+
+  
+
     const navigate = useNavigate();
 
     async function handlelogin(username: any) {
-      const result = await LoginService.getInstance().username(username);
-      setConnect(result);
-          
-      setStatus(true);
-      navigate("/LandingPage", { state: { username: username.username } });
+      try {
+        const result = await LoginService.getInstance().username(username);
+        setConnect(result);
+        setStatus(true);
+        navigate("/LandingPage", { state: { username: username.username } });
+      } catch (error: any) {
+        if (error.message === 'Request failed with status code 500') {
+          setErrorMessage("Les identifiants sont incorrects.");
+        } else {
+          setErrorMessage("Une erreur s'est produite. Veuillez réessayer.");
+        }
+      }
     }
+    
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
@@ -32,8 +45,6 @@ export default function Login() {
         handlelogin({ username, password });
     };
 
-    const [inscription, setInscription] = useState<InscriptionDTO>();
-  
     async function handleInscription(inscription: any) {
       const result = await InscriptionService.getInstance().inscription(
         inscription
@@ -65,10 +76,13 @@ export default function Login() {
           <div className="signup">
             <form onSubmit={handleSubmit}>
               <label htmlFor="chk" aria-hidden="true" className='loginLabel'> Connexion </label>
+              {errorMessage && <div className={`loginError ${errorMessage ? 'shake' : ''}`}>{errorMessage}</div>}
+
               <input className='loginInput' type="text" name="username" placeholder="nom d'utilisateur"/>
               <input className='loginInput' type="password" name="password" placeholder="mot de passe" autoComplete="new-password"/>
               <button className='loginButton signInButton' type="submit">Connexion</button>
             </form>
+            
           </div>
 
           <div className="login">
@@ -80,6 +94,8 @@ export default function Login() {
               <button className='loginButton signUpButton' type="submit">S'incrire</button>
             </form>
           </div>
+          
+
         </div>
       </div>
     </div>
