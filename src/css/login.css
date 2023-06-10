@@ -76,8 +76,13 @@
 	color: #fff;
 	background: #573b8a;
 }
-.loginButton:hover{
-	background: #6d44b8;
+.signUpButton:hover{
+	background:#573b8a;
+	color: #fff;
+}
+.signInButton:hover{
+	background: #fff;
+	color: #573b8a;
 }
 .login{
 	height: 460px;

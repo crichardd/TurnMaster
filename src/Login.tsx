@@ -1,6 +1,6 @@
 
 import './css/login.css';
-import { useState, useRef, useEffect} from 'react';
+import { useState} from 'react';
 import { LoginService } from './services/Login.service';
 import { useNavigate } from "react-router-dom";
 import { LoginDTO } from './dto/Login.dto';
@@ -63,21 +63,21 @@ export default function Login() {
           <input type="checkbox" className='loginInput'  id="chk" aria-hidden="true"/>
 
           <div className="signup">
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="chk" aria-hidden="true" className='loginLabel'> Connexion </label>
+              <input className='loginInput' type="text" name="username" placeholder="nom d'utilisateur"/>
+              <input className='loginInput' type="password" name="password" placeholder="mot de passe" autoComplete="new-password"/>
+              <button className='loginButton signInButton' type="submit">Connexion</button>
+            </form>
+          </div>
+
+          <div className="login">
             <form onSubmit={handleSubmitInscription}>
               <label className='loginLabel' htmlFor="chk" aria-hidden="true"> Inscription</label>
               <input className='loginInput' type="text" name="username" placeholder="username"/>
               <input className='loginInput' type="password" name="password" placeholder="password" autoComplete="new-password"/>
               <input className='loginInput' type="password" name="password2" placeholder="password" autoComplete="new-password"/>
               <button className='loginButton signUpButton' type="submit">S'incrire</button>
-            </form>
-          </div>
-
-          <div className="login">
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="chk" aria-hidden="true" className='loginLabel'> Connexion </label>
-              <input className='loginInput' type="text" name="username" placeholder="nom d'utilisateur"/>
-              <input className='loginInput' type="password" name="password" placeholder="mot de passe" autoComplete="new-password"/>
-              <button className='loginButton signInButton' type="submit">Connexion</button>
             </form>
           </div>
         </div>
