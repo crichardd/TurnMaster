@@ -74,10 +74,10 @@ export default function Login() {
           <input type="checkbox" className='loginInput'  id="chk" aria-hidden="true"/>
 
           <div className="signup">
+
             <form onSubmit={handleSubmit}>
               <label htmlFor="chk" aria-hidden="true" className='loginLabel'> Connexion </label>
-              {errorMessage && <div className={`loginError ${errorMessage ? 'shake' : ''}`}>{errorMessage}</div>}
-
+              {errorMessage && <div className="loginError warning"><i className="fa fa-exclamation-triangle rotate"></i> <span>{errorMessage}</span></div>}
               <input className='loginInput' type="text" name="username" placeholder="nom d'utilisateur"/>
               <input className='loginInput' type="password" name="password" placeholder="mot de passe" autoComplete="new-password"/>
               <button className='loginButton signInButton' type="submit">Connexion</button>
