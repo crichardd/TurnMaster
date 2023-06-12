@@ -224,7 +224,7 @@ a {
     z-index: 1000;
     overflow-y: auto;
     transition: all 0.3s;
-    background-color: #573b8a;
+    background-color: #F2CC8F;
 
     padding-top: 60px; /* Add padding to create space for the header */
 }

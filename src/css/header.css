@@ -4,7 +4,7 @@ html, body {
     height: 100%;
 }
 body {
-    background: #333333;
+    background: #F4F1DE;
     padding: 0;
     margin: 0;
     font-family: 'Varela Round', sans-serif;
@@ -15,7 +15,7 @@ body {
     width: 100%;
     max-width: 100%;
     box-shadow: none;
-    background-color: #573b8a;
+    background-color: #F2CC8F;
     position: fixed;
     height: 60px!important;
     overflow: hidden;
@@ -24,3 +24,6 @@ body {
     top: 0;
     left: 0;
 }
+
+/*898E81
+782703*/
