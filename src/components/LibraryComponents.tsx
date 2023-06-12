@@ -74,7 +74,7 @@ function LibraryComponents(){
             </div>
             <div className="buttonDiv">
   
-              <button onClick={openPopup} className="buttonAddGame">Create Game</button>
+              <button onClick={openPopup} className="buttonAddGame">Ajouter un jeu</button>
 
               {isPopupOpen && (
                   <div id="container" className="popup-container">
@@ -91,8 +91,8 @@ function LibraryComponents(){
                                   <label> Joueurs </label>
                               </div>
                               <div className="buttons">
-                                  <button type="submit" className="confirm button">Create</button>
-                                  <button onClick={closePopup} className="cancel button">Cancel</button>
+                                  <button type="submit" className="confirm button">Créer</button>
+                                  <button onClick={closePopup} className="cancel button">Annuler</button>
                               </div>
                               
                           </form>
