@@ -12,8 +12,8 @@ function HeaderComponents(){
         <header className="header">
                 <nav>
                     <a href="#" className='mint titleMain' onClick={handleLandingPage}><h1>TurnMaster</h1></a>
+                    <img className="profilImg" src="../img/profil.png" alt="Description de l'image" />
                 </nav>
-            
         </header> 
     );
 

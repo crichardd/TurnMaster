@@ -1,5 +1,7 @@
+@import "./color.css";
+
 .App-header {
-  background-color: #282c34;
+  background-color: var(--navy);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,7 +89,7 @@ body {
 .section-title {
 	font-size: 32px;
 	letter-spacing: 1px;
-	color: var(--plus_white);
+	color: var(--plus-white);
 }
 
 .forms {
@@ -133,7 +135,7 @@ body {
 	font-family: inherit;
 	font-size: 16px;
 	letter-spacing: .5px;
-	color: #999;
+	color: var(--my-grey);
 	background-color: transparent;
 	border: none;
 	outline: none;

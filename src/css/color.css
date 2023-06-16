@@ -1,8 +1,19 @@
 
 :root {
-    --my_white: #eee;
-    --plus_white: #fff;
+    --my-white: #eee;
+    --plus-white: #fff;
     --light-grey: #e0dede;
     --violet-blue: #573b8a;
     --black: #000;
+    --smoky-blue: #3D405B;
+    --my-orange: #E07A5F;
+    --light-yellow: #F4F1DE;
+    --my-grey: #999;
+    --navy: #282c34;
+    --light-blue: #9bb7d4;
+    --creamy: #F2CC8F;
+    --dark-red: #49181e;
+    --baby-green: #81B29A;
+    --green: #8bc34a;
+    --blue: #0077cc;
 }

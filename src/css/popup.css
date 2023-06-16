@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Skranji&display=swap");
+@import "./color.css";
 
 #container {
   padding-top: 10%;
@@ -11,7 +12,7 @@
 }
 
 .container-inner {
-  background: #F2CC8F;
+  background: var(--creamy);
   padding: 50px;
   border-radius: 30px;
   width: 640px;
@@ -19,7 +20,7 @@
 
 .content {
   font-family: "Skranji", cursive;
-  background: #F2CC8F;
+  background: var(--creamy);
   padding: 20px;
   box-sizing: border-box;
   border-radius: 15px 15px 15px 15px;
@@ -39,9 +40,9 @@
   padding: 5px;
   flex: 1;
   border-radius: 20px;
-  border: 2px solid #49181e;
+  border: 2px solid var(--dark-red);
   font-family: "Skranji", cursive;
-  color: var(--plus_white);
+  color: var(--plus-white);
   font-size: 20px;
   text-shadow: 1px 2px 3px var(--black);
   background: var(--black);
@@ -77,12 +78,12 @@
 }
 
 .buttonAddGame{  
-  background-color: #81B29A;
+  background-color: var(--baby-green);
   margin-top: 40px;
   gap: 30px;
   box-sizing: border-box;
   border-radius: 10px;
-  border: 2px solid #240407;
+  border: 2px solid var(--dark-red);
   width: 15%;
   font-family: "Skranji";
   text-align: center;

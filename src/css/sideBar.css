@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
+@import "./color.css";
 
 .main {
     margin: 0 auto;
@@ -27,7 +28,7 @@
 }
 .sidebarMenuInner li{
     list-style: none;
-    color: var(--plus_white);
+    color: var(--plus-white);
     text-transform: uppercase;
     font-weight: bold;
     padding: 20px;
@@ -40,7 +41,7 @@
     color: rgba(255, 255, 255, 0.50);
 }
 .sidebarMenuInner li a{
-    color: var(--plus_white);
+    color: var(--plus-white);
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
@@ -120,13 +121,13 @@ li span.cross-stand-alone {
 }
 
 .toggle-bar.on {
-    background-color: #8bc34a;
+    background-color: var(--green);
 }
 
 .toggle-button {
     width: 30px;
     height: 30px;
-    background-color: var(--plus_white);
+    background-color: var(--plus-white);
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
 }
@@ -147,11 +148,11 @@ li span.cross-stand-alone {
     height: 200px;
     font-size: 24px;
     font-weight: bold;
-    color: var(--plus_white);
+    color: var(--plus-white);
 }
   
 .side1 {
-    background-color: #8bc34a;
+    background-color: var(--green);
 }
   
 .side2 {
@@ -191,7 +192,7 @@ a {
     width: 50%;
     height: 100%;
     border-radius: 20px;
-    color: var(--plus_white);
+    color: var(--plus-white);
     font-size: 16px;
     font-weight: bold;
     border: none;
@@ -199,7 +200,7 @@ a {
 }
 
 .btn-friend.on {
-    background-color: #0077cc;
+    background-color: var(--blue);
 }
 
 .btn-friend.off {
@@ -220,11 +221,11 @@ a {
     left: 0;
     width: 250px;
     height: 100%;
-    background-color: #f1f1f1;
+    background-color: var(--plus-white);
     z-index: 1000;
     overflow-y: auto;
     transition: all 0.3s;
-    background-color: #F2CC8F;
+    background-color: var(--creamy);
 
     padding-top: 60px; /* Add padding to create space for the header */
 }

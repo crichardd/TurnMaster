@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import "./color.css";
+
 html, body {
     overflow-x: hidden;
     height: 100%;
 }
 body {
-    background: #F4F1DE;
+    background: var(--light-yellow);
     padding: 0;
     margin: 0;
     font-family: 'Varela Round', sans-serif;
@@ -15,7 +17,7 @@ body {
     width: 100%;
     max-width: 100%;
     box-shadow: none;
-    background-color: #F2CC8F;
+    background-color: var(--creamy);
     position: fixed;
     height: 60px!important;
     overflow: hidden;
@@ -25,5 +27,7 @@ body {
     left: 0;
 }
 
-/*898E81
-782703*/
+.profilImg {
+    width: 50px;
+    height: 50px;
+}

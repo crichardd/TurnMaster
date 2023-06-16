@@ -1,3 +1,4 @@
+@import "./color.css";
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -13,7 +14,7 @@
   vertical-align: middle;
   position: relative;
   vertical-align: middle;
-  color: #E07A5F;
+  color: var(--my-orange);
 }
 
 .card {
@@ -24,7 +25,7 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
   position: relative;
   border-radius: 2;
-  background-color: #3D405B;
+  background-color: var(--smoky-blue);
   display: flex; /* Ajout de cette propriété */
   flex-direction: column; /* Ajout de cette propriété */
 }
@@ -38,7 +39,7 @@
   color: var(--black);
   text-align: center;
   font-size: 15px;
-  color: #F4F1DE;
+  color: var(--light-yellow);
 }
 
 @media (max-width: 1200px) {
@@ -89,7 +90,7 @@
 }
 
 .library-content {
-  background-color: var(--plus_white);
+  background-color: var(--plus-white);
   padding: 20px;
   margin-bottom: 20px;
 }
