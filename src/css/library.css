@@ -35,7 +35,7 @@
 }
 
 .gameLabel {
-  color: #000;
+  color: var(--black);
   text-align: center;
   font-size: 15px;
   color: #F4F1DE;
@@ -89,7 +89,7 @@
 }
 
 .library-content {
-  background-color: #fff;
+  background-color: var(--plus_white);
   padding: 20px;
   margin-bottom: 20px;
 }

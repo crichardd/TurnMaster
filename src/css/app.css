@@ -87,7 +87,7 @@ body {
 .section-title {
 	font-size: 32px;
 	letter-spacing: 1px;
-	color: #fff;
+	color: var(--plus_white);
 }
 
 .forms {

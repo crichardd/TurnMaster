@@ -27,7 +27,7 @@
 }
 .sidebarMenuInner li{
     list-style: none;
-    color: #fff;
+    color: var(--plus_white);
     text-transform: uppercase;
     font-weight: bold;
     padding: 20px;
@@ -40,7 +40,7 @@
     color: rgba(255, 255, 255, 0.50);
 }
 .sidebarMenuInner li a{
-    color: #fff;
+    color: var(--plus_white);
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
@@ -68,7 +68,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: #000;
+    background: var(--black);
     border-radius: 4px;
     
 }
@@ -126,7 +126,7 @@ li span.cross-stand-alone {
 .toggle-button {
     width: 30px;
     height: 30px;
-    background-color: #fff;
+    background-color: var(--plus_white);
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
 }
@@ -147,7 +147,7 @@ li span.cross-stand-alone {
     height: 200px;
     font-size: 24px;
     font-weight: bold;
-    color: #fff;
+    color: var(--plus_white);
 }
   
 .side1 {
@@ -167,12 +167,12 @@ ul {
   
 li {
     text-decoration: none;
-    color: #000;
+    color: var(--black);
 }
 
 a {
     text-decoration: none;
-    color: #000;
+    color: var(--black);
 }
 
 .btn-friend-container {
@@ -191,7 +191,7 @@ a {
     width: 50%;
     height: 100%;
     border-radius: 20px;
-    color: #fff;
+    color: var(--plus_white);
     font-size: 16px;
     font-weight: bold;
     border: none;

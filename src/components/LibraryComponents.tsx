@@ -4,6 +4,8 @@ import '../css/popup.css';
 import GameService from "../services/Game.Service";
 import { Game } from "../interfaces/Game.Interface";
 import { GameDTO } from "../dto/Game.dto";
+import { Link } from "react-router-dom";
+import GameForm from "../GameForm";
 
 function LibraryComponents(){
 
@@ -11,6 +13,7 @@ function LibraryComponents(){
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [name, setName] = useState("");
     const [addGame, setAddGame] = useState<GameDTO>();
+    const [selectedGame, setSelectedGame] = useState<number | null>(null);
 
 
     const handleNameChange = (event: any) => {
@@ -36,13 +39,17 @@ function LibraryComponents(){
   };
 
   async function handleAddGame(addGame: any){
-
-    const result = await GameService.getInstance().addGame(
-      addGame
-    );
-    setAddGame(result);
-    
+        const result = await GameService.getInstance().addGame(
+            addGame
+        );
+        setAddGame(result);
   }
+
+  const getGameFormUrl = (game: Game) => {
+    const { name, nbMinPlayer, nbMaxPlayer } = game;
+    const encodedName = encodeURIComponent(name);
+    return `/game?name=${encodedName}&min=${nbMinPlayer}&max=${nbMaxPlayer}`;
+  };
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -62,13 +69,13 @@ function LibraryComponents(){
             <div className="cards">
 
                 {games.map(game => (
-
-                        <div className="card">
+                    <div className="card">
+                        <Link to={getGameFormUrl(game)}>
 
                             <img className="gameImg" src="https://developpement-web-facile.com/wp-content/uploads/2020/12/snake-game.jpg?is-pending-load=1" />
                             <label className="gameLabel">{game.name} ({game.nbMinPlayer} - {game.nbMaxPlayer} joueurs)</label>
-                        </div>
-                        
+                        </Link>
+                    </div>
                 ))}
 
             </div>
@@ -97,7 +104,9 @@ function LibraryComponents(){
                               
                           </form>
                       </div>
+                      
                   </div>
+                  
               )}
             </div>
 
