@@ -28,6 +28,57 @@ body {
 }
 
 .profilImg {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
+    float: left;
+}
+
+.titleMain {
+	font-family: 'Rocher';
+	text-align: center;
+	height: 9vh;
+    width: 95%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+}
+
+  
+h1 {
+	margin: 0;
+}
+  
+@font-palette-values --Grays {
+	font-family: Rocher;
+	base-palette: 9;
+}
+  
+@font-palette-values --Purples {
+	font-family: Rocher;
+	base-palette: 6;
+}
+
+@font-palette-values --Mint {
+	font-family: Rocher;
+	base-palette: 7;
+}
+
+.grays {
+	font-palette: --Grays;
+}
+  
+.purples {
+	font-palette: --Purples;
+}
+
+.mint {
+	font-palette: --Mint;
+}
+
+
+nav {
+    display: flex;
+    align-items: center;
 }
