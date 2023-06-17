@@ -5,16 +5,13 @@ import LibraryComponents from './components/LibraryComponents';
 import './css/menu.css';
 import SideBar from "./components/SideBar";
 
-function LandingPage() {
+function Profil() {
   return (
     <div className="landing-page">
       <Header/>
-      <SideBar/>
-      <div className="library-container">
-        
-      </div>
+      <SideBar/> 
     </div>
   );
 }
 
-export default LandingPage;
+export default Profil;
