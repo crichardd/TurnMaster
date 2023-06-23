@@ -24,7 +24,7 @@ export default function Login() {
         const result = await LoginService.getInstance().username(username);
         setConnect(result);
         setStatus(true);
-        navigate("/LandingPage", { state: { username: username.username } });
+        navigate("/LandingPage", { state: { "username": username.username } });
       } catch (error: any) {
         if (error.message === 'Request failed with status code 500') {
           setErrorMessage("Les identifiants sont incorrects.");
@@ -77,6 +77,7 @@ export default function Login() {
 
             <form onSubmit={handleSubmit}>
               <label htmlFor="chk" aria-hidden="true" className='loginLabel'> Connexion </label>
+              
               {errorMessage && <div className="loginError warning"><i className="fa fa-exclamation-triangle rotate"></i> <span>{errorMessage}</span></div>}
               <input className='loginInput' type="text" name="username" placeholder="nom d'utilisateur"/>
               <input className='loginInput' type="password" name="password" placeholder="mot de passe" autoComplete="new-password"/>
