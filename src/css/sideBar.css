@@ -8,102 +8,15 @@
     height: 100%;
     margin-top: 60px;
 }
-.mainInner{
-    display: table;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-}
-.mainInner div{
-    display:table-cell;
-    vertical-align: middle;
-    font-size: 3em;
-    font-weight: bold;
-    letter-spacing: 1.25px;
-}
-.sidebarMenuInner{
-    margin:0;
-    padding:0;
-    border-top: 1px solid rgba(255, 255, 255, 0.10);
-}
-.sidebarMenuInner li{
-    list-style: none;
-    color: var(--plus-white);
-    text-transform: uppercase;
-    font-weight: bold;
-    padding: 20px;
-    cursor: pointer;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-}
-.sidebarMenuInner li span{
-    display: block;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.50);
-}
-.sidebarMenuInner li a{
-    color: var(--plus-white);
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-/*Croix*/
-
-
-
-.cross-stand-alone {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: none;
-    position: relative;
-    width: 20px;
-    height: 20px;
-    float: right;
-}
-.cross-stand-alone:before, .cross-stand-alone:after {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--black);
-    border-radius: 4px;
-    
-}
-.cross-stand-alone:before {
-    transform: rotate(45deg);
-}
-.cross-stand-alone:after {
-    transform: rotate(-45deg);
-}
-.cross-stand-alone span {
-    display: block;
-}
-  
-.visually-hidden {
-    position: absolute !important;
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0 !important;
-    border: 0 !important;
-    height: 1px !important;
-    width: 1px !important;
-    overflow: hidden;
-}
 
 li a {
     display: inline-block;
 }
   
-li span.cross-stand-alone {
+li span{
     display: inline-block;
     vertical-align: middle;
 }
-
-
-
 
 /*toggle*/
 
@@ -123,42 +36,15 @@ li span.cross-stand-alone {
 .toggle-bar.on {
     background-color: var(--green);
 }
-
-.toggle-button {
-    width: 30px;
-    height: 30px;
-    background-color: var(--plus-white);
-    border-radius: 50%;
-    transition: all 0.2s ease-in-out;
-}
   
-.toggle-bar.on .toggle-button {
+.toggle-bar.on{
     transform: translateX(40px);
 }
   
-.toggle-bar.off .toggle-button {
+.toggle-bar.off{
     transform: translateX(0px);
 }
   
-.side1, .side2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 200px;
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--plus-white);
-}
-  
-.side1 {
-    background-color: var(--green);
-}
-  
-.side2 {
-    background-color: #f44336;
-}
-
 ul {
     list-style: none;
     padding: 0;
