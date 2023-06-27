@@ -8,7 +8,6 @@ import Login from './Login';
 import LandingPage from './LandingPage';
 import App from './App';
 import './css/index.css';
-import Profil from './Profil';
 
 
 const root = ReactDOM.createRoot(
@@ -22,7 +21,6 @@ root.render(
         <Route path="/" element={<App />}></Route>
         <Route path="/connect" element={<Login />}></Route>
         <Route path='/landingpage' element={<LandingPage/>}></Route>
-        <Route path='/profil' element={<Profil/>}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

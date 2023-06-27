@@ -1,9 +1,11 @@
 .profil-container {
-    width: 350px;
-    background-color: #efefef;
-    border: none;
-    cursor: pointer;
-    transition: all 0.5s;
+    position: fixed;
+    padding-left: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+    width: 90%;
 }
 
 .image img {
@@ -39,7 +41,7 @@
     font-weight: bold
 }
 
-.follow {
+.point {
     font-size: 12px;
     font-weight: 500;
     color: #444444
@@ -76,4 +78,10 @@ hr .new1 {
 
 .date {
     background-color: #ccc
+}
+
+.cardProfil {
+    margin-top: 150px;
+    width: 40%;
+    height: 50%;
 }
