@@ -30,7 +30,7 @@ function HeaderComponents(props: HeaderProps) {
     <header className="header">
       <nav>
         <a href="#" className="mint titleMain" onClick={handleLandingPage}>
-          <h1>Bienvenue, {props.username ? props.username : "Utilisateur"}!</h1>
+          <h1>TurnMaster</h1>
         </a>
         <button onClick={props.openPopup}>
           <img

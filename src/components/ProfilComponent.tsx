@@ -10,7 +10,6 @@ interface ProfilProps {
 function ProfilComponent(props: ProfilProps){
 const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const username = searchParams.get("username") || "Utilisateur";
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const closePopup = () => {
@@ -24,16 +23,16 @@ const location = useLocation();
                     <button className="btn btn-secondary"> 
                         <img src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" />
                     </button> 
-                    <span className="name mt-3">Eleanor Pena</span> 
+                    <span className="name mt-3">{props.username ? props.username : "Utilisateur"}</span>
+                    <span className="passWord mt-3"> mot de passe </span> 
                     <div className="d-flex flex-row justify-content-center align-items-center mt-3"> 
-                        <span className="number">1069 
-                            <span className="point">Point</span>
-                        </span> 
+                        <span className="number">1069 Point </span> 
                     </div> 
                     <div className=" d-flex mt-2"> 
                         <button className="btn1 btn-dark">Edit Profile</button> 
                     </div> 
-                    <button onClick={closePopup} className="cancel button">Annuler</button>
+                    <button onClick={props.closePopup} className="cancel button">Annuler</button>
+-
                 </div> 
             </div>
         </div>
