@@ -22,6 +22,7 @@ function LandingPage() {
     setIsPopupOpen(false);
   };
 
+
   return (
     <div className="landing-page">
       <Header username={username} openPopup={openPopup}/> {/* Passer le nom d'utilisateur comme propriété */}
