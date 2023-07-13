@@ -18,7 +18,7 @@ export default class FriendService {
 
     static async getAllUsersNotFriends(username: string): Promise<UserDTO[]> {
         try {
-            const response = await axios.post(`${REST_API_URL}/friendship/listAllNotFriends`, { username });
+            const response = await axios.post(`${REST_API_URL}/friendship/list-users-addable`, { username });
             return response.data;
         } catch (error) {
             console.log(error);
@@ -29,8 +29,7 @@ export default class FriendService {
     static async getAllFriendRequests(username: string): Promise<UserDTO[]> {
         try {
             const response = await axios.post(
-                `${REST_API_URL}/friendship/listFriendshipRequestReceived`,
-                { username });
+                `${REST_API_URL}/friendship/list-request-received`, { username });
             return response.data;
         } catch (error) {
             console.log(error);
@@ -40,7 +39,7 @@ export default class FriendService {
 
     static async acceptFriendshipRequest(friendshipDto: FriendshipDTO) {
         await axios.post(
-            `${REST_API_URL}/friendship/acceptFriendshipRequest`,
+            `${REST_API_URL}/friendship/accept-request`,
             JSON.stringify(friendshipDto),
             { headers: {'Content-Type': 'application/json'}}
         );
@@ -48,7 +47,7 @@ export default class FriendService {
 
     static async declineFriendshipRequest(friendshipDto: FriendshipDTO) {
         await axios.post(
-            `${REST_API_URL}/friendship/declineFriendshipRequest`,
+            `${REST_API_URL}/friendship/decline-request`,
             JSON.stringify(friendshipDto),
             { headers: {'Content-Type': 'application/json'}}
         );
@@ -56,7 +55,7 @@ export default class FriendService {
 
     static async deleteFriendship(friendshipDto: FriendshipDTO) {
         await axios.post(
-            `${REST_API_URL}/friendship/deleteFriendship`,
+            `${REST_API_URL}/friendship/delete`,
             JSON.stringify(friendshipDto),
             { headers: {'Content-Type': 'application/json'}}
         );
@@ -64,7 +63,7 @@ export default class FriendService {
 
     static async sendFriendshipRequest(friendshipDto: FriendshipDTO) {
         await axios.post(
-            `${REST_API_URL}/friendship/sendFriendshipRequest`,
+            `${REST_API_URL}/friendship/send-request`,
             JSON.stringify(friendshipDto),
             { headers: {'Content-Type': 'application/json'}}
         );
