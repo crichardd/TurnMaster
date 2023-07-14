@@ -60,10 +60,10 @@ function LibraryComponents(){
             <div className="cards">
                 {games.map(game => (
                     <div className="card">
-                        <Link to={getGameFormUrl(game)}>
+                        
                             <img className="gameImg" src="https://developpement-web-facile.com/wp-content/uploads/2020/12/snake-game.jpg?is-pending-load=1" />
                             <label className="gameLabel">{game.name} ({game.nbMinPlayer} - {game.nbMaxPlayer} joueurs)</label>
-                        </Link>
+                      
                     </div>
                 ))}
             </div>

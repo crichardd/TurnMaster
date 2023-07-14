@@ -1,3 +1,5 @@
+//une demande d'ami
+
 import '../../css/card.css'
 import {UserDTO} from "../../dto/User.dto";
 import React from "react";
@@ -7,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {useLocation} from "react-router-dom";
 import FriendService from "../../services/Friends.Service";
 import {FriendshipDTO} from "../../dto/Friendship.dto";
+import { FriendshipStatus } from '../../dto/Friendship.dto';
 
 const FriendRequestCard = (props: { user: UserDTO }) => {
   const { user } : { user: UserDTO } = props;
@@ -17,6 +20,8 @@ const FriendRequestCard = (props: { user: UserDTO }) => {
     const friendshipDto: FriendshipDTO = {
         senderUser: user.username,
         receiverUser: currentUsername,
+        status: FriendshipStatus.PENDING,
+        time: '',
     };
 
     const acceptRequest = () => {

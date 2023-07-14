@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FriendService from "../../services/Friends.Service";
 import {useLocation} from "react-router-dom";
 import {FriendshipDTO} from "../../dto/Friendship.dto";
+import {FriendshipStatus} from '../../dto/Friendship.dto';
 
 const AddFriendCard = (props: { user: UserDTO }) => {
   const { user } : { user: UserDTO } = props;
@@ -16,6 +17,8 @@ const AddFriendCard = (props: { user: UserDTO }) => {
     const friendshipDto: FriendshipDTO = {
         senderUser: user.username,
         receiverUser: currentUsername,
+        status: FriendshipStatus.DECLINED ,
+        time: '',
     };
 
     const sendRequest = () => {

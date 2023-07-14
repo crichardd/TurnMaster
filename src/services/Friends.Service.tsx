@@ -1,18 +1,20 @@
 import axios from 'axios'
 import {UserDTO} from "../dto/User.dto";
 import {FriendshipDTO} from "../dto/Friendship.dto";
+import { useQuery, QueryClient } from 'react-query';
 
 const REST_API_URL = 'http://localhost:8080/api';
 
 export default class FriendService {
 
-    static async getAllFriends(username: string): Promise<UserDTO[]> {
+    static async getFriendship(username: string): Promise<UserDTO[]> {
         try {
             const response = await axios.post(`${REST_API_URL}/friendship/list`, { username });
+            console.log(response.data)
             return response.data;
         } catch (error) {
             console.log(error);
-            throw new Error('');
+            return []; // Valeur par défaut en cas d'erreur
         }
     }
 
@@ -22,18 +24,7 @@ export default class FriendService {
             return response.data;
         } catch (error) {
             console.log(error);
-            throw new Error('');
-        }
-    }
-
-    static async getAllFriendRequests(username: string): Promise<UserDTO[]> {
-        try {
-            const response = await axios.post(
-                `${REST_API_URL}/friendship/list-request-received`, { username });
-            return response.data;
-        } catch (error) {
-            console.log(error);
-            throw new Error('');
+            return []; // Valeur par défaut en cas d'erreur
         }
     }
 

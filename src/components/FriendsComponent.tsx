@@ -13,11 +13,7 @@ const FriendsComponent = () => {
     const username = location.state?.username;
 
     useEffect(() => {
-        FriendService.getAllFriends(username).then((data) => setUsers(data));
-    });
-
-    useEffect(() => {
-        FriendService.getAllFriendRequests(username).then((data) => setFriendRequests(data));
+        FriendService.getFriendship(username).then((data) => setUsers(data));
     });
 
     return (

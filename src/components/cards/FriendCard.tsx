@@ -1,3 +1,6 @@
+//ajout d'un amie
+
+
 import '../../css/card.css'
 import {UserDTO} from "../../dto/User.dto";
 import React from "react";
@@ -6,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {useLocation} from "react-router-dom";
 import {FriendshipDTO} from "../../dto/Friendship.dto";
 import FriendService from "../../services/Friends.Service";
+import { FriendshipStatus } from '../../dto/Friendship.dto';
 
 const FriendCard = (props: { user: UserDTO }) => {
   const { user } : { user: UserDTO } = props;
@@ -16,6 +20,8 @@ const FriendCard = (props: { user: UserDTO }) => {
     const friendshipDto: FriendshipDTO = {
         senderUser: user.username,
         receiverUser: currentUsername,
+        status: FriendshipStatus.ACCEPTED,
+        time: '',
     };
 
     const deleteFriendship = () => {
