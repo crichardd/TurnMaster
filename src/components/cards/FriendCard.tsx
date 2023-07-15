@@ -11,29 +11,31 @@ import {FriendshipDTO} from "../../dto/Friendship.dto";
 import FriendService from "../../services/Friends.Service";
 import { FriendshipStatus } from '../../dto/Friendship.dto';
 
-const FriendCard = (props: { user: UserDTO }) => {
-  const { user } : { user: UserDTO } = props;
+const FriendCard = (props: { friendship: FriendshipDTO }) => {
+  const { friendship } : { friendship: FriendshipDTO } = props;
 
     const location = useLocation();
     const currentUsername = location.state?.username;
 
-    const friendshipDto: FriendshipDTO = {
-        senderUser: user.username,
+    const friendshipDtoDelete: FriendshipDTO = {
+        senderUser: currentUsername,
         receiverUser: currentUsername,
         status: FriendshipStatus.ACCEPTED,
         time: '',
     };
 
     const deleteFriendship = () => {
-        FriendService.deleteFriendship(friendshipDto)
+        FriendService.deleteFriendship(friendshipDtoDelete)
             .then(function (response) {
                 console.log(response);
             });
     }
 
+    console.log("user", friendship)
+
     return (
         <div className="user-card">
-          <p className="card-title">{user.username}</p>
+          <p className="card-title">{friendship.receiverUser}</p>
           <button type="button" className="btn btn-card" onClick={deleteFriendship}><FontAwesomeIcon icon={faUserMinus} /></button>
         </div>
     );

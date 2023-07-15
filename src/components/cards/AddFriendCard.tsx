@@ -27,7 +27,7 @@ const AddFriendCard = (props: { user: UserDTO }) => {
                 console.log(response);
             });
     }
-
+ 
     return (
         <div className="user-card">
           <p className="card-title">{user.username}</p>
