@@ -13,14 +13,9 @@ const FriendsComponent = () => {
     const location = useLocation();
     const username = location.state?.username;
     const [friends, setFriends] = useState<FriendshipDTO[]>([])
-/*
-    useEffect(() => {
-        FriendService.getFriendship(username).then((data) => setUsers(data));
-        FriendService.getFriendship(username).then((data) => setFriends(data));
-    });*/
+
     useEffect(() => {
         FriendService.getFriendship(username).then((friendships) => {
-          
           const convertedFriendships: FriendshipDTO[] = friendships.map((friendship) => {
             return {
               senderUser: friendship.senderUser,
@@ -32,25 +27,31 @@ const FriendsComponent = () => {
           setFriends(convertedFriendships);
         });
       }, [username]);
-
+    
       console.log("friends :", friends);
+    
+    // Filtrer les amitiés dont le statut est "ACCEPTED"
+    const acceptedFriends = friends.filter((friendship) => friendship.status === FriendshipStatus.ACCEPTED);
 
-      return (
+    console.log("friends :", friends);
+    console.log("jsp: ",FriendService.getFriendship )
+
+    return (
         <div className="friends-panel">
-          <h2>AMIS</h2>
-          <h3>DEMANDES</h3>
-          <div>
-            {friendRequests.map((user, index) => (
-              <FriendRequestCard key={index} user={user} />
-            ))}
-          </div>
-          <h3>AMIS</h3>
-          <div>
-            {friends.map((friendship, index) => {
-              console.log("Données envoyées à FriendCard :", friendship);
-              return <FriendCard key={index} friendship={friendship} />;
+            <h2>AMIS</h2>
+            <h3>DEMANDES</h3>
+            <div>
+                {friendRequests.map((user, index) => (
+                    <FriendRequestCard key={index} user={user} />
+                ))}
+            </div>
+            <h3>AMIS</h3>
+            <div>
+            {acceptedFriends.map((friendship, index) => {
+                console.log("Données envoyées à FriendCard :", friendship);
+                return <FriendCard key={index} friendship={friendship} />;
             })}
-          </div>
+            </div>
         </div>
     );
 }
