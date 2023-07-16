@@ -25,17 +25,19 @@ const FriendsComponent = () => {
             });
             setFriends(convertedFriendships);
         });
-}, [username]);
+    }, [username]);
     const acceptedFriends = friends.filter((friendship) => friendship.status === FriendshipStatus.ACCEPTED);
+    const pendingFriends = friends.filter((friendship) => friendship.status === FriendshipStatus.PENDING);
+
 
     return (
         <div className="friends-panel">
             <h2>AMIS</h2>
             <h3>DEMANDES</h3>
             <div>
-                {friendRequests.map((user, index) => (
-                    <FriendRequestCard key={index} user={user} />
-                ))}
+            {pendingFriends.map((friendship, index) => (
+                <FriendRequestCard key={index} friendship={friendship} />
+            ))}
             </div>
             <h3>AMIS</h3>
             <div>

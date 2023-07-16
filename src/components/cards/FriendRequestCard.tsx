@@ -11,14 +11,14 @@ import FriendService from "../../services/Friends.Service";
 import {FriendshipDTO} from "../../dto/Friendship.dto";
 import { FriendshipStatus } from '../../dto/Friendship.dto';
 
-const FriendRequestCard = (props: { user: UserDTO }) => {
-  const { user } : { user: UserDTO } = props;
+const FriendRequestCard = (props: { friendship: FriendshipDTO }) => {
+  const { friendship } : { friendship: FriendshipDTO } = props;
 
     const location = useLocation();
     const currentUsername = location.state?.username;
 
     const friendshipDto: FriendshipDTO = {
-        senderUser: user.username,
+        senderUser: friendship.senderUser,
         receiverUser: currentUsername,
         status: FriendshipStatus.PENDING,
         time: '',
@@ -40,7 +40,7 @@ const FriendRequestCard = (props: { user: UserDTO }) => {
 
     return (
         <div className="user-card">
-          <p className="card-title">{user.username}</p>
+          <p className="card-title">{friendship.receiverUser}</p>
             <div className="btn-card-container">
                 <button type="button" className="btn btn-card" onClick={declineRequest}><FontAwesomeIcon icon={faCircleXmark} /></button>
                 <button type="button" className="btn btn-card" onClick={acceptRequest}><FontAwesomeIcon icon={faCircleCheck} /></button>
