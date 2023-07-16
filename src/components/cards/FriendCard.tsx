@@ -31,12 +31,12 @@ const FriendCard = (props: { friendship: FriendshipDTO }) => {
             });
     }
 
-    console.log("user", friendship)
+    const myFriend = friendship.receiverUser !== currentUsername ? friendship.receiverUser : friendship.senderUser;
 
     return (
         <div className="user-card">
-          <p className="card-title">{friendship.receiverUser}</p>
-          <button type="button" className="btn btn-card" onClick={deleteFriendship}><FontAwesomeIcon icon={faUserMinus} /></button>
+            <p className="card-title">{myFriend}</p>
+            <button type="button" className="btn btn-card" onClick={deleteFriendship}><FontAwesomeIcon icon={faUserMinus} /></button>
         </div>
     );
 }

@@ -37,10 +37,11 @@ const FriendRequestCard = (props: { friendship: FriendshipDTO }) => {
                 console.log(response);
             });
     }
+    const myFriend = friendship.receiverUser !== currentUsername ? friendship.receiverUser : friendship.senderUser;
 
     return (
         <div className="user-card">
-          <p className="card-title">{friendship.receiverUser}</p>
+          <p className="card-title">{myFriend}</p>
             <div className="btn-card-container">
                 <button type="button" className="btn btn-card" onClick={declineRequest}><FontAwesomeIcon icon={faCircleXmark} /></button>
                 <button type="button" className="btn btn-card" onClick={acceptRequest}><FontAwesomeIcon icon={faCircleCheck} /></button>
