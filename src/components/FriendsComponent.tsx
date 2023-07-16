@@ -8,7 +8,6 @@ import '../css/friends.css';
 import { FriendshipDTO, FriendshipStatus } from "../dto/Friendship.dto";
 
 const FriendsComponent = () => {
-    const [users, setUsers] = useState<UserDTO[]>([]);
     const [friendRequests, setFriendRequests] = useState<UserDTO[]>([]);
     const location = useLocation();
     const username = location.state?.username;
@@ -16,25 +15,18 @@ const FriendsComponent = () => {
 
     useEffect(() => {
         FriendService.getFriendship(username).then((friendships) => {
-          const convertedFriendships: FriendshipDTO[] = friendships.map((friendship) => {
-            return {
-              senderUser: friendship.senderUser,
-              receiverUser: friendship.receiverUser,
-              status: friendship.status as FriendshipStatus,
-              time: friendship.time,
-            };
-          });
-          setFriends(convertedFriendships);
+            const convertedFriendships: FriendshipDTO[] = friendships.map((friendship) => {
+                return {
+                    senderUser: friendship.senderUser,
+                    receiverUser: friendship.receiverUser,
+                    status: friendship.status as FriendshipStatus,
+                    time: friendship.time,
+                };
+            });
+            setFriends(convertedFriendships);
         });
-      }, [username]);
-    
-      console.log("friends :", friends);
-    
-    // Filtrer les amitiés dont le statut est "ACCEPTED"
+}, [username]);
     const acceptedFriends = friends.filter((friendship) => friendship.status === FriendshipStatus.ACCEPTED);
-
-    console.log("friends :", friends);
-    console.log("jsp: ",FriendService.getFriendship )
 
     return (
         <div className="friends-panel">
