@@ -18,7 +18,7 @@ export default class FriendService {
         }
     }
 
-    static async getAllUsersNotFriends(username: string): Promise<UserDTO[]> {
+    static async getAllUsers(username: string): Promise<UserDTO[]> {
         try {
             const response = await axios.post(`${REST_API_URL}/friendship/list-users-addable`, { username });
             return response.data;

@@ -42,7 +42,6 @@ const FriendsComponent = () => {
             <h3>AMIS</h3>
             <div>
             {acceptedFriends.map((friendship, index) => {
-                console.log("Données envoyées à FriendCard :", friendship);
                 return <FriendCard key={index} friendship={friendship} />;
             })}
             </div>
