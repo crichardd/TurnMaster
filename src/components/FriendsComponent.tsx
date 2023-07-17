@@ -8,7 +8,6 @@ import '../css/friends.css';
 import { FriendshipDTO, FriendshipStatus } from "../dto/Friendship.dto";
 
 const FriendsComponent = () => {
-    const [friendRequests, setFriendRequests] = useState<UserDTO[]>([]);
     const location = useLocation();
     const username = location.state?.username;
     const [friends, setFriends] = useState<FriendshipDTO[]>([])
@@ -27,9 +26,9 @@ const FriendsComponent = () => {
         });
     }, [username]);
     const acceptedFriends = friends.filter((friendship) => friendship.status === FriendshipStatus.ACCEPTED);
-    const pendingFriends = friends.filter((friendship) => friendship.status === FriendshipStatus.PENDING);
-
-
+    const pendingFriends = friends.filter(
+        (friendship) => friendship.status === FriendshipStatus.PENDING && friendship.receiverUser === username
+    );
     return (
         <div className="friends-panel">
             <h2>AMIS</h2>
