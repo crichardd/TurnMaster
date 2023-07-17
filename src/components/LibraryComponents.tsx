@@ -4,7 +4,6 @@ import '../css/popup.css';
 import GameService from "../services/Game.Service";
 import { Game } from "../interfaces/Game.Interface";
 import { GameDTO } from "../dto/Game.dto";
-import { Link } from "react-router-dom";
 
 function LibraryComponents(){
 
@@ -57,14 +56,13 @@ function LibraryComponents(){
             <h2 className="gameH2"><strong>All Games( {games.length} )</strong></h2>
 
             <div className="cards">
-                {games.map(game => (
-                    <div className="card">
-                        
-                            <img className="gameImg" src="https://developpement-web-facile.com/wp-content/uploads/2020/12/snake-game.jpg?is-pending-load=1" />
-                            <label className="gameLabel">{game.name} ({game.nbMinPlayer} - {game.nbMaxPlayer} joueurs)</label>
-                      
-                    </div>
-                ))}
+            {games.map((game, index) => (
+                <div className="card" key={index}>
+                    <img className="gameImg" src="https://developpement-web-facile.com/wp-content/uploads/2020/12/snake-game.jpg?is-pending-load=1" />
+                    <label className="gameLabel">{game.name} ({game.nbMinPlayer} - {game.nbMaxPlayer} joueurs)</label>
+                </div>
+            ))}
+
             </div>
             <div className="buttonDiv">
               <button onClick={openPopup} className="buttonAddGame">Ajouter un jeu</button>
