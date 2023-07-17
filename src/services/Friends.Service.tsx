@@ -10,7 +10,6 @@ export default class FriendService {
     static async getFriendship(username: string): Promise<FriendshipDTO[]> {
         try {
             const response = await axios.post(`${REST_API_URL}/friendship/list`, { username });
-            console.log("service", response.data)
             return response.data;
         } catch (error) {
             console.log(error);

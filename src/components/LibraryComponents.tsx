@@ -47,7 +47,6 @@ function LibraryComponents(){
         const name = event.target.name.value;
         const nbMinPlayer = event.target.elements.nbMinPlayer.value;
         const nbMaxPlayer = event.target.elements.nbMaxPlayer.value;
-        console.log({ name, nbMinPlayer, nbMaxPlayer });
         handleAddGame({ name, nbMinPlayer, nbMaxPlayer });
         closePopup();
     };

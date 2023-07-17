@@ -17,7 +17,6 @@ export class UserService {
 
         const response = await axios.get("http://localhost:3001/User");
         if (response.data && Array.isArray(response.data)) {
-            // console.log(response.data.compactMap(UserTransformer));
 
             return response.data.map((e) => e);
         } else {
