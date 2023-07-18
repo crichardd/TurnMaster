@@ -1,7 +1,6 @@
 import axios from 'axios'
 import {UserDTO} from "../dto/User.dto";
 import {FriendshipDTO} from "../dto/Friendship.dto";
-import { useQuery, QueryClient } from 'react-query';
 
 const REST_API_URL = 'https://app-turnmasterapi-230715140732.azurewebsites.net/api';
 

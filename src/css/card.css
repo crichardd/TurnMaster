@@ -16,10 +16,19 @@
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    height: 1px;
+    width: 1px;
 }
 
 .card-title {
     font-size: 16px;
     font-weight: bold;
     margin: 10px;
+}
+
+.btn-friends{
+    height: 30px;
+    width: 30px;
+    border: none;
+    background: none;
 }
