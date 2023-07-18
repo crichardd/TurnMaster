@@ -40,8 +40,8 @@ const FriendRequestCard = (props: { friendship: FriendshipDTO }) => {
         <div className="user-card">
           <p className="card-title">{myFriend}</p>
             <div className="btn-card-container">
-                <button type="button" className="btn btn-card" onClick={declineRequest}><FontAwesomeIcon icon={faCircleXmark} /></button>
-                <button type="button" className="btn btn-card" onClick={acceptRequest}><FontAwesomeIcon icon={faCircleCheck} /></button>
+                <button type="button" className="btn-friends" onClick={declineRequest}><FontAwesomeIcon icon={faCircleXmark} /></button>
+                <button type="button" className="btn-friends" onClick={acceptRequest}><FontAwesomeIcon icon={faCircleCheck} /></button>
             </div>
 
         </div>
