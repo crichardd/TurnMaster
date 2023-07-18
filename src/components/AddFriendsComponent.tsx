@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {UserDTO} from "../dto/User.dto";
 import {useLocation} from "react-router-dom";
 import FriendService from "../services/Friends.Service";
 import AddFriendCard from "./cards/AddFriendCard";
 import '../css/friends.css';
-import {FriendshipDTO, FriendshipStatus} from "../dto/Friendship.dto";
+import {FriendshipDTO} from "../dto/Friendship.dto";
 
 const AddFriendsComponent = () => {
 
@@ -18,9 +18,9 @@ const AddFriendsComponent = () => {
             setFriendships(friendships);
     
             const myFriends = friendships.flatMap((friendship) => {
-                if (friendship.senderUser === currentUsername) {
+                if (friendship.senderUser === currentUsername || friendship.status === "DECLINED") {
                     return friendship.receiverUser;
-                } else {
+                } else if (friendship.receiverUser === currentUsername ) {
                     return friendship.senderUser !== currentUsername;
                 }
             });

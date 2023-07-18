@@ -15,7 +15,7 @@ export default class GameService {
     }
 
     constructor() {
-        this.baseUrl = "http://localhost:8080/api";
+        this.baseUrl = "https://app-turnmasterapi-230715140732.azurewebsites.net/api";
     }
 
     async getGames(): Promise<Game[]> {
@@ -29,7 +29,7 @@ export default class GameService {
 
     async addGame(addGame: any): Promise<GameDTO | undefined> {
       const name = await axios.post(
-        "http://localhost:8080/api/game/create",
+        "https://app-turnmasterapi-230715140732.azurewebsites.net/api/game/create",
         addGame
       );
   

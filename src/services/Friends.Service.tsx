@@ -3,13 +3,14 @@ import {UserDTO} from "../dto/User.dto";
 import {FriendshipDTO} from "../dto/Friendship.dto";
 import { useQuery, QueryClient } from 'react-query';
 
-const REST_API_URL = 'http://localhost:8080/api';
+const REST_API_URL = 'https://app-turnmasterapi-230715140732.azurewebsites.net/api';
 
 export default class FriendService {
 
     static async getFriendship(username: string): Promise<FriendshipDTO[]> {
         try {
             const response = await axios.post(`${REST_API_URL}/friendship/list`, { username });
+            console.log("service", response.data)
             return response.data;
         } catch (error) {
             console.log(error);

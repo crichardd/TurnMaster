@@ -18,9 +18,9 @@ const FriendCard = (props: { friendship: FriendshipDTO }) => {
     const currentUsername = location.state?.username;
 
     const friendshipDtoDelete: FriendshipDTO = {
-        senderUser: currentUsername,
-        receiverUser: currentUsername,
-        status: FriendshipStatus.ACCEPTED,
+        senderUser: friendship.senderUser,
+        receiverUser: friendship.receiverUser,
+        status: FriendshipStatus.DECLINED,
         time: '',
     };
 

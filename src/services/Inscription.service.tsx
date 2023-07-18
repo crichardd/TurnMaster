@@ -15,7 +15,7 @@ export class InscriptionService {
 
   async inscription(inscription: any): Promise<InscriptionDTO | undefined> {
     const username = await axios.post(
-      "http://localhost:8080/api/auth/register",
+      "https://app-turnmasterapi-230715140732.azurewebsites.net/api/auth/register",
       inscription
     );
 

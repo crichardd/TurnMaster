@@ -15,7 +15,7 @@ export class UserService {
 
     static async getUser(cancelToken?: CancelToken, username?: string): Promise<UserDTO[]> {
 
-        const response = await axios.get("http://localhost:3001/User");
+        const response = await axios.get("https://app-turnmasterapi-230715140732.azurewebsites.net/api/User");
         if (response.data && Array.isArray(response.data)) {
 
             return response.data.map((e) => e);
