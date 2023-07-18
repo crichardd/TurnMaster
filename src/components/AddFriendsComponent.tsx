@@ -5,6 +5,7 @@ import FriendService from "../services/Friends.Service";
 import AddFriendCard from "./cards/AddFriendCard";
 import '../css/friends.css';
 import {FriendshipDTO} from "../dto/Friendship.dto";
+
 const AddFriendsComponent = () => {
     const [nonFriends, setNonFriends] = useState<UserDTO[]>([]);
     const location = useLocation();

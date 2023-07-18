@@ -1,8 +1,5 @@
 //une demande d'ami
-
 import '../../css/card.css'
-import {UserDTO} from "../../dto/User.dto";
-import React from "react";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -1,4 +1,4 @@
-import axios, { Canceler, CancelToken } from "axios";
+import axios, {CancelToken } from "axios";
 import { UserDTO } from "../dto/User.dto";
 
 export class UserService {

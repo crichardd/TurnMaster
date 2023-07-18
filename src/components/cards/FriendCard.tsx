@@ -1,9 +1,5 @@
 //ajout d'un amie
-
-
 import '../../css/card.css'
-import {UserDTO} from "../../dto/User.dto";
-import React from "react";
 import { faUserMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {useLocation} from "react-router-dom";

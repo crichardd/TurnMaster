@@ -1,4 +1,3 @@
-import {UserDTO} from "../dto/User.dto";
 import {useEffect, useState} from "react";
 import FriendService from "../services/Friends.Service";
 import {useLocation} from "react-router-dom";
