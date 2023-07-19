@@ -23,7 +23,7 @@ const AddFriendCard = ({ user, onFriendAdded }: { user: UserDTO, onFriendAdded: 
     const sendRequest = () => {
         FriendService.sendFriendshipRequest(friendshipDto).then(function (response) {
             console.log(response);
-            onFriendAdded(); // Appeler la fonction de rappel pour relancer la recherche d'utilisateurs
+            onFriendAdded();
         });
     };    
       
