@@ -6,32 +6,40 @@ import FriendService from "../../services/Friends.Service";
 import {useLocation} from "react-router-dom";
 import {FriendshipDTO} from "../../dto/Friendship.dto";
 import {FriendshipStatus} from '../../dto/Friendship.dto';
+import { useState, useEffect} from 'react';
 
-const AddFriendCard = ({ user }: { user: UserDTO }) => {
+const AddFriendCard = ({ user, onFriendAdded }: { user: UserDTO, onFriendAdded: () => void }) => {
     const location = useLocation();
     const currentUsername = location.state?.username;
+    const [reloadComponent, setReloadComponent] = useState(false);
   
     const friendshipDto: FriendshipDTO = {
-      senderUser: currentUsername,
-      receiverUser: user.username,
-      status: FriendshipStatus.DECLINED,
-      time: '',
+        senderUser: currentUsername,
+        receiverUser: user.username,
+        status: FriendshipStatus.DECLINED,
+        time: '',
     };
   
     const sendRequest = () => {
-      FriendService.sendFriendshipRequest(friendshipDto)
-        .then(function (response) {
-          console.log(response);
+        FriendService.sendFriendshipRequest(friendshipDto).then(function (response) {
+            console.log(response);
+            onFriendAdded(); // Appeler la fonction de rappel pour relancer la recherche d'utilisateurs
         });
-    };
+    };    
+      
+    useEffect(() => {
+        if (reloadComponent) {
+            setReloadComponent(false);
+        }
+    }, [reloadComponent]);
   
     return (
-      <div className="user-card">
-        <p className="card-title">{user.username}</p>
-        <button type="button" className="btn-friends" onClick={sendRequest}>
-          <FontAwesomeIcon icon={faUserPlus} aria-hidden="true"/>
-        </button>
-      </div>
+        <div className="user-card">
+            <p className="card-title">{user.username}</p>
+            <button type="button" className="btn-friends" onClick={sendRequest}>
+                <FontAwesomeIcon icon={faUserPlus} aria-hidden="true"/>
+            </button>
+        </div>
     );
   };
   

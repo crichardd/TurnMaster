@@ -11,41 +11,47 @@ const AddFriendsComponent = () => {
     const location = useLocation();
     const currentUsername = location.state?.username;
     const [friendships, setFriendships] = useState<FriendshipDTO[]>([]);
-
-    useEffect(() => {
+  
+    const handleReloadUsers = () => {
         FriendService.getFriendship(currentUsername).then((friendships) => {
             setFriendships(friendships);
+        
+            const myFriends = friendships.flatMap((friendship) => {
+                if (friendship.senderUser === currentUsername || friendship.status === "DECLINED") {
+                    return friendship.receiverUser;
+                } else if (friendship.receiverUser === currentUsername ) {
+                    return friendship.senderUser !== currentUsername;
+                }
+            });
+        
+            FriendService.getAllUsers(currentUsername).then((usersData) => {
+                const nonFriends = usersData.filter(
+                    (user) => user.username !== currentUsername && !myFriends.includes(user.username)
+                );
+            
+                setNonFriends(nonFriends);
+            });
         });
-    }, [currentUsername]);
-
+    };
+  
     useEffect(() => {
-        const myFriends = friendships.flatMap((friendship) => {
-            if (friendship.senderUser === currentUsername || friendship.status === "DECLINED") {
-                return friendship.receiverUser;
-            } else if (friendship.receiverUser === currentUsername) {
-                return friendship.senderUser !== currentUsername;
-            }
-        });
-
-        FriendService.getAllUsers(currentUsername).then((usersData) => {
-            const nonFriends = usersData.filter(
-                (user) => user.username !== currentUsername && !myFriends.includes(user.username)
-            );
-
-            setNonFriends(nonFriends);
-        });
-    }, [friendships, currentUsername]);
-
+        handleReloadUsers();
+    }, [currentUsername]);
+  
     return (
-        <div className="friends-panel">
-            <h2>AJOUTER DES AMIS</h2>
-            <div>
-                {nonFriends.map((user, index) => (
-                    <AddFriendCard key={`${index}-${user.username}`} user={user} />
-                ))}
-            </div>
+      <div className="friends-panel">
+        <h2>AJOUTER DES AMIS</h2>
+        <div>
+            {nonFriends.map((user, index) => (
+                <AddFriendCard
+                    key={`${index}-${user.username}`}
+                    user={user}
+                    onFriendAdded={handleReloadUsers} // Passer la fonction de recherche d'utilisateurs
+                />
+            ))}
         </div>
+      </div>
     );
 };
-
-export default AddFriendsComponent;
+  
+  export default AddFriendsComponent;
