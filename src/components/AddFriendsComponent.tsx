@@ -16,19 +16,22 @@ const AddFriendsComponent = () => {
         FriendService.getFriendship(currentUsername).then((friendships) => {
             setFriendships(friendships);
         
-            const myFriends = friendships.flatMap((friendship) => {
-                if (friendship.senderUser === currentUsername || friendship.status === "DECLINED") {
-                    return friendship.receiverUser;
-                } else if (friendship.receiverUser === currentUsername ) {
-                    return friendship.senderUser !== currentUsername;
+            const myFriends = new Set<string>();
+            friendships.forEach((friendship) => {
+                if (friendship.senderUser === currentUsername) {
+                    myFriends.add(friendship.receiverUser);
+                } else {
+                    myFriends.add(friendship.senderUser);
                 }
             });
+      
+            console.log("myfriends", myFriends);
         
             FriendService.getAllUsers(currentUsername).then((usersData) => {
                 const nonFriends = usersData.filter(
-                    (user) => user.username !== currentUsername && !myFriends.includes(user.username)
+                    (user) => user.username !== currentUsername && !myFriends.has(user.username)
                 );
-            
+        
                 setNonFriends(nonFriends);
             });
         });

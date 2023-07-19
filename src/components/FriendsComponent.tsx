@@ -1,3 +1,4 @@
+import {UserDTO} from "../dto/User.dto";
 import {useEffect, useState} from "react";
 import FriendService from "../services/Friends.Service";
 import {useLocation} from "react-router-dom";
@@ -24,18 +25,39 @@ const FriendsComponent = () => {
             setFriends(convertedFriendships);
         });
     }, [username]);
+
+    const handleFriendRequestAction = () => {
+        FriendService.getFriendship(username).then((friendships) => {
+          const convertedFriendships: FriendshipDTO[] = friendships.map((friendship) => {
+            return {
+                senderUser: friendship.senderUser,
+                receiverUser: friendship.receiverUser,
+                status: friendship.status as FriendshipStatus,
+                time: friendship.time,
+            };
+          });
+          setFriends(convertedFriendships);
+        });
+    }
+    
+
     const acceptedFriends = friends.filter((friendship) => friendship.status === FriendshipStatus.ACCEPTED);
     const pendingFriends = friends.filter(
         (friendship) => friendship.status === FriendshipStatus.PENDING && friendship.receiverUser === username
     );
+
     return (
         <div className="friends-panel">
             <h2>AMIS</h2>
             <h3>DEMANDES</h3>
             <div>
-            {pendingFriends.map((friendship, index) => (
-                <FriendRequestCard key={index} friendship={friendship} />
-            ))}
+                {pendingFriends.map((friendship, index) => (
+                    <FriendRequestCard
+                        key={index}
+                        friendship={friendship}
+                        onFriendRequestAction={handleFriendRequestAction} // Pass the callback here
+                    />
+                ))}
             </div>
             <h3>AMIS</h3>
             <div>
