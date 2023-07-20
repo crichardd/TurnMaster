@@ -3,10 +3,8 @@ import '../css/library.css';
 import '../css/popup.css';
 import GameService from "../services/Game.Service";
 import { Game } from "../interfaces/Game.Interface";
-import { GameDTO } from "../dto/Game.dto";
 import {FriendshipDTO, FriendshipStatus} from "../dto/Friendship.dto";
 import FriendService from "../services/Friends.Service";
-import { UserDTO } from "../dto/User.dto";
 import {useLocation} from "react-router-dom";
 
 
@@ -54,18 +52,18 @@ function LibraryComponents(){
 
     const handleUserSelection = (username: string) => {
         setSelectedUsers((prevSelectedUsers) =>
-          prevSelectedUsers.includes(username)
-            ? prevSelectedUsers.filter((user) => user !== username)
-            : [...prevSelectedUsers, username]
+            prevSelectedUsers.includes(username)
+                ? prevSelectedUsers.filter((user) => user !== username)
+                : [...prevSelectedUsers, username]
         );
-      };
+    };
     
       // Utiliser useEffect pour suivre les mises à jour de myFriendsList
-      useEffect(() => {
+    useEffect(() => {
         myFriendsList.clear(); // Effacer la liste avant de la remplir à nouveau
         selectedUsers.forEach((username) => myFriendsList.add(username));
         console.log(myFriendsList);
-      }, [selectedUsers]);
+    }, [selectedUsers]);
     
   
     return (
@@ -98,6 +96,7 @@ function LibraryComponents(){
                                     {acceptedFriends.map((friendship, index) => (
                                         <label className="lns-checkbox ml-2" key={index}>
                                         <input
+                                            className="CheckBoxFriends"
                                             type="checkbox"
                                             checked={selectedUsers.includes(
                                             friendship.senderUser === currentUsername
