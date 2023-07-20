@@ -14,8 +14,6 @@ function AddPartyComponents(props: PartyProps){
                     <div className="image d-flex flex-column justify-content-center align-items-center">
                         <label className="font-bold text-lg text-white " >Account Number</label> 
                         <input type="text" placeholder="Account number" className="border rounded-lg py-3 px-3 mt-4 bg-black border-indigo-600 placeholder-white-500 text-white"/>
-                  
-                        
                         <button onClick={props.closePopup} className="cancel button">‡
                             Annuler
                         </button>
