@@ -4,14 +4,20 @@ import '../css/popup.css';
 import GameService from "../services/Game.Service";
 import { Game } from "../interfaces/Game.Interface";
 import { GameDTO } from "../dto/Game.dto";
+import {FriendshipDTO, FriendshipStatus} from "../dto/Friendship.dto";
+import FriendService from "../services/Friends.Service";
+import { UserDTO } from "../dto/User.dto";
+import {useLocation} from "react-router-dom";
 
 
 function LibraryComponents(){
-
+    const location = useLocation();
+    const currentUsername = location.state?.username;
     const [games, setGames] = useState<Game[]>([]);
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [addGame, setAddGame] = useState<GameDTO>();
     const [isCardPopupOpen, setIsCardPopupOpen] = useState(false); 
+    const [friends, setFriends] = useState<FriendshipDTO[]>([])
+    const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
+    const myFriendsList = new Set<string>();
 
     useEffect(() => {
         const service = new GameService();
@@ -22,36 +28,45 @@ function LibraryComponents(){
         });
     }, []);
 
-    const openPopup = () => {
-        setIsPopupOpen(true);
-    };
-
-    const closePopup = () => {
-        setIsPopupOpen(false);
-    };
-
-    async function handleAddGame(addGame: any){
-        const result = await GameService.getInstance().addGame(
-            addGame
-        );
-        setAddGame(result);
-    }
-
-    const handleSubmit = (event: any) => {
-        event.preventDefault();
-        const name = event.target.name.value;
-        const nbMinPlayer = event.target.elements.nbMinPlayer.value;
-        const nbMaxPlayer = event.target.elements.nbMaxPlayer.value;
-        handleAddGame({ name, nbMinPlayer, nbMaxPlayer });
-        closePopup();
-    };
     const handleCardClick = () => {
         setIsCardPopupOpen(true);
+    };
+    
+    const handleCardPopupClose = () => {
+        setIsCardPopupOpen(false);
+    };
+
+    
+    useEffect(() => {
+        FriendService.getFriendship(currentUsername).then((friendships) => {
+            const convertedFriendships: FriendshipDTO[] = friendships.map((friendship) => {
+                return {
+                    senderUser: friendship.senderUser,
+                    receiverUser: friendship.receiverUser,
+                    status: friendship.status as FriendshipStatus,
+                    time: friendship.time,
+                };
+            });
+            setFriends(convertedFriendships);
+        });
+    }, [currentUsername]);
+    const acceptedFriends = friends.filter((friendship) => friendship.status === FriendshipStatus.ACCEPTED);
+
+    const handleUserSelection = (username: string) => {
+        setSelectedUsers((prevSelectedUsers) =>
+          prevSelectedUsers.includes(username)
+            ? prevSelectedUsers.filter((user) => user !== username)
+            : [...prevSelectedUsers, username]
+        );
       };
     
-      const handleCardPopupClose = () => {
-        setIsCardPopupOpen(false);
-      };
+      // Utiliser useEffect pour suivre les mises à jour de myFriendsList
+      useEffect(() => {
+        myFriendsList.clear(); // Effacer la liste avant de la remplir à nouveau
+        selectedUsers.forEach((username) => myFriendsList.add(username));
+        console.log(myFriendsList);
+      }, [selectedUsers]);
+    
   
     return (
         <div className="gameWrapper">
@@ -77,13 +92,37 @@ function LibraryComponents(){
                         <div className="card p-4 popUp-body">
                             <div className="image d-flex flex-column justify-content-center align-items-center">
                                 <label className="font-bold text-lg text-white">
-                                    Account Number
+                                    Sélectionner vos amis
                                 </label>
-                                <input
-                                    type="text"
-                                    placeholder="Account number"
-                                    className="border rounded-lg py-3 px-3 mt-4 bg-black border-indigo-600 placeholder-white-500 text-white"
-                                />
+                                <div>
+                                    {acceptedFriends.map((friendship, index) => (
+                                        <label className="lns-checkbox ml-2" key={index}>
+                                        <input
+                                            type="checkbox"
+                                            checked={selectedUsers.includes(
+                                            friendship.senderUser === currentUsername
+                                                ? friendship.receiverUser
+                                                : friendship.senderUser
+                                            )}
+                                            onChange={() =>
+                                            handleUserSelection(
+                                                friendship.senderUser === currentUsername
+                                                ? friendship.receiverUser
+                                                : friendship.senderUser
+                                            )
+                                            }
+                                        />
+                                        {friendship.senderUser === currentUsername ? (
+                                            <span>{friendship.receiverUser}</span>
+                                        ) : (
+                                            <span>{friendship.senderUser}</span>
+                                        )}
+                                        </label>
+                                    ))}
+                                    </div>
+                                <button className="cancel button cancel-button">
+                                    Créer
+                                </button>
                                 <button onClick={handleCardPopupClose} className="cancel button cancel-button">
                                     Annuler
                                 </button>
@@ -92,9 +131,6 @@ function LibraryComponents(){
                     </div>
                 </div>
             )}
-            
-            
-
         </div>
     );
 
