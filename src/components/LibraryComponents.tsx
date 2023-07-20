@@ -6,6 +6,9 @@ import { Game } from "../interfaces/Game.Interface";
 import {FriendshipDTO, FriendshipStatus} from "../dto/Friendship.dto";
 import FriendService from "../services/Friends.Service";
 import {useLocation} from "react-router-dom";
+import { PartyService } from "../services/Party.service";
+import { PartyDTO } from "../dto/Party.dto";
+
 
 
 function LibraryComponents(){
@@ -16,6 +19,7 @@ function LibraryComponents(){
     const [friends, setFriends] = useState<FriendshipDTO[]>([])
     const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
     const myFriendsList = new Set<string>();
+    const [selectedGame, setSelectedGame] = useState<Game | null>(null); 
 
     useEffect(() => {
         const service = new GameService();
@@ -26,14 +30,14 @@ function LibraryComponents(){
         });
     }, []);
 
-    const handleCardClick = () => {
+    const handleCardClick = (game: Game) => {
+        setSelectedGame(game); 
         setIsCardPopupOpen(true);
-    };
+      };
     
     const handleCardPopupClose = () => {
         setIsCardPopupOpen(false);
     };
-
     
     useEffect(() => {
         FriendService.getFriendship(currentUsername).then((friendships) => {
@@ -58,12 +62,41 @@ function LibraryComponents(){
         );
     };
     
-      // Utiliser useEffect pour suivre les mises à jour de myFriendsList
     useEffect(() => {
-        myFriendsList.clear(); // Effacer la liste avant de la remplir à nouveau
+        myFriendsList.clear(); 
         selectedUsers.forEach((username) => myFriendsList.add(username));
         console.log(myFriendsList);
     }, [selectedUsers]);
+
+    const handleCreateParty = async () => {
+        if (!selectedGame) return;
+
+        const selectedParticipantsCount = Array.from(myFriendsList).length + 1; // +1 pour inclure l'utilisateur actuel
+        if (
+          selectedParticipantsCount < selectedGame.nbMinPlayer ||
+          selectedParticipantsCount > selectedGame.nbMaxPlayer
+        ) {
+          console.error('Le nombre de participants sélectionnés ne correspond pas aux règles du jeu.');
+          return;
+        }
+    
+        const partyData: PartyDTO = {
+            gameName: selectedGame.name,
+            participantsUsername: [currentUsername, ...Array.from(myFriendsList)],
+        };
+        console.log("partyData", partyData);
+    
+        try {
+          const createdParty = await PartyService.createParty(partyData);
+          console.log("Partie créée avec succès:", createdParty);
+    
+          setSelectedGame(null);
+          setIsCardPopupOpen(false);
+        } catch (error) {
+          console.error("Erreur lors de la création de la partie:", error);
+        }
+      };
+    
     
   
     return (
@@ -73,7 +106,7 @@ function LibraryComponents(){
 
             <div className="cards">
                 {games.map((game, index) => (
-                    <div className="card" key={index} onClick={handleCardClick}>
+                    <div className="card" key={index} onClick={() => handleCardClick(game)}>
                         <img
                         className="gameImg"
                         src="https://developpement-web-facile.com/wp-content/uploads/2020/12/snake-game.jpg?is-pending-load=1"
@@ -84,13 +117,13 @@ function LibraryComponents(){
                     </div>
                 ))}
             </div>
-            {isCardPopupOpen && (
+            {isCardPopupOpen && selectedGame &&(
                 <div className="popUp-body">
                     <div className="container mt-4 mb-4 p-3 d-flex justify-content-center">
                         <div className="card p-4 popUp-body">
                             <div className="image d-flex flex-column justify-content-center align-items-center">
                                 <label className="font-bold text-lg text-white">
-                                    Sélectionner vos amis
+                                    Sélectionner vos amis pour le jeu "{selectedGame.name}"
                                 </label>
                                 <div>
                                     {acceptedFriends.map((friendship, index) => (
@@ -119,7 +152,7 @@ function LibraryComponents(){
                                         </label>
                                     ))}
                                     </div>
-                                <button className="cancel button cancel-button">
+                                <button className="cancel button cancel-button" onClick={handleCreateParty}>
                                     Créer
                                 </button>
                                 <button onClick={handleCardPopupClose} className="cancel button cancel-button">
