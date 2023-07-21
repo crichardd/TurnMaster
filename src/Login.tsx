@@ -7,15 +7,12 @@ import { LoginDTO } from './dto/Login.dto';
 import { InscriptionDTO } from './dto/Add.dto';
 import { InscriptionService } from './services/Inscription.service';
 
-
 export default function Login() {
 
     const [connect, setConnect] = useState<LoginDTO>();
     const [status, setStatus] = useState<boolean>(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [inscription, setInscription] = useState<InscriptionDTO>();
-
-  
 
     const navigate = useNavigate();
 
@@ -33,7 +30,6 @@ export default function Login() {
         }
       }
     }
-    
 
     const handleSubmit = (event: any) => {
         event.preventDefault();
@@ -95,7 +91,6 @@ export default function Login() {
               <button className='loginButton signUpButton' type="submit">S'incrire</button>
             </form>
           </div>
-          
 
         </div>
       </div>

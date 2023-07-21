@@ -24,10 +24,7 @@ function ProfilComponent(props: ProfilProps) {
   };
 
   const handleSave = () => {
-    // Ajoutez ici votre logique pour enregistrer les modifications, par exemple, en utilisant une requête API
-
     setIsEditing(false);
-    // Mettez à jour le nom d'utilisateur dans votre backend ou votre source de données
   };
 
   return (

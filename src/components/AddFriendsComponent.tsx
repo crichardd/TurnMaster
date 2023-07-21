@@ -24,8 +24,6 @@ const AddFriendsComponent = () => {
                     myFriends.add(friendship.senderUser);
                 }
             });
-      
-            console.log("myfriends", myFriends);
         
             FriendService.getAllUsers(currentUsername).then((usersData) => {
                 const nonFriends = usersData.filter(

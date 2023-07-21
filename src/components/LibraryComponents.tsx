@@ -18,6 +18,8 @@ function LibraryComponents(){
     const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
     const myFriendsList = new Set<string>();
     const [selectedGame, setSelectedGame] = useState<Game | null>(null); 
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
 
     useEffect(() => {
         const service = new GameService();
@@ -69,12 +71,22 @@ function LibraryComponents(){
         if (!selectedGame) return;
 
         const selectedParticipantsCount = Array.from(myFriendsList).length + 1; // +1 pour inclure l'utilisateur actuel
-        if (
+        /*if (
           selectedParticipantsCount < selectedGame.nbMinPlayer ||
           selectedParticipantsCount > selectedGame.nbMaxPlayer
         ) {
-          console.error('Le nombre de participants sélectionnés ne correspond pas aux règles du jeu.');
-          return;
+         
+        }*/
+        if (selectedParticipantsCount < selectedGame.nbMinPlayer){
+            console.log("pas assez")
+            setErrorMessage("Vous n'avez pas sélectionner assez de participant.");
+            console.error('Le nombre de participants sélectionnés ne correspond pas aux règles du jeu.');
+            return;
+        } else if (selectedParticipantsCount > selectedGame.nbMaxPlayer){
+            console.log("trop")
+            setErrorMessage("Vous avez pas sélectionner trop de participant.");
+            console.error('Le nombre de participants sélectionnés ne correspond pas aux règles du jeu.');
+            return;
         }
     
         const partyData: PartyDTO = {
@@ -83,18 +95,16 @@ function LibraryComponents(){
         };
     
         try {
-          const createdParty = await PartyService.createParty(partyData);
-          console.log("Partie créée avec succès:", createdParty);
-    
-          setSelectedGame(null);
-          setIsCardPopupOpen(false);
+            const createdParty = await PartyService.createParty(partyData);
+            console.log("Partie créée avec succès:", createdParty);
+            setSelectedGame(null);
+            setIsCardPopupOpen(false);
         } catch (error) {
-          console.error("Erreur lors de la création de la partie:", error);
+            console.error("Erreur lors de la création de la partie:", error);
         }
-      };
+    };
     
-    
-  
+
     return (
         <div className="gameWrapper">
 
@@ -121,6 +131,7 @@ function LibraryComponents(){
                                 <label className="font-bold text-lg text-white">
                                     Sélectionner vos amis pour le jeu "{selectedGame.name}"
                                 </label>
+                                {errorMessage && <div className="loginError warning"><i className="fa fa-exclamation-triangle rotate"></i> <span>{errorMessage}</span></div>}
                                 <div>
                                     {acceptedFriends.map((friendship, index) => (
                                         <label className="lns-checkbox ml-2" key={index}>
