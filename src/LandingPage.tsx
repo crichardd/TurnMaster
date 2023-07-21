@@ -8,6 +8,7 @@ import { useState} from "react";
 import { useLocation } from 'react-router-dom';
 import ProfilComponent from "./components/ProfilComponent";
 import './css/profil.css';
+import MessageComponent from './components/MessageComponents';
 
 function LandingPage() {
   const location = useLocation();
@@ -30,11 +31,14 @@ function LandingPage() {
       <div className="library-container" id="bodyLib">
         <LibraryComponents />
       </div>
-        {isPopupOpen && (
-          <div className="profil-container">
-            <ProfilComponent username={username} closePopup={closePopup} /> {/* Passer le nom d'utilisateur et la fonction closePopup comme propriétés */}
-          </div>
-        )}
+      {isPopupOpen && (
+        <div className="profil-container">
+          <ProfilComponent username={username} closePopup={closePopup} /> {/* Passer le nom d'utilisateur et la fonction closePopup comme propriétés */}
+        </div>
+      )}
+      <div className="message-container">
+        <MessageComponent />
+      </div>
     </div>
   );
 }

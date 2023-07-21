@@ -1,0 +1,25 @@
+.message-container {
+    height: 100%;
+}
+  
+.conv-container {
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--plus-white);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: all 0.3s;
+    background-color: var(--creamy);
+    float: right;
+    padding-top: 60px;
+}
+
+.sidebarMenuContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
