@@ -9,8 +9,6 @@ import {useLocation} from "react-router-dom";
 import { PartyService } from "../services/Party.service";
 import { PartyDTO } from "../dto/Party.dto";
 
-
-
 function LibraryComponents(){
     const location = useLocation();
     const currentUsername = location.state?.username;
@@ -65,7 +63,6 @@ function LibraryComponents(){
     useEffect(() => {
         myFriendsList.clear(); 
         selectedUsers.forEach((username) => myFriendsList.add(username));
-        console.log(myFriendsList);
     }, [selectedUsers]);
 
     const handleCreateParty = async () => {
@@ -84,7 +81,6 @@ function LibraryComponents(){
             gameName: selectedGame.name,
             participantsUsername: [currentUsername, ...Array.from(myFriendsList)],
         };
-        console.log("partyData", partyData);
     
         try {
           const createdParty = await PartyService.createParty(partyData);
