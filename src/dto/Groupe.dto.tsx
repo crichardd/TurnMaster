@@ -1,4 +1,4 @@
-export interface GroupDTO {
+export interface GroupeDTO {
     name: string;
     participants: string[];
     messages: MessageDTO[];
