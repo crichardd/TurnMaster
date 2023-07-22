@@ -17,6 +17,7 @@
     background-color: var(--creamy);
     float: right;
     padding-top: 60px;
+    position: relative;
 }
 
 .sidebarMenuContent {
@@ -27,12 +28,14 @@
     width: 100%;
 }
 
+.content-wrapper{
+    width: 80%;
+    height: 10%;
+}
 
-/************************************************
-	************************************************
-									Users Container
-	************************************************
-************************************************/
+.sidebar-swipe-left {
+    transform: translateX(-100%);
+}
 
 .users-container {
     position: relative;
@@ -45,12 +48,7 @@
     flex-direction: column;
 }
 
-
-/************************************************
-	************************************************
-											Users
-	************************************************
-************************************************/
+/****** Users ******/
 
 .users {
     padding: 0;
@@ -171,3 +169,36 @@
     }
 }
 
+
+/***** animation sidebarMessage *****/
+/*
+
+        {showConversation ? (
+        <div className="conversation">
+          <h2>Conversation avec {selectedGroupe?.name}</h2>
+          
+          <button onClick={() => setShowConversation(false)}>Retour</button>
+        </div>
+      ) : (    
+
+      <div className={`conv-container ${showConversation ? "sidebar-swipe-left" : ""}`}>
+      {showConversation ? (
+        <div className="conversation">
+          <h2>Conversation avec {selectedGroupe?.name}</h2>
+          
+          <button onClick={() => setShowConversation(false)}>Retour</button>
+        </div>
+      ) : (
+        <div id="sidebarConv">
+          <div className="sidebarMenuContent">
+            <h2>Messagerie</h2>
+            {groupes.map((groupe, index) => (
+              <div key={index} onClick={() => handleGroupeClick(groupe)}>
+                {groupe.name}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+*/

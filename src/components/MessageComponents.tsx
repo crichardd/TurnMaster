@@ -8,9 +8,10 @@ function MessageComponent() {
   const location = useLocation();
   const currentUsername = location.state?.username;
   const [groupes, setGroupes] = useState<GroupeDTO[]>([]);
+  const [selectedGroupe, setSelectedGroupe] = useState<GroupeDTO | null>(null);
+  const [isConversationVisible, setIsConversationVisible] = useState(false);
 
   useEffect(() => {
-    
     const fetchGroupes = async () => {
       try {
         const groupesData = await GroupeService.getGroupe();
@@ -26,36 +27,58 @@ function MessageComponent() {
     fetchGroupes();
   }, [currentUsername]);
 
+  const handleGroupeClick = (groupe: GroupeDTO) => {
+    setSelectedGroupe(groupe);
+    setIsConversationVisible(true);
+  };
+
+  const handleBackClick = () => {
+    setIsConversationVisible(false);
+  };
+
   return (
     <div className="conv-container">
-      <div id="sidebarConv">
-        <div className="sidebarMenuContent">
-          <h2>Messagerie</h2>             
+      {!isConversationVisible && (
+        <div id="sidebarConv" className="show">
+          <div className="sidebarMenuContent">
+            <h2>Messagerie</h2>             
             <div className="content-wrapper">
               <div className="row gutters">
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                  <div className="cardMessage m-0">
-                    <div className="users-container">
-                      <ul className="users">
-                        {groupes.map((groupe) => (
+                {groupes.map((groupe, index) => (
+                    <div className="cardMessage m-0" onClick={() => handleGroupeClick(groupe)} key={index}>
+                      <div className="users-container">
+                        <ul className="users">
                           <li className="person" data-chat="person1">
-                              <div className="user">
-                                  <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin"/>
-                                  <span className="status busy"></span>
+                            <div className="user">
+                              <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin"/>
+                              <span className="status busy"></span>
+                            </div>
+                            <div className="name-time">
+                              <div className="name">
+                                {groupe.name}
                               </div>
-                              <p className="name-time">
-                                  <span className="name"><li key={groupe.name}>{groupe.name}</li></span>
-                              </p>
+                            </div>
                           </li>
-                        ))}
-                      </ul>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div> 
+          </div>
         </div>
-      </div>       
+      )}
+      {isConversationVisible && selectedGroupe && (
+        <div className="conversation">
+          <h2>Conversation avec {selectedGroupe.name}</h2>
+          <div className="form-group mt-3 mb-0">
+            <textarea className="form-control" rows={3} placeholder="Type your message here..."></textarea>
+          </div>
+          <button onClick={handleBackClick}>Retour</button>
+        </div>
+      )}
     </div>
   );
 }
