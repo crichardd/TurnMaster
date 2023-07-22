@@ -47,7 +47,7 @@ const AddFriendsComponent = () => {
                 <AddFriendCard
                     key={`${index}-${user.username}`}
                     user={user}
-                    onFriendAdded={handleReloadUsers} // Passer la fonction de recherche d'utilisateurs
+                    onFriendAdded={handleReloadUsers}
                 />
             ))}
         </div>

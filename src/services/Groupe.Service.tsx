@@ -10,7 +10,7 @@ export class GroupeService {
             return response.data as GroupeDTO[];
         } catch (error) {
             console.log(error);
-            throw error; // Laisser le traitement des erreurs à l'appelant du service
+            throw error; 
         }
     }
 }
