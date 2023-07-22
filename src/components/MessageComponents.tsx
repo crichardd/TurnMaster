@@ -3,6 +3,10 @@ import { useState, useEffect } from 'react';
 import { GroupeService } from '../services/Groupe.Service';
 import {useLocation} from "react-router-dom";
 import {GroupeDTO} from "../dto/Groupe.dto";
+import io from 'socket.io-client';
+import { Socket } from 'socket.io-client';
+
+const REST_API_URL = 'https://app-turnmasterapi-230715140732.azurewebsites.net';
 
 function MessageComponent() {
   const location = useLocation();
@@ -10,8 +14,25 @@ function MessageComponent() {
   const [groupes, setGroupes] = useState<GroupeDTO[]>([]);
   const [selectedGroupe, setSelectedGroupe] = useState<GroupeDTO | null>(null);
   const [isConversationVisible, setIsConversationVisible] = useState(false);
+  const [socket, setSocket] = useState<Socket | null>(null); // Utilisez directement 'Socket' sans 'DefaultEventsMap'
+  const [message, setMessage] = useState('');
+
 
   useEffect(() => {
+
+    const socket = io(`${REST_API_URL}/ws`);
+    
+    setSocket(socket);
+    socket.on('connect', () => {
+      console.log('Connexion établie avec le serveur WebSocket');
+    });
+
+    socket.on('message', (data) => {
+      console.log('Message reçu du serveur:', data);
+    });
+
+
+
     const fetchGroupes = async () => {
       try {
         const groupesData = await GroupeService.getGroupe();
@@ -25,6 +46,11 @@ function MessageComponent() {
     };
 
     fetchGroupes();
+
+    return () => {
+      socket.disconnect();
+    }
+
   }, [currentUsername]);
 
   const handleGroupeClick = (groupe: GroupeDTO) => {
@@ -35,6 +61,18 @@ function MessageComponent() {
   const handleBackClick = () => {
     setIsConversationVisible(false);
   };
+
+  const handleSendMessage = () => {
+    if (socket && message.trim() !== '') {
+      socket.emit('message', { 
+        content: message,
+        sender: currentUsername,
+        group: selectedGroupe?.name
+      });
+      setMessage(''); // Effacer le message après l'envoi
+    }
+  };
+
 
   return (
     <div className="conv-container">
@@ -74,8 +112,15 @@ function MessageComponent() {
         <div className="conversation">
           <h2>Conversation avec {selectedGroupe.name}</h2>
           <div className="form-group mt-3 mb-0">
-            <textarea className="form-control" rows={3} placeholder="Type your message here..."></textarea>
+            <textarea
+              className="form-control"
+              rows={3}
+              placeholder="Tapez votre message ici..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
           </div>
+          <button onClick={handleSendMessage}>Envoyer</button>
           <button onClick={handleBackClick}>Retour</button>
         </div>
       )}
