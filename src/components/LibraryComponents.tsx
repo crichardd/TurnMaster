@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import '../css/library.css';
 import '../css/popup.css';
+import { GameDTO } from "../dto/Game.dto";
 import GameService from "../services/Game.Service";
-import { Game } from "../interfaces/Game.Interface";
 import {FriendshipDTO, FriendshipStatus} from "../dto/Friendship.dto";
 import FriendService from "../services/Friends.Service";
 import {useLocation} from "react-router-dom";
@@ -12,25 +12,27 @@ import { PartyDTO } from "../dto/Party.dto";
 function LibraryComponents(){
     const location = useLocation();
     const currentUsername = location.state?.username;
-    const [games, setGames] = useState<Game[]>([]);
+    const [games, setGames] = useState<GameDTO[]>([]);
     const [isCardPopupOpen, setIsCardPopupOpen] = useState(false); 
     const [friends, setFriends] = useState<FriendshipDTO[]>([])
     const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
     const myFriendsList = new Set<string>();
-    const [selectedGame, setSelectedGame] = useState<Game | null>(null); 
+    const [selectedGame, setSelectedGame] = useState<GameDTO | null>(null); 
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
 
     useEffect(() => {
         const service = new GameService();
-        service.getGames().then(data => {
+        service
+          .getGames()
+          .then((data) => {
             setGames(data);
-        }).catch(error => {
+          })
+          .catch((error) => {
             console.error(error);
-        });
-    }, []);
+          });
+      }, []);
 
-    const handleCardClick = (game: Game) => {
+    const handleCardClick = (game: GameDTO) => {
         setSelectedGame(game); 
         setIsCardPopupOpen(true);
       };
@@ -71,12 +73,7 @@ function LibraryComponents(){
         if (!selectedGame) return;
 
         const selectedParticipantsCount = Array.from(myFriendsList).length + 1; // +1 pour inclure l'utilisateur actuel
-        /*if (
-          selectedParticipantsCount < selectedGame.nbMinPlayer ||
-          selectedParticipantsCount > selectedGame.nbMaxPlayer
-        ) {
-         
-        }*/
+
         if (selectedParticipantsCount < selectedGame.nbMinPlayer){
             console.log("pas assez")
             setErrorMessage("Vous n'avez pas sélectionner assez de participant.");
@@ -113,16 +110,14 @@ function LibraryComponents(){
             <div className="cards">
                 {games.map((game, index) => (
                     <div className="card" key={index} onClick={() => handleCardClick(game)}>
-                        <img
-                        className="gameImg"
-                        src="https://developpement-web-facile.com/wp-content/uploads/2020/12/snake-game.jpg?is-pending-load=1"
-                        />
-                            <label className="gameLabel">
-                                {game.name} ({game.nbMinPlayer} - {game.nbMaxPlayer} joueurs)
-                            </label>
+                        <img className="gameImg" src={game.imagePath} alt={game.name} />
+                        <label className="gameLabel">
+                            
+                            {game.name} ({game.nbMinPlayer} - {game.nbMaxPlayer} joueurs)
+                        </label>
                     </div>
                 ))}
-            </div>
+            </div> 
             {isCardPopupOpen && selectedGame &&(
                 <div className="popUp-body">
                     <div className="container mt-4 mb-4 p-3 d-flex justify-content-center">
@@ -176,36 +171,3 @@ function LibraryComponents(){
 }
 
 export default LibraryComponents;
-
-
-/*
-
-<div className="buttonDiv">
-              <button onClick={openPopup} className="buttonAddGame">Ajouter un jeu</button>
-              {isPopupOpen && (
-                  <div id="container" className="popup-container">
-                      <div className="popup-content popup container-inner">
-                          <h3 className="h3Game">Ajouter votre Jeux</h3>
-                          <form onSubmit={handleSubmit}>
-                              <div className="content">
-                                    <label>Nom</label>
-                                    <input className="nameGameInput addGameInput" type="text" name="name" placeholder="Nom du Jeu"/>
-                                    <label>De </label> 
-                                    <input className="nbInput addGameInput" type="number" min="0" name="nbMinPlayer"/> 
-                                    <label>à</label>
-                                    <input className="nbInput addGameInput" min="0" type="number" name="nbMaxPlayer" /> 
-                                    <label> Joueurs </label>
-                              </div>
-                              <div className="buttons">
-                                    <button type="submit" className="confirm button">Créer</button>
-                                    <button onClick={closePopup} className="cancel button">Annuler</button>
-                              </div>
-                              
-                          </form>
-                      </div>
-                      
-                  </div>
-              )}
-            </div>
-            
-            */

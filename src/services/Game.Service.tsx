@@ -1,5 +1,4 @@
 import { GameDTO } from "../dto/Game.dto";
-import {Game} from "../interfaces/Game.Interface";
 import axios from "axios";
 
 export default class GameService {
@@ -18,13 +17,13 @@ export default class GameService {
         this.baseUrl = "https://app-turnmasterapi-230715140732.azurewebsites.net/api";
     }
 
-    async getGames(): Promise<Game[]> {
+    async getGames(): Promise<GameDTO[]> {
         const response = await fetch(`${this.baseUrl}/game/list`);
         if (!response.ok) {
             throw new Error(`Failed to fetch games: ${response.statusText}`);
         }
         const data = await response.json();
-        return data as Game[];
+        return data as GameDTO[];
     }
 
     async addGame(addGame: any): Promise<GameDTO | undefined> {
