@@ -2,8 +2,7 @@ export interface GroupDTO {
     name: string;
     participants: string[];
     messages: MessageDTO[];
-  }
+}
   
-  export interface MessageDTO {
-  }
-  
+export interface MessageDTO {
+}
