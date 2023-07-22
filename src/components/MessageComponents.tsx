@@ -54,23 +54,8 @@ function MessageComponent() {
     <div className="conv-container">
       <div id="sidebarConv">
         <div className="sidebarMenuContent">
-          <h2>Message</h2> 
-          <h3>DEMANDES</h3>
-            <div>
-                {pendingFriends.map((friendship, index) => (
-                    <FriendRequestCard
-                        key={index}
-                        friendship={friendship}
-                        onFriendRequestAction={handleFriendRequestAction} // Pass the callback here
-                    />
-                ))}
-            </div>
-            <h3>AMIS</h3>
-            <div>
-            {acceptedFriends.map((friendship, index) => {
-                return <FriendCard key={index} friendship={friendship} />;
-            })}
-            </div>
+          <h2>Messagerie</h2> 
+
         </div>
       </div>
              
