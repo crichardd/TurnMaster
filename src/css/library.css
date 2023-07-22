@@ -26,8 +26,8 @@
   position: relative;
   border-radius: 2;
   background-color: var(--smoky-blue);
-  display: flex; /* Ajout de cette propriété */
-  flex-direction: column; /* Ajout de cette propriété */
+  display: flex;
+  flex-direction: column; 
 }
 
 .card .gameImg {

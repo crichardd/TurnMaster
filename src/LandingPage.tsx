@@ -26,18 +26,26 @@ function LandingPage() {
 
   return (
     <div className="landing-page">
-      <Header username={username} openPopup={openPopup}/> {/* Passer le nom d'utilisateur comme propriété */}
-      <SideBar />
-      <div className="library-container" id="bodyLib">
-        <LibraryComponents />
-      </div>
-      {isPopupOpen && (
-        <div className="profil-container">
-          <ProfilComponent username={username} closePopup={closePopup} /> {/* Passer le nom d'utilisateur et la fonction closePopup comme propriétés */}
+      <Header username={username} openPopup={openPopup}/> 
+      <div className='row '>
+        <div className='col-3'>
+        <SideBar />
         </div>
-      )}
-      <div className="message-container">
-        <MessageComponent />
+        <div className='col-6'>
+          <div className="library-container" id="bodyLib">
+            <LibraryComponents />
+          </div>
+          {isPopupOpen && (
+            <div className="profil-container">
+              <ProfilComponent username={username} closePopup={closePopup} /> 
+            </div>
+          )}
+        </div>
+        <div className='col-3'>
+          <div className="message-container">
+            <MessageComponent />
+          </div>
+        </div>
       </div>
     </div>
   );
