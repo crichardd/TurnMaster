@@ -30,15 +30,32 @@ function MessageComponent() {
     <div className="conv-container">
       <div id="sidebarConv">
         <div className="sidebarMenuContent">
-          <h2>Messagerie</h2> 
-          <ul>
-            {groupes.map((groupe) => (
-              <li key={groupe.name}>{groupe.name}</li>
-            ))}
-          </ul>
+          <h2>Messagerie</h2>             
+            <div className="content-wrapper">
+              <div className="row gutters">
+                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div className="cardMessage m-0">
+                    <div className="users-container">
+                      <ul className="users">
+                        {groupes.map((groupe) => (
+                          <li className="person" data-chat="person1">
+                              <div className="user">
+                                  <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin"/>
+                                  <span className="status busy"></span>
+                              </div>
+                              <p className="name-time">
+                                  <span className="name"><li key={groupe.name}>{groupe.name}</li></span>
+                              </p>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
         </div>
-      </div>
-             
+      </div>       
     </div>
   );
 }
