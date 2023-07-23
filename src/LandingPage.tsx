@@ -12,7 +12,7 @@ import MessageComponent from './components/MessageComponents';
 
 function LandingPage() {
   const location = useLocation();
-  const username = location.state ? location.state.username : ""; // Récupérer le nom d'utilisateur de la location
+  const username = location.state ? location.state.username : "";
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const openPopup = () => {
@@ -23,6 +23,9 @@ function LandingPage() {
     setIsPopupOpen(false);
   };
 
+  const handlePasswordChange = (newPassword: string) => {
+    console.log("New password:", newPassword);
+  };
 
   return (
     <div className="landing-page">
@@ -37,7 +40,11 @@ function LandingPage() {
           </div>
           {isPopupOpen && (
             <div className="profil-container">
-              <ProfilComponent username={username} closePopup={closePopup} /> 
+              <ProfilComponent
+                username={username}
+                closePopup={closePopup}
+                onPasswordChange={handlePasswordChange} // Pass the callback to handle password change
+              /> 
             </div>
           )}
         </div>
