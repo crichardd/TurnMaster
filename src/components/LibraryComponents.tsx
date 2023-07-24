@@ -14,10 +14,8 @@ function LibraryComponents(){
     const currentUsername = location.state?.username;
     const [games, setGames] = useState<GameDTO[]>([]);
     const [isCardPopupOpen, setIsCardPopupOpen] = useState(false);
-    const [friends, setFriends] = useState<FriendshipDTO[]>([]);
     const [selectedGame, setSelectedGame] = useState<GameDTO | null>(null);
   
-
     useEffect(() => {
         const service = new GameService();
         service
@@ -38,26 +36,9 @@ function LibraryComponents(){
     const handleCardPopupClose = () => {
         setIsCardPopupOpen(false);
     };
-    
-    useEffect(() => {
-        FriendService.getFriendship(currentUsername).then((friendships) => {
-            const convertedFriendships: FriendshipDTO[] = friendships.map((friendship) => {
-                return {
-                    senderUser: friendship.senderUser,
-                    receiverUser: friendship.receiverUser,
-                    status: friendship.status as FriendshipStatus,
-                    time: friendship.time,
-                };
-            });
-            setFriends(convertedFriendships);
-        });
-    }, [currentUsername]);
 
     const handleCreateParty = async () => {
         if (!selectedGame) return;
-
-
-        
         const partyData: PartyDTO = {
             gameName: selectedGame.name,
             username: currentUsername,
@@ -74,7 +55,6 @@ function LibraryComponents(){
             console.error("Erreur lors de la création de la partie:", error);
         }
     };
-    
 
     return (
         <div className="gameWrapper">
