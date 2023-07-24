@@ -13,13 +13,10 @@ function LibraryComponents(){
     const location = useLocation();
     const currentUsername = location.state?.username;
     const [games, setGames] = useState<GameDTO[]>([]);
-    const [isCardPopupOpen, setIsCardPopupOpen] = useState(false); 
-    const [friends, setFriends] = useState<FriendshipDTO[]>([])
-    const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
-    const myFriendsList = new Set<string>();
-    const [selectedGame, setSelectedGame] = useState<GameDTO | null>(null); 
-    const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
+    const [isCardPopupOpen, setIsCardPopupOpen] = useState(false);
+    const [friends, setFriends] = useState<FriendshipDTO[]>([]);
+    const [selectedGame, setSelectedGame] = useState<GameDTO | null>(null);
+  
 
     useEffect(() => {
         const service = new GameService();
@@ -55,12 +52,6 @@ function LibraryComponents(){
             setFriends(convertedFriendships);
         });
     }, [currentUsername]);
-
-
-    useEffect(() => {
-        myFriendsList.clear(); 
-        selectedUsers.forEach((username) => myFriendsList.add(username));
-    }, [selectedUsers]);
 
     const handleCreateParty = async () => {
         if (!selectedGame) return;
