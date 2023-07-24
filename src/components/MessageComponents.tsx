@@ -22,7 +22,7 @@ function MessageComponent() {
 
   useEffect(() => {
 
-    const socket = io(`${REST_API_URL}/ws`);
+    const socket = io(`${REST_API_URL}/chat`);
     
     setSocket(socket);
     socket.on('connect', () => {
