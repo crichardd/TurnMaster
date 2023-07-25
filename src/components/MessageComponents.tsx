@@ -33,8 +33,6 @@ function MessageComponent() {
       console.log('Message reçu du serveur:', data);
     });
 
-
-
     const fetchGroupes = async () => {
       try {
         const groupesData = await GroupeService.getGroupe();

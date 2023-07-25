@@ -3,8 +3,6 @@ import '../css/library.css';
 import '../css/popup.css';
 import { GameDTO } from "../dto/Game.dto";
 import GameService from "../services/Game.Service";
-import {FriendshipDTO, FriendshipStatus} from "../dto/Friendship.dto";
-import FriendService from "../services/Friends.Service";
 import {useLocation} from "react-router-dom";
 import { PartyService } from "../services/Party.service";
 import { PartyDTO } from "../dto/Party.dto";
@@ -15,6 +13,8 @@ function LibraryComponents(){
     const [games, setGames] = useState<GameDTO[]>([]);
     const [isCardPopupOpen, setIsCardPopupOpen] = useState(false);
     const [selectedGame, setSelectedGame] = useState<GameDTO | null>(null);
+    const [isJoinParty, setIsJoinParty] = useState(false);
+    const [code, setCode] = useState("");
   
     useEffect(() => {
         const service = new GameService();
@@ -26,12 +26,12 @@ function LibraryComponents(){
           .catch((error) => {
             console.error(error);
           });
-      }, []);
+    }, []);
 
     const handleCardClick = (game: GameDTO) => {
         setSelectedGame(game); 
         setIsCardPopupOpen(true);
-      };
+    };
     
     const handleCardPopupClose = () => {
         setIsCardPopupOpen(false);
@@ -50,10 +50,18 @@ function LibraryComponents(){
             console.log("Partie créée avec succès:", createdParty);
             setSelectedGame(null);
             setIsCardPopupOpen(false);
+            console.log("Code de retour de l'API:", createdParty.code);
 
         } catch (error) {
             console.error("Erreur lors de la création de la partie:", error);
         }
+    };
+
+    const handleJoinParty = async () => {
+        setIsJoinParty(true);
+    }
+    const cancelJoinParty = () => {
+        setIsJoinParty(false);
     };
 
     return (
@@ -77,18 +85,35 @@ function LibraryComponents(){
                     <div className="container mt-4 mb-4 p-3 d-flex justify-content-center">
                         <div className="card p-4 popUp-body">
                             <div className="image d-flex flex-column justify-content-center align-items-center">
-                                <label className="font-bold text-lg text-white">
-                                    Sélectionner vos amis pour le jeu "{}"
-                                </label>
-                                <button className="cancel button cancel-button" onClick={handleCreateParty}>
-                                    Créer
-                                </button>
-                                <button className="cancel button cancel-button" onClick={handleCreateParty}>
-                                    Rejoindre
-                                </button>
-                                <button onClick={handleCardPopupClose} className="cancel button cancel-button">
-                                    Annuler
-                                </button>
+                                {isJoinParty ? (
+                                    <>
+                                        <span className="passWord mt-3">Veuillez entrer le code de partie</span>
+                                        <input
+                                            type="texte"
+                                            placeholder="code de partie"
+                                            className="passwordInput mt-3"
+                                        />
+                                        <button onClick={cancelJoinParty} className="btn1 btn-dark ml-2">
+                                            Annuler
+                                        </button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <label className="font-bold text-lg text-white">
+                                            Sélectionner vos amis pour le jeu "{}"
+                                        </label>
+                                        <button className="cancel button cancel-button" onClick={handleCreateParty}>
+                                            Créer
+                                        </button>
+                                        <button className="cancel button cancel-button" onClick={handleJoinParty}>
+                                            Rejoindre
+                                        </button>
+                                        <button onClick={handleCardPopupClose} className="cancel button cancel-button">
+                                            Annuler
+                                        </button>
+                                    </>
+                                )}
+                                
                             </div>
                         </div>
                     </div>

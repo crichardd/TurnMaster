@@ -66,21 +66,21 @@ function ProfilComponent(props: ProfilProps) {
           <span className="passWord mt-3">Mot de passe</span>
           {isEditing ? (
             <div className="passwordInputs">
-            <input
-              type="password"
-              value={currentPassword}
-              onChange={handleCurrentPasswordChange}
-              placeholder="Mot de passe actuel"
-              className="passwordInput mt-3"
-            />
-            <input
-              type="password"
-              value={newPassword}
-              onChange={handleNewPasswordChange}
-              placeholder="Nouveau mot de passe"
-              className="passwordInput mt-3"
-            />
-          </div>
+              <input
+                type="password"
+                value={currentPassword}
+                onChange={handleCurrentPasswordChange}
+                placeholder="Mot de passe actuel"
+                className="passwordInput mt-3"
+              />
+              <input
+                type="password"
+                value={newPassword}
+                onChange={handleNewPasswordChange}
+                placeholder="Nouveau mot de passe"
+                className="passwordInput mt-3"
+              />
+            </div>
           ) : (
             <span className="passwordLabel mt-3">*********</span> // Display asterisks for password in non-edit mode
           )}
