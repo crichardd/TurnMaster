@@ -14,7 +14,7 @@
   vertical-align: middle;
   position: relative;
   vertical-align: middle;
-  color: var(--plus-white);
+  color: var(--smoky-blue);
 }
 
 .card {
@@ -25,7 +25,7 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
   position: relative;
   border-radius: 2;
-  background-color: var(--smoky-blue);
+  background-color: var(--light-grey);
   display: flex;
   flex-direction: column; 
 }
@@ -125,5 +125,5 @@
 .submit-feedback:hover {
   border-radius: 0px;
   color: var(--feedback-primary-color);
-  background-color: var(--background-color);
+  background-color: var(--jsp-grey);
 }
