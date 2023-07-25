@@ -96,6 +96,7 @@ function LibraryComponents(){
                                         <button onClick={cancelJoinParty} className="btn1 btn-dark ml-2">
                                             Annuler
                                         </button>
+                                        <button className="tooltip demo" onClick={cancelJoinParty}>Annuler</button>
                                     </>
                                 ) : (
                                     <>
