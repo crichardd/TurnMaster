@@ -67,7 +67,7 @@ function LibraryComponents(){
     return (
         <div className="gameWrapper">
 
-            <h2 className="gameH2"><strong>All Games( {games.length} )</strong></h2>
+            <h2 className="gameH2"><strong>Tous les jeux ( {games.length} )</strong></h2>
 
             <div className="cards">
                 {games.map((game, index) => (
@@ -93,10 +93,9 @@ function LibraryComponents(){
                                             placeholder="code de partie"
                                             className="passwordInput mt-3"
                                         />
-                                        <button onClick={cancelJoinParty} className="btn1 btn-dark ml-2">
+                                        <button className="tooltip demo" onClick={cancelJoinParty}>
                                             Annuler
                                         </button>
-                                        <button className="tooltip demo" onClick={cancelJoinParty}>Annuler</button>
                                     </>
                                 ) : (
                                     <>
