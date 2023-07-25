@@ -65,7 +65,7 @@ a {
 .btn-friend-container {
     width: 90%;
     height: 50px;
-    background-color: #ddd;
+    background-color: var(--jsp-grey);
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
@@ -107,12 +107,15 @@ a {
     left: 0;
     width: 250px;
     height: 100%;
-    background-color: var(--plus-white);
+    background-color: var(--light-grey);
     z-index: 1000;
     overflow-y: auto;
     transition: all 0.3s;
-    background-color: var(--creamy);
-
+    border-right: 2px solid var(--dark-blue);
+    
     padding-top: 60px;  
 }
   
+.friendsTitle{
+    color: var(--dark-blue);
+}

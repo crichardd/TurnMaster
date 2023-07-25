@@ -93,7 +93,7 @@ function LibraryComponents(){
                                             placeholder="code de partie"
                                             className="passwordInput mt-3"
                                         />
-                                        <button className="tooltip demo" onClick={cancelJoinParty}>
+                                        <button onClick={cancelJoinParty} className="btn1 btn-dark ml-2 submit-feedback">
                                             Annuler
                                         </button>
                                     </>

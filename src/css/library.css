@@ -14,7 +14,7 @@
   vertical-align: middle;
   position: relative;
   vertical-align: middle;
-  color: var(--my-orange);
+  color: var(--plus-white);
 }
 
 .card {
@@ -39,7 +39,7 @@
   color: var(--black);
   text-align: center;
   font-size: 15px;
-  color: var(--light-yellow);
+  color: var(--navy);
 }
 
 @media (max-width: 1200px) {
@@ -98,62 +98,32 @@
 
 
 
+:root {
+  --background-color: #ffe5e5;
+  --color: #000000;
+  --feedback-bg-color: #ffffff;
+  --feedback-icon-color: #ffffff;
+  --feedback-form-input: #f4f4f4;
+}
 
-.tooltip {
-  position: relative;
-  box-sizing: border-box;
+.center-content, .submit-feedback, .container {
+  display: grid;
+  place-content: center;
 }
-.tooltip:after,
-.tooltip:before {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  left: 50%;
-  box-sizing: border-box;
+
+.submit-feedback {
+  padding: 10px 10px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 7px;
+  border-bottom-left-radius: 0;
+  background-color: var(--feedback-secondary-color);
+  color: var(--feedback-primary-color);
+  transition: all 0.3s;
+  margin-top: 5vh;
 }
-.tooltip:after {
-  content: attr(data-tooltip);
-  background: rgba(0,0,0,0.5);
-  top: 100%;
-  margin-top: 22px;
-  padding: 10px;
-  color: #fff;
-  line-height: 1.5;
-  width: 250px;
-  margin-left: -125px;
-  border-radius: 4px;
-}
-.tooltip:before {
-  content: "";
-  top: 100%;
-  margin-top: 12px;
-  margin-left: -5px;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid rgba(0,0,0,0.5);
-}
-.demo {
-  width: 160px;
-  text-align: center;
-  padding: 10px 0;
-  background: rgba(255,255,255,0.6);
-  border-radius: 4px;
-  position: absolute;
-  left: 50%;
-  margin-left: -80px;
-  top: 45%;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  font-family: Verdana;
-  color: #000;
-  box-shadow: 0px 2px 0px 1px rgba(0,0,0,0.1);
-}
-.demo:before,
-.demo:after {
-  font-size: 14px;
-  letter-spacing: 0;
-  text-transform: none;
-  font-family: Arial, helvetica, sans-serif;
+.submit-feedback:hover {
+  border-radius: 0px;
+  color: var(--feedback-primary-color);
+  background-color: var(--background-color);
 }

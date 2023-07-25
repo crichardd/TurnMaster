@@ -6,18 +6,18 @@
 }
   
 .conv-container {
-    top: 0;
-    left: 0;
     width: 250px;
-    height: 100%;
-    background-color: var(--plus-white);
-    z-index: 1000;
+    height: 70%;
+    background-color: var(--light-grey);
     overflow-y: auto;
-    transition: all 0.3s;
-    background-color: var(--creamy);
-    float: right;
-    padding-top: 60px;
+    padding: 2vh;
     position: relative;
+    border-left: 2px solid var(--dark-blue);
+    border-top: 2px solid var(--dark-blue);
+    border-top-left-radius: 1vh;
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
 .sidebarMenuContent {
@@ -40,7 +40,6 @@
 .users-container {
     position: relative;
     padding: 1rem 0;
-    border-right: 1px solid var(--my-orange);
     height: 100%;
     display: -ms-flexbox;
     display: flex;
@@ -115,46 +114,6 @@
     border-radius: 50px;
 }
 
-.users .person .user .status {
-    width: 10px;
-    height: 10px;
-    -webkit-border-radius: 100px;
-    -moz-border-radius: 100px;
-    border-radius: 100px;
-    background: #e6ecf3;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.users .person .user .status.online {
-    background: #9ec94a;
-}
-
-.users .person .user .status.offline {
-    background: #c4d2e2;
-}
-
-.users .person .user .status.away {
-    background: #f9be52;
-}
-
-.users .person .user .status.busy {
-    background: #fd7274;
-}
-
-.users .person p.name-time {
-    font-weight: 600;
-    font-size: .85rem;
-    display: inline-block;
-}
-
-.users .person p.name-time .time {
-    font-weight: 400;
-    font-size: .7rem;
-    text-align: right;
-    color: #8796af;
-}
 
 @media (max-width: 767px) {
     .users .person .user img {
@@ -169,36 +128,7 @@
     }
 }
 
-
-/***** animation sidebarMessage *****/
-/*
-
-        {showConversation ? (
-        <div className="conversation">
-          <h2>Conversation avec {selectedGroupe?.name}</h2>
-          
-          <button onClick={() => setShowConversation(false)}>Retour</button>
-        </div>
-      ) : (    
-
-      <div className={`conv-container ${showConversation ? "sidebar-swipe-left" : ""}`}>
-      {showConversation ? (
-        <div className="conversation">
-          <h2>Conversation avec {selectedGroupe?.name}</h2>
-          
-          <button onClick={() => setShowConversation(false)}>Retour</button>
-        </div>
-      ) : (
-        <div id="sidebarConv">
-          <div className="sidebarMenuContent">
-            <h2>Messagerie</h2>
-            {groupes.map((groupe, index) => (
-              <div key={index} onClick={() => handleGroupeClick(groupe)}>
-                {groupe.name}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-*/
+.tittleH2{
+    color:var(--dark-blue);
+    margin: 3vh;
+}

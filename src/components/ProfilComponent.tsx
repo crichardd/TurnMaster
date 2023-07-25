@@ -18,7 +18,6 @@ function ProfilComponent(props: ProfilProps) {
   const [message, setMessage] = useState<String | null>(null);
   const [errorMessage, setErrorMessage] = useState<String | null>(null);
 
-
   const toggleEdit = () => {
     setIsEditing(true);
   };

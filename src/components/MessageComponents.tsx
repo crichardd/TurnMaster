@@ -79,7 +79,7 @@ function MessageComponent() {
       {!isConversationVisible && (
         <div id="sidebarConv" className="show">
           <div className="sidebarMenuContent">
-            <h2>Messagerie</h2>             
+            <h2 className="tittleH2">Messagerie</h2>             
             <div className="content-wrapper">
               <div className="row gutters">
                 <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">

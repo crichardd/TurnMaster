@@ -6,7 +6,7 @@ html, body {
     height: 100%;
 }
 body {
-    background: var(--light-yellow);
+    background: var(--plus-white);
     padding: 0;
     margin: 0;
     font-family: 'Varela Round', sans-serif;
@@ -17,7 +17,7 @@ body {
     width: 100%;
     max-width: 100%;
     box-shadow: none;
-    background-color: var(--creamy);
+    background-color: var(--plus-white);
     position: fixed;
     height: 60px!important;
     overflow: hidden;

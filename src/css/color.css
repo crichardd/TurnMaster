@@ -2,7 +2,7 @@
 :root {
     --my-white: #eee;
     --plus-white: #fff;
-    --light-grey: #e0dede;
+    --jsp-grey: #d1cfcf;
     --violet-blue: #573b8a;
     --black: #000;
     --smoky-blue: #3D405B;
@@ -22,4 +22,6 @@
     --color-accent: #19ff70;
     --color-text: #fffed7;
     --color-bg: #181729;
+    --light-grey: #ddd;
+    --dark-blue: #6c7195;
 }

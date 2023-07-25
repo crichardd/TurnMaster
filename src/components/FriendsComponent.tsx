@@ -48,8 +48,8 @@ const FriendsComponent = () => {
 
     return (
         <div className="friends-panel">
-            <h2>AMIS</h2>
-            <h3>DEMANDES</h3>
+            <h2 className="friendsTitle">AMIS</h2>
+            <h3 className="friendsTitle">DEMANDES</h3>
             <div>
                 {pendingFriends.map((friendship, index) => (
                     <FriendRequestCard
@@ -59,7 +59,7 @@ const FriendsComponent = () => {
                     />
                 ))}
             </div>
-            <h3>AMIS</h3>
+            <h3 className="friendsTitle">AMIS</h3>
             <div>
             {acceptedFriends.map((friendship, index) => {
                 return <FriendCard key={index} friendship={friendship} />;

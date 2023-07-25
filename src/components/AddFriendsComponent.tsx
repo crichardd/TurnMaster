@@ -41,7 +41,7 @@ const AddFriendsComponent = () => {
   
     return (
       <div className="friends-panel">
-        <h2>AJOUTER DES AMIS</h2>
+        <h2 className="friendsTitle">AJOUTER DES AMIS</h2>
         <div>
             {nonFriends.map((user, index) => (
                 <AddFriendCard
