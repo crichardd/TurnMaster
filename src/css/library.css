@@ -1,4 +1,5 @@
 @import "./color.css";
+/*
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -6,16 +7,6 @@
   margin-top: 20px;
 }
 
-.gameWrapper{
-  padding-left: 25%;
-}
-
-.gameH2{
-  vertical-align: middle;
-  position: relative;
-  vertical-align: middle;
-  color: var(--smoky-blue);
-}
 
 .card {
   width: 18%;
@@ -87,7 +78,7 @@
 .gameWrapper{
   margin-left: 250px;
   padding: 20px;
-}
+}*/
 
 .library-content {
   background-color: var(--plus-white);
@@ -96,6 +87,16 @@
 }
 
 
+.gameWrapper{
+  padding-left: 25%;
+}
+
+.gameH2{
+  vertical-align: middle;
+  position: relative;
+  vertical-align: middle;
+  color: var(--smoky-blue);
+}
 
 
 :root {
@@ -126,4 +127,83 @@
   border-radius: 0px;
   color: var(--feedback-primary-color);
   background-color: var(--jsp-grey);
+}
+
+
+
+/**** card ****/
+
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700");
+
+
+h3{
+  margin-top: 0;
+  font-weight: normal;
+}
+
+.wrap-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.card {
+  width: 15%;
+  max-width: 100%;
+  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.25);
+  background-color: var(--light-grey);
+}
+.card .wrap-image {
+  position: relative;
+}
+.card .wrap-image img {
+  width: 100%;
+  height: auto;
+}
+.card .wrap-image svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+}
+.card .wrap-image svg polygon, .card .wrap-image svg path {
+  fill: var(--my-white);
+  stroke: var(--my-white);
+}
+.card:nth-child(4) .wrap-image svg path {
+  stroke-width: 3px;
+}
+.card:nth-child(5) .wrap-image svg path {
+  stroke-width: 4px;
+}
+.card:nth-child(6) .wrap-image svg path {
+  stroke-width: 6px;
+}
+.card .contentsGame {
+  padding: 1rem;
+}
+.card .contentsGame h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125em;
+  color: #fff;
+}
+.card .contentsGame .textGame {
+  color: rgba(0, 0, 0, 0.5);
+  line-height: 1.6;
+  font-size: 0.9em;
+}
+
+@media all and (max-width: 768px) {
+  .card {
+    width: 49%;
+    margin-bottom: 3rem;
+  }
+}
+@media all and (max-width: 480px) {
+  .card {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
 }

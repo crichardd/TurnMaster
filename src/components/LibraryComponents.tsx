@@ -69,14 +69,30 @@ function LibraryComponents(){
 
             <h2 className="gameH2"><strong>Tous les jeux ( {games.length} )</strong></h2>
 
-            <div className="cards">
+            <div className="wrap-cards">
                 {games.map((game, index) => (
+
+                    /*
                     <div className="card" key={index} onClick={() => handleCardClick(game)}>
                         <img className="gameImg" src={game.imagePath} alt={game.name} />
                         <label className="gameLabel">
                             
                             {game.name} ({game.nbMinPlayer} - {game.nbMaxPlayer} joueurs)
                         </label>
+                    </div>*/
+                    
+                    <div className="card">
+                        <div className="wrap-image"><img src={game.imagePath} alt={game.name}/>
+                            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <polygon points="0,100 100,100 100,0"></polygon>
+                            </svg>
+                        </div>
+                        <div className="contentsGame">
+                            <h3>{game.name}</h3>
+                            <div className="textGame">
+                                ({game.nbMinPlayer} - {game.nbMaxPlayer} joueurs)
+                            </div>
+                        </div>
                     </div>
                 ))}
             </div> 
@@ -89,6 +105,7 @@ function LibraryComponents(){
                                     <>
                                         <span className="passWord mt-3">Veuillez entrer le code de partie</span>
                                         <input
+                                            id="codeParty"
                                             type="texte"
                                             placeholder="code de partie"
                                             className="passwordInput mt-3"
