@@ -8,7 +8,7 @@
 .conv-container {
     width: 250px;
     height: 70%;
-    background-color: var(--light-grey);
+    background-color: var(--my-orange);
     overflow-y: auto;
     padding: 2vh;
     position: relative;
@@ -129,6 +129,6 @@
 }
 
 .tittleH2{
-    color:var(--dark-blue);
+    color:var(--plus-white);
     margin: 3vh;
 }

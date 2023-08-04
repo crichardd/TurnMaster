@@ -107,7 +107,7 @@ a {
     left: 0;
     width: 250px;
     height: 100%;
-    background-color: var(--light-grey);
+    background-color: var(--my-orange);
     z-index: 1000;
     overflow-y: auto;
     transition: all 0.3s;
@@ -117,5 +117,5 @@ a {
 }
   
 .friendsTitle{
-    color: var(--dark-blue);
+    color: var(--plus-white);
 }

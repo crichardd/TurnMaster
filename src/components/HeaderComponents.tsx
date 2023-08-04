@@ -29,7 +29,7 @@ function HeaderComponents(props: HeaderProps) {
   return (
     <header className="header">
       <nav>
-        <a href="#" className="mint titleMain" onClick={handleLandingPage}>
+        <a href="#" className="app-title" onClick={handleLandingPage}>
           <h1>TurnMaster</h1>
         </a>
         <button onClick={props.openPopup}>
