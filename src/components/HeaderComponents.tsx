@@ -34,7 +34,6 @@ function HeaderComponents(props: HeaderProps) {
         </a>
         <button onClick={props.openPopup}>
           <img
-            
             className="profilImg"
             src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"
             alt="Image de profil"

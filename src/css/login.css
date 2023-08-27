@@ -11,7 +11,7 @@
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background-color: var(--my-white);
+	background-color: var(--white);
     background-size: cover;
 }
 
@@ -21,13 +21,13 @@
 	overflow: hidden;
 	border-radius: 10px;
 	box-shadow: 5px 10px 70px var(--black);
-	background: linear-gradient(to bottom right, #E07A5F, #F4F1DE);
+	background: linear-gradient(to bottom right, var(--rich-black), var(--cambridge-bleu),var(--olivine));
 	/*background: linear-gradient(to bottom right, #2e22af, #E64C9E);
 	/*background: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwcNDQ0NBw0HBwgNBw0HDQcHBw8ICQcNFREWFhURExUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDw0NDisZFRkrNysrKystKysrKy0rKzcrKy0tKysrKysrKy0tKy0tKysrKysrKysrKysrKysrKysrK//AABEIALwBDAMBIgACEQEDEQH/xAAYAAEBAQEBAAAAAAAAAAAAAAABAgAGB//EABYQAQEBAAAAAAAAAAAAAAAAAAABEf/EABkBAQEBAQEBAAAAAAAAAAAAAAIBBgUAA//EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwDzxmZtnzZmLzzQsRKGGCKiUoYY0VBONDGInDC0MGlDDGioNONDGkVBpRoYyohRoqCKgnGioIqDTjGNDBOQxUEVBpRoqCKgnI0VBFQacMLESjkWZncZllQQosJjQwThhjQwaUMUIqIcaKgihKNDGhg04YYyoNKNFQRQnGioFQaUjKgioNONCxgnIYqCKiUo0VGMGnGio0I05DDGhg04YWhEpHHkKjuMuxYxDhhjQwaUMVBFDTjKgioJyNDGioNKNFQQwacMVBFRCjKgioJRoqCKgnGioFQacjQxoqCcaKjSEaUaKgioJyNFSNDBpwwxoUKQwscE446KgLuMvDDGiolONDGipBpRoYyhORooRUGlGioIoacZUEVBpRoqCKgnGioIqDSjRUaFKcaKgioJyNFQRUGlIYY0ME4YY0hg04YY0VBONFQQwaUMUIoTkcaYxjusvDIY0VBpRooRUE40VBFRKcaKgioJRoqCKg040VBFQSjRUEUNORoqNIYJRoqBUE5GioIqJThhjQhSkMMaFKchioIqCcaKEVBONFQRUGlGVgihOONioIqO7WXjRUEUJRoqCKg05GVBFQaUaKEVBONFRoRKNFRoYlOGGNDBpQwxjBORoqCKgnGkVGhg05CY0MGlIYqCKg040VBFQTjRUEVINKNFMYNOGERSHHGxUEVHcrLQwwRUQ5GigqDTjKgihKNFQSKgnDDGhEoYWhgnDDGI0o0VBFRDkMMjQwachMaGCUhhjRUGnGioIqCcaKEVBpxoqNDBpSNFRoYJyGFpChyONimhjuMtGioIqCcaKEVBpRoqCKiU4YY0MEoYY0MGnIYY0MEoTGhgnIYY0MGnDDGhgnDDGiolKRoqCKgHGioFRKcaKjSGDSkJgioJyGGNDBpyGFiJyONio0Md1loyoIqDSjRTQwacMMaGCUMLQxKchMaGCcMMaGDSkaKjQyCcMVBFQacjQxoqCcjRUEVBpRoqCKgnI0VBFSDThkLGCUhMaGIcMLQwachhaQicjjoYxjustI0VBFDSjRUaGCcMMaGCUMMYwacMLQjSkMMaGCchioIqJTkZUgioJyNFQRUGlGioIqCcjRUEVBpwwxoYNOQwxoYJQxUEihpyNDGipBpyNDjRSHI42GNDHcZWGGNDBpwwxjEKGGNDBOQxUEMEoTGME5DDI0VBpxooKgnI0VBFQacjSKgioJSNFRoYlORoqNCNOQmRoYJSGKkEVBpyNDGVBpyNIoKg05GihFYJyONhEVHdrKwwxoYNOGGNDBpQqkEMSnDCxg0oYZGME4YoQwacMVBFQacaKgioNKGGCKgnGipAqCcMMYwacMMaGDShioClOGKgioNONFQRUE40UIoSkf/Z);*/
 }
 
 .main{
-	background-color: var(--plus-white);
+	background-color: var(--white);
 }
 #chk{
 	display: none;
@@ -38,7 +38,7 @@
 	height: 100%;
 }
 .loginLabel{
-	color: var(--plus-white);
+	color: var(--white);
 	font-size: 2.3em;
 	justify-content: center;
 	display: flex;
@@ -50,7 +50,7 @@
 .loginInput{
 	width: 60%;
 	height: 40px;
-	background: var(--light-grey);
+	background: var(--citron);
 	justify-content: center;
 	display: flex;
 	margin: 20px auto;
@@ -75,30 +75,30 @@
 	cursor: pointer;
 }
 .signUpButton{
-	color: var(--my-orange);
-	background: var(--plus-white);
+	color: var(--black);
+	background: var(--white);
 }
 .signInButton{
-	color: var(--plus-white);
-	background: var(--my-orange);
+	color: var(--white);
+	background: var(--black);
 }
 .signUpButton:hover{
-	background:var(--my-orange);
-	color: var(--plus-white);
+	background:var(--black);
+	color: var(--white);
 }
 .signInButton:hover{
-	background: var(--plus-white);
-	color: var(--my-orange);
+	background: var(--white);
+	color: var(--black);
 }
 .login{
 	height: 460px;
-	background: var(--my-white);
+	background: var(--white);
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
 	transition: .8s ease-in-out;
 }
 .login .loginLabel{
-	color: var(--my-orange);
+	color: var(--black);
 	transform: scale(.6);
 }
 

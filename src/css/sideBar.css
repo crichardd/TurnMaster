@@ -34,7 +34,7 @@ li span{
 }
 
 .toggle-bar.on {
-    background-color: var(--green);
+    background-color: var(--cambridge-bleu);
 }
   
 .toggle-bar.on{
@@ -65,7 +65,7 @@ a {
 .btn-friend-container {
     width: 90%;
     height: 50px;
-    background-color: var(--jsp-grey);
+    background-color: var(--vanilla);
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
@@ -78,7 +78,7 @@ a {
     width: 50%;
     height: 100%;
     border-radius: 20px;
-    color: var(--plus-white);
+    color: var(--white);
     font-size: 16px;
     font-weight: bold;
     border: none;
@@ -90,7 +90,7 @@ a {
 }
 
 .btn-friend.off {
-    background-color: #ddd;
+    background-color: var(--pine-green);
 }
 
 .sidebarMenuContent {
@@ -107,15 +107,15 @@ a {
     left: 0;
     width: 250px;
     height: 100%;
-    background-color: var(--my-orange);
+    background-color: var(--cambridge-bleu);
     z-index: 1000;
     overflow-y: auto;
     transition: all 0.3s;
-    border-right: 2px solid var(--dark-blue);
+    border-right: 2px solid var(--rich-black);
     
     padding-top: 60px;  
 }
   
 .friendsTitle{
-    color: var(--plus-white);
+    color: var(--white);
 }

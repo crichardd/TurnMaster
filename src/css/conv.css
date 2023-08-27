@@ -8,12 +8,12 @@
 .conv-container {
     width: 250px;
     height: 70%;
-    background-color: var(--my-orange);
+    background-color: var(--cambridge-bleu);
     overflow-y: auto;
     padding: 2vh;
     position: relative;
-    border-left: 2px solid var(--dark-blue);
-    border-top: 2px solid var(--dark-blue);
+    border-left: 2px solid var(--dark-slate-gray);
+    border-top: 2px solid var(--dark-slate-gray);
     border-top-left-radius: 1vh;
     position: fixed;
     bottom: 0;
@@ -61,11 +61,11 @@
     border-bottom: 1px solid #f0f4f8;
 }
 .cardMessage:hover{
-    background-color: var(--my-orange);
+    background-color: var(--white);
 }
 
 .users .person:hover {
-    background-color: var(--my-orange);
+    background-color: var(--white);
     /* Fallback Color */
     background-image: -webkit-gradient(linear, left top, left bottom, from(#e9eff5), to(#ffffff));
     /* Saf4+, Chrome */
@@ -129,6 +129,6 @@
 }
 
 .tittleH2{
-    color:var(--plus-white);
+    color:var(--rich-black);
     margin: 3vh;
 }

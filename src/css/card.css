@@ -2,8 +2,8 @@
 .user-card {
     width: 100%;
     height: 50px;
-    background-color: var(--light-blue);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: var(--pine-green);
+    box-shadow: 0 2px 4px var(--color-bg);
     border-radius: 4px;
     margin: 10px;
     display: flex;

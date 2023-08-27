@@ -6,7 +6,7 @@ html, body {
     height: 100%;
 }
 body {
-    background: var(--light-beige);
+    background: var(--vanilla);
     padding: 0;
     margin: 0;
     font-family: 'Varela Round', sans-serif;
@@ -17,7 +17,7 @@ body {
     width: 100%;
     max-width: 100%;
     box-shadow: none;
-    background-color: var(--light-beige);
+    background-color: var(--vanilla);
     position: fixed;
     height: 60px!important;
     overflow: hidden;
@@ -36,21 +36,17 @@ body {
 .app-title {
 	height: 100%;
 	display: grid;
-    color: var(--my-orange);
+    color: var(--pine-green);
     font-family: "Henny Penny", cursive;
     margin: auto;
     letter-spacing: 0.0015em;
     font-size: 20xpx;
-    text-shadow: 0 1px var(--dark-creamy), -1px 0 var(--creamy), -1px 2px var(--dark-creamy), -2px 1px var(--creamy),
-        -2px 3px var(--dark-creamy), -3px 2px var(--creamy), -3px 4px var(--dark-creamy), -4px 3px var(--creamy),
-        -4px 5px var(--dark-creamy), -5px 4px var(--creamy), -5px 6px var(--dark-creamy), -6px 5px var(--creamy),
-        -6px 7px var(--dark-creamy), -7px 6px var(--creamy), -7px 8px var(--dark-creamy), -8px 7px var(--creamy);
     text-align: center;
     
 }
 
 .app-title:hover{
-    color: var(--my-orange);
+    color: var(--pine-green);
 }
 
 h1 {

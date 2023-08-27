@@ -1,6 +1,7 @@
 
 :root {
     --white: #ffffff;
+    --mix-white: #edecd9;
     --black: #1a1e29;
     --rich-black: #101812;
     --brunswick-green: #101727;
@@ -9,7 +10,7 @@
     --cambridge-bleu: #69a188;
     --olivine: #A8BF87;
     --citron: #D0D088;
-    --vanilla: #DBD6A3;
+    --vanilla: #dbd8b3;
     --salin-sheen-gold: #C09838;
     --burnt-orange: #C05808;
 }

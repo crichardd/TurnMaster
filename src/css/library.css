@@ -1,7 +1,7 @@
 @import "./color.css";
 
 .library-content {
-  background-color: var(--plus-white);
+  background-color: var(--white);
   padding: 20px;
   margin-bottom: 20px;
 }
@@ -15,17 +15,10 @@
   vertical-align: middle;
   position: relative;
   vertical-align: middle;
-  color: var(--smoky-blue);
+  color: var(--dark-slate-gray);
 }
 
 
-:root {
-  --background-color: #ffe5e5;
-  --color: #000000;
-  --feedback-bg-color: #ffffff;
-  --feedback-icon-color: #ffffff;
-  --feedback-form-input: #f4f4f4;
-}
 
 .center-content, .submit-feedback, .container {
   display: grid;
@@ -38,15 +31,15 @@
   cursor: pointer;
   border-radius: 7px;
   border-bottom-left-radius: 0;
-  background-color: var(--feedback-secondary-color);
-  color: var(--feedback-primary-color);
+  background-color: var(--white);
+  color: var(--white);
   transition: all 0.3s;
   margin-top: 5vh;
 }
 .submit-feedback:hover {
   border-radius: 0px;
-  color: var(--feedback-primary-color);
-  background-color: var(--jsp-grey);
+  color: var(--fwhite);
+  background-color: var(--vanilla);
 }
 
 
@@ -72,7 +65,7 @@ h3{
   width: 15%;
   max-width: 100%;
   box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.25);
-  background-color: var(--light-grey);
+  background-color: var(--mix-white);
 }
 .card .wrap-image {
   position: relative;
@@ -89,8 +82,8 @@ h3{
   height: 30px;
 }
 .card .wrap-image svg polygon, .card .wrap-image svg path {
-  fill: var(--my-white);
-  stroke: var(--my-white);
+  fill: var(--white);
+  stroke: var(--white);
 }
 .card:nth-child(4) .wrap-image svg path {
   stroke-width: 3px;

@@ -12,7 +12,7 @@
 }
 
 .container-inner {
-  background: var(--creamy);
+  background: var(--vanilla);
   padding: 50px;
   border-radius: 30px;
   width: 640px;
@@ -20,7 +20,7 @@
 
 .content {
   font-family: "Skranji", cursive;
-  background: var(--creamy);
+  background: var(--vanilla);
   padding: 20px;
   box-sizing: border-box;
   border-radius: 15px 15px 15px 15px;
@@ -40,9 +40,9 @@
   padding: 5px;
   flex: 1;
   border-radius: 20px;
-  border: 2px solid var(--dark-red);
+  border: 2px solid var(--dark-slate-gray);
   font-family: "Skranji", cursive;
-  color: var(--plus-white);
+  color: var(--white);
   font-size: 20px;
   text-shadow: 1px 2px 3px var(--black);
   background: var(--black);
@@ -78,12 +78,12 @@
 }
 
 .buttonAddGame{  
-  background-color: var(--baby-green);
+  background-color: var(--olivine);
   margin-top: 40px;
   gap: 30px;
   box-sizing: border-box;
   border-radius: 10px;
-  border: 2px solid var(--dark-red);
+  border: 2px solid var(--dark-slate-gray);
   width: 15%;
   font-family: "Skranji";
   text-align: center;
@@ -118,7 +118,7 @@
 
 .lns-checkbox {
   display: inline-flex;
-  color: var(--color-text);
+  color: var(--salin-sheen-gold);
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -150,15 +150,15 @@
     overflow: hidden;
 
     &:checked + span::after {
-      background-color: var(--color-accent);
+      background-color: var(--cambridge-bleu);
     }
 
     &:checked + span {
-      color: var(--color-accent);
+      color: var(--cambridge-bleu);
     }
 
     &:focus + span::before {
-      border-color: var(--color-accent);
+      border-color: var(--cambridge-bleu);
     }
 
     &:disabled {
