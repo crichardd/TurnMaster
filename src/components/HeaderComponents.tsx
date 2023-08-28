@@ -32,7 +32,7 @@ function HeaderComponents(props: HeaderProps) {
         <a href="#" className="app-title" onClick={handleLandingPage}>
           <h1>TurnMaster</h1>
         </a>
-        <button onClick={props.openPopup}>
+        <button onClick={props.openPopup} className="button-img">
           <img
             className="profilImg"
             src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"
