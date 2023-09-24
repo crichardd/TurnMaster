@@ -86,11 +86,11 @@ a {
 }
 
 .btn-friend.on {
-    background-color: var(--blue);
+    background-color: var(--pine-green);
 }
 
 .btn-friend.off {
-    background-color: var(--pine-green);
+    background-color: var(--blue);
 }
 
 .sidebarMenuContent {
