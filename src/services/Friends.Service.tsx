@@ -2,7 +2,7 @@ import axios from 'axios'
 import {UserDTO} from "../dto/User.dto";
 import {FriendshipDTO} from "../dto/Friendship.dto";
 
-const REST_API_URL = 'https://app-turnmasterapi-230715140732.azurewebsites.net/api';
+const REST_API_URL = 'http://85.31.239.81:8080/api/';
 
 export default class FriendService {
 

@@ -14,7 +14,7 @@ export default class GameService {
     }
 
     constructor() {
-        this.baseUrl = "https://app-turnmasterapi-230715140732.azurewebsites.net/api";
+        this.baseUrl = "http://85.31.239.81:8080/api/";
     }
 
     async getGames(): Promise<GameDTO[]> {
