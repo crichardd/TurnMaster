@@ -16,29 +16,28 @@ export default function Login() {
 
     const navigate = useNavigate();
 
-    async function handlelogin(username: any) {
+    async function handleLogin(username: string, password: string) {
       try {
-        const result = await LoginService.getInstance().username(username);
-        setConnect(result);
-        setStatus(true);
-        navigate("/LandingPage", { state: { "username": username.username } });
-      } catch (error: any) {
-        if (error.message === 'Request failed with status code 500') {
-          setErrorMessage("Les identifiants sont incorrects.");
+        const token = await LoginService.getInstance().login(username, password);
+  
+        if (token) {
+          console.log("Token:", token);
+          setStatus(true);
+          navigate("/LandingPage", { state: { username } });
         } else {
-          setErrorMessage("Une erreur s'est produite. Veuillez réessayer.");
+          setErrorMessage("Les identifiants sont incorrects.");
         }
+      } catch (error) {
+        setErrorMessage("Une erreur s'est produite. Veuillez réessayer.");
       }
     }
 
-    const handleSubmit = (event: any) => {
-        event.preventDefault();
-        
-        const formData = new FormData(event.target);
-        const username = formData.get("username");
-        const password = formData.get("password");
-      
-        handlelogin({ username, password });
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      const username = formData.get("username") as string;
+      const password = formData.get("password") as string;
+      await handleLogin(username, password);
     };
 
     async function handleInscription(inscription: any) {
