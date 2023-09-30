@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import AddFriendsComponent from "./AddFriendsComponent";
 import FriendsComponent from "./FriendsComponent";
 
-function SideBar() {
+const SideBar: React.FC<{ token: string | null }> = ({ token }) => {
 
     const [toggleState, setToggleState] = useState(false);
 
@@ -27,9 +27,9 @@ function SideBar() {
                         </button>
                     </div>
 
-                    {!toggleState && <FriendsComponent/>}
+                    {!toggleState && <FriendsComponent token={token} />}
 
-                    {toggleState && <AddFriendsComponent/>}
+                    {toggleState && <AddFriendsComponent token={token}/>}
 
                 </div>
             </div>

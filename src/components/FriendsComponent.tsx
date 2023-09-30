@@ -1,49 +1,74 @@
-import {UserDTO} from "../dto/User.dto";
 import {useEffect, useState} from "react";
 import FriendService from "../services/Friends.Service";
-import {useLocation} from "react-router-dom";
 import FriendCard from "./cards/FriendCard";
 import FriendRequestCard from "./cards/FriendRequestCard"
 import '../css/friends.css';
 import { FriendshipDTO, FriendshipStatus } from "../dto/Friendship.dto";
+import { UserService } from "../services/User.Service";
 
-const FriendsComponent = () => {
-    const location = useLocation();
-    const username = location.state?.username;
-    const [friends, setFriends] = useState<FriendshipDTO[]>([])
+const FriendsComponent: React.FC<{ token: string | null }> = ({ token }) => {
+    const [friends, setFriends] = useState<FriendshipDTO[]>([]);
 
     useEffect(() => {
-        FriendService.getFriendship(username).then((friendships) => {
-            const convertedFriendships: FriendshipDTO[] = friendships.map((friendship) => {
-                return {
-                    senderUser: friendship.senderUser,
-                    receiverUser: friendship.receiverUser,
-                    status: friendship.status as FriendshipStatus,
-                    time: friendship.time,
-                };
-            });
-            setFriends(convertedFriendships);
-        });
-    }, [username]);
+        if (token !== null) { 
+            UserService.getUserId(token)
+                .then((user) => {
+                    if (user && user.id) {
+                        const userId = user.id; 
+                        console.log("getUserId", userId);
+                        console.log("le token", token);
+
+                        FriendService.getFriendship(userId, token).then((friendships) => {
+                            const convertedFriendships: FriendshipDTO[] = friendships.map((friendship) => {
+                                return {
+                                    senderUser: friendship.senderUser,
+                                    receiverUser: friendship.receiverUser,
+                                    status: friendship.status as FriendshipStatus,
+                                    time: friendship.time,
+                                };
+                            });
+                            setFriends(convertedFriendships);
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
+    }, [token]);
 
     const handleFriendRequestAction = () => {
-        FriendService.getFriendship(username).then((friendships) => {
-          const convertedFriendships: FriendshipDTO[] = friendships.map((friendship) => {
-            return {
-                senderUser: friendship.senderUser,
-                receiverUser: friendship.receiverUser,
-                status: friendship.status as FriendshipStatus,
-                time: friendship.time,
-            };
-          });
-          setFriends(convertedFriendships);
-        });
+        if (token !== null) {
+            UserService.getUserId(token)
+                .then((user) => {
+                    if (user && user.id) {
+                        const userId = user.id; 
+                        console.log("getUserId", userId);
+                        console.log("le token", token);
+
+                        // Step 2: Utilisez l'ID de l'utilisateur et le token pour obtenir la liste des amitiés
+                        FriendService.getFriendship(userId, token).then((friendships) => {
+                            const convertedFriendships: FriendshipDTO[] = friendships.map((friendship) => {
+                                return {
+                                    senderUser: friendship.senderUser,
+                                    receiverUser: friendship.receiverUser,
+                                    status: friendship.status as FriendshipStatus,
+                                    time: friendship.time,
+                                };
+                            });
+                            setFriends(convertedFriendships);
+                        });
+                    }
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+        }
     }
-    
 
     const acceptedFriends = friends.filter((friendship) => friendship.status === FriendshipStatus.ACCEPTED);
     const pendingFriends = friends.filter(
-        (friendship) => friendship.status === FriendshipStatus.PENDING && friendship.receiverUser === username
+        (friendship) => friendship.status === FriendshipStatus.PENDING
     );
 
     return (
@@ -55,7 +80,7 @@ const FriendsComponent = () => {
                     <FriendRequestCard
                         key={index}
                         friendship={friendship}
-                        onFriendRequestAction={handleFriendRequestAction} // Pass the callback here
+                        onFriendRequestAction={handleFriendRequestAction}
                     />
                 ))}
             </div>

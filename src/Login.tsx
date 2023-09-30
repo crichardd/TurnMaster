@@ -9,7 +9,6 @@ import { InscriptionService } from './services/Inscription.service';
 
 export default function Login() {
 
-    const [connect, setConnect] = useState<LoginDTO>();
     const [status, setStatus] = useState<boolean>(false);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [inscription, setInscription] = useState<InscriptionDTO>();
@@ -19,11 +18,11 @@ export default function Login() {
     async function handleLogin(username: string, password: string) {
       try {
         const token = await LoginService.getInstance().login(username, password);
-  
         if (token) {
           console.log("Token:", token);
+          localStorage.setItem('authToken', token);
           setStatus(true);
-          navigate("/LandingPage", { state: { username } });
+          navigate("/LandingPage", { state: { token } });
         } else {
           setErrorMessage("Les identifiants sont incorrects.");
         }
@@ -31,6 +30,7 @@ export default function Login() {
         setErrorMessage("Une erreur s'est produite. Veuillez réessayer.");
       }
     }
+    
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
@@ -45,7 +45,7 @@ export default function Login() {
         inscription
       );
       setInscription(result);
-      navigate("/landingPage", { state: { username: inscription.username } });
+      navigate("/landingPage", { state: { token: inscription.token } });
 
     }
 

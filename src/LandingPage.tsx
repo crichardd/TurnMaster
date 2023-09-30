@@ -9,30 +9,35 @@ import { useLocation } from 'react-router-dom';
 import ProfilComponent from "./components/ProfilComponent";
 import './css/profil.css';
 import MessageComponent from './components/MessageComponents';
+import { useEffect } from 'react';
 
 function LandingPage() {
   const location = useLocation();
-  const username = location.state ? location.state.username : "";
+  const { token } = location.state || {};
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+  useEffect(() => {
+      console.log("Token in LandingPage:", token);
+  }, [token]);
+
   const openPopup = () => {
-    setIsPopupOpen(true);
+      setIsPopupOpen(true);
   };
 
   const closePopup = () => {
-    setIsPopupOpen(false);
+      setIsPopupOpen(false);
   };
 
   const handlePasswordChange = (newPassword: string) => {
-    console.log("New password:", newPassword);
+      console.log("New password:", newPassword);
   };
 
   return (
     <div className="landing-page">
-      <Header username={username} openPopup={openPopup}/> 
+      <Header username={token} openPopup={openPopup}/> 
       <div className='row '>
         <div className='col-3'>
-        <SideBar />
+        <SideBar token={token}/>
         </div>
         <div className='col-6'>
           <div className="library-container" id="bodyLib">
@@ -41,9 +46,9 @@ function LandingPage() {
           {isPopupOpen && (
             <div className="profil-container">
               <ProfilComponent
-                username={username}
+                username={token}
                 closePopup={closePopup}
-                onPasswordChange={handlePasswordChange} // Pass the callback to handle password change
+                onPasswordChange={handlePasswordChange} 
               /> 
             </div>
           )}

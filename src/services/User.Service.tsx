@@ -1,7 +1,7 @@
 import axios, {CancelToken } from "axios";
 import { UserDTO } from "../dto/User.dto";
 
-const REST_API_URL = 'http://85.31.239.81:8080/api/';
+const REST_API_URL = 'http://85.31.239.81:8080/api';
 
 
 export class UserService {
@@ -21,6 +21,24 @@ export class UserService {
           return response.data.map((e) => e);
       } else {
           return [];
+      }
+    }
+    static async getUserId(token: string): Promise<UserDTO | undefined> {
+      try {
+        const response = await axios.get(`${REST_API_URL}/user/user`, {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include the token in the headers
+          },
+        });
+  
+        if (response.data) {
+          return response.data;
+        } else {
+          return undefined;
+        }
+      } catch (error) {
+        console.log(error);
+        return undefined; // Default value in case of an error
       }
     }
 /*
@@ -44,11 +62,7 @@ export class UserService {
         };
   
         console.log("Request Payload:", payload);
-  
-        // Obtain the authentication token (you need to replace 'YOUR_AUTH_TOKEN' with the actual token)
         const authToken = 'YOUR_AUTH_TOKEN';
-  
-        // Set the authentication token in the request headers
         const headers = {
           Authorization: `Bearer ${authToken}`,
         };
