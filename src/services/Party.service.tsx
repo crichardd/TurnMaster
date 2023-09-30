@@ -10,7 +10,7 @@ export class PartyService {
             return response.data as PartyDTO;
         } catch (error) {
             console.log(error);
-            throw error; // Laisser le traitement des erreurs à l'appelant du service
+            throw error;
         }
     }
 }
