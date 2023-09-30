@@ -14,7 +14,7 @@ export default class GameService {
     }
 
     constructor() {
-        this.baseUrl = "http://85.31.239.81:8080/api/";
+        this.baseUrl = "http://85.31.239.81:8080/api";
     }
 
     async getGames(): Promise<GameDTO[]> {

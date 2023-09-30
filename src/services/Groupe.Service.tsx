@@ -1,7 +1,7 @@
 import axios from 'axios'
 import {GroupeDTO} from "../dto/Groupe.dto";
 
-const REST_API_URL = 'http://85.31.239.81:8080/api/';
+const REST_API_URL = 'http://85.31.239.81:8080/api';
 
 export class GroupeService {
     static async getGroupe(): Promise<GroupeDTO[]> {
