@@ -22,16 +22,6 @@ function MessageComponent() {
 
   useEffect(() => {
 
-    const socket = io(`${REST_API_URL}/chat`);
-    
-    setSocket(socket);
-    socket.on('connect', () => {
-      console.log('Connexion établie avec le serveur WebSocket');
-    });
-
-    socket.on('message', (data) => {
-      console.log('Message reçu du serveur:', data);
-    });
 
     const fetchGroupes = async () => {
       try {
@@ -47,9 +37,6 @@ function MessageComponent() {
 
     fetchGroupes();
 
-    return () => {
-      socket.disconnect();
-    }
 
   }, [currentUsername]);
 
@@ -60,17 +47,6 @@ function MessageComponent() {
 
   const handleBackClick = () => {
     setIsConversationVisible(false);
-  };
-
-  const handleSendMessage = () => {
-    if (socket && message.trim() !== '') {
-      socket.emit('message', { 
-        content: message,
-        sender: currentUsername,
-        group: selectedGroupe?.name
-      });
-      setMessage(''); // Effacer le message après l'envoi
-    }
   };
 
 
@@ -89,7 +65,6 @@ function MessageComponent() {
                         <ul className="users">
                           <li className="person" data-chat="person1">
                             <div className="user">
-                              <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png" alt="Retail Admin"/>
                               <span className="status busy"></span>
                             </div>
                             <div className="name-time">
@@ -115,12 +90,11 @@ function MessageComponent() {
             <textarea
               className="form-control"
               rows={3}
-              placeholder="Tapez votre message ici..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
           </div>
-          <button onClick={handleSendMessage}>Envoyer</button>
+          <button >Envoyer</button>
           <button onClick={handleBackClick}>Retour</button>
         </div>
       )}
