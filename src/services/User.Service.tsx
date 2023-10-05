@@ -2,45 +2,48 @@ import axios, {CancelToken } from "axios";
 import { UserDTO } from "../dto/User.dto";
 
 const REST_API_URL = 'http://85.31.239.81:8080/api';
-
+const ORIGIN_HEADER = 'http://85.31.239.81:3000';
 
 export class UserService {
-    private static instance?: UserService;
+  private static instance?: UserService;
 
-    public static getInstance(): UserService {
-      if (UserService.instance === undefined) {
-        UserService.instance = new UserService();
-      }
-      return UserService.instance;
+  public static getInstance(): UserService {
+    if (UserService.instance === undefined) {
+      UserService.instance = new UserService();
     }
+    return UserService.instance;
+  }
 
-    static async getUser(cancelToken?: CancelToken, username?: string): Promise<UserDTO[]> {
-      const response = await axios.get(`${REST_API_URL}/User`);
-      if (response.data && Array.isArray(response.data)) {
+  static async getUser(cancelToken?: CancelToken, username?: string): Promise<UserDTO[]> {
+    const response = await axios.get(`${REST_API_URL}/User`);
+    if (response.data && Array.isArray(response.data)) {
+        return response.data.map((e) => e);
+    } else {
+        return [];
+    }
+  }
 
-          return response.data.map((e) => e);
+  static async getUserId(token: string): Promise<UserDTO | undefined> {
+    try {
+      const apiUrl = `${REST_API_URL}/user/user`;
+      const headers = {
+        Authorization: `Bearer ${token}`, // Include the token in the headers
+        Origin: ORIGIN_HEADER, 
+        'Content-Type': 'application/json',// Ajoutez l'en-tête Origin
+      };
+
+      const response = await axios.get(apiUrl, { headers });
+
+      if (response.data) {
+        return response.data;
       } else {
-          return [];
+        return undefined;
       }
+    } catch (error) {
+      console.log(error);
+      return undefined; // Default value in case of an error
     }
-    static async getUserId(token: string): Promise<UserDTO | undefined> {
-      try {
-        const response = await axios.get(`${REST_API_URL}/user/user`, {
-          headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the headers
-          },
-        });
-  
-        if (response.data) {
-          return response.data;
-        } else {
-          return undefined;
-        }
-      } catch (error) {
-        console.log(error);
-        return undefined; // Default value in case of an error
-      }
-    }
+  }
 /*
     static async updateUsername(currentUsername: string, newUsername: string): Promise<void> {
       try {
