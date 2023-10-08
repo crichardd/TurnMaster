@@ -1,4 +1,5 @@
 export interface FriendshipDTO {
+    id: string;
     senderUser: string;
     receiverUser: string;
     status: FriendshipStatus;
