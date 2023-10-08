@@ -2,7 +2,6 @@ import axios, {CancelToken } from "axios";
 import { UserDTO } from "../dto/User.dto";
 
 const REST_API_URL = 'http://85.31.239.81:8080/api';
-const ORIGIN_HEADER = 'http://85.31.239.81:3000';
 
 export class UserService {
   private static instance?: UserService;
@@ -28,12 +27,11 @@ export class UserService {
       const apiUrl = `${REST_API_URL}/user/user`;
       const headers = {
         Authorization: `Bearer ${token}`, // Include the token in the headers
-        Origin: ORIGIN_HEADER, 
-        'Content-Type': 'application/json',// Ajoutez l'en-tête Origin
+        'Content-Type': 'application/json', // Ajoutez l'en-tête Content-Type si nécessaire
       };
-
+  
       const response = await axios.get(apiUrl, { headers });
-
+  
       if (response.data) {
         return response.data;
       } else {
@@ -44,6 +42,7 @@ export class UserService {
       return undefined; // Default value in case of an error
     }
   }
+  
 /*
     static async updateUsername(currentUsername: string, newUsername: string): Promise<void> {
       try {
