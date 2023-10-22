@@ -9,6 +9,7 @@ import { Socket } from 'socket.io-client';
 const REST_API_URL = 'https://app-turnmasterapi-230715140732.azurewebsites.net';
 
 function MessageComponent() {
+  /*
   const location = useLocation();
   const currentUsername = location.state?.username;
   const [groupes, setGroupes] = useState<GroupeDTO[]>([]);
@@ -47,11 +48,21 @@ function MessageComponent() {
 
   const handleBackClick = () => {
     setIsConversationVisible(false);
-  };
+  };*/
 
 
   return (
+    
     <div className="conv-container">
+      
+    </div>
+  );
+}
+
+export default MessageComponent;
+
+
+/*
       {!isConversationVisible && (
         <div id="sidebarConv" className="show">
           <div className="sidebarMenuContent">
@@ -97,11 +108,4 @@ function MessageComponent() {
           <button >Envoyer</button>
           <button onClick={handleBackClick}>Retour</button>
         </div>
-      )}
-    </div>
-  );
-}
-
-export default MessageComponent;
-
-
+      )} */

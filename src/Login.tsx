@@ -3,7 +3,6 @@ import './css/login.css';
 import { useState} from 'react';
 import { LoginService } from './services/Login.service';
 import { useNavigate } from "react-router-dom";
-import { LoginDTO } from './dto/Login.dto';
 import { InscriptionDTO } from './dto/Add.dto';
 import { InscriptionService } from './services/Inscription.service';
 

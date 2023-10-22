@@ -14,8 +14,9 @@ const AddFriendCard = ({ user, onFriendAdded }: { user: UserDTO, onFriendAdded: 
     const [reloadComponent, setReloadComponent] = useState(false);
   
     const friendshipDto: FriendshipDTO = {
-        senderUser: currentUsername,
-        receiverUser: user.username,
+        id: user.id,
+        senderUsername: currentUsername,
+        receiverUsername: user.username,
         status: FriendshipStatus.DECLINED,
         time: '',
     };
@@ -45,3 +46,5 @@ const AddFriendCard = ({ user, onFriendAdded }: { user: UserDTO, onFriendAdded: 
   
 
 export default AddFriendCard;
+
+//onClick={sendRequest}

@@ -1,8 +1,7 @@
 import axios from 'axios'
-import { UserDTO } from "../dto/User.dto";
 import { FriendshipDTO } from "../dto/Friendship.dto";
 
-const REST_API_URL = 'http://85.31.239.81:8080/api';
+const REST_API_URL = 'http://localhost:8080/api';
 
 export default class FriendService {
 
@@ -20,9 +19,9 @@ export default class FriendService {
         }
     }
     
-    static async getAllUsers(token: string): Promise<FriendshipDTO[]> {
+    static async getAllFriendships(token: string): Promise<FriendshipDTO[]> {
         try {
-            const response = await axios.get(`${REST_API_URL}/friendship/frienship`, {
+            const response = await axios.get(`${REST_API_URL}/friendship/friendship`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -34,6 +33,7 @@ export default class FriendService {
             return [];
         }
     }
+    
     
     static async acceptFriendshipRequest(friendshipDto: FriendshipDTO) {
         await axios.post(

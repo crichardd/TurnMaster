@@ -53,11 +53,6 @@ function LandingPage() {
             </div>
           )}
         </div>
-        <div className='col-3'>
-          <div className="message-container">
-            <MessageComponent />
-          </div>
-        </div>
       </div>
     </div>
   );

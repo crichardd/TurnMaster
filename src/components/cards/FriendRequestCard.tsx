@@ -16,8 +16,9 @@ const FriendRequestCard = (props: { friendship: FriendshipDTO, onFriendRequestAc
     const currentUsername = location.state?.username;
   
     const friendshipDto: FriendshipDTO = {
-        senderUser: friendship.senderUser,
-        receiverUser: currentUsername,
+        id: friendship.id,
+        senderUsername: friendship.senderUsername,
+        receiverUsername: currentUsername,
         status: FriendshipStatus.PENDING,
         time: '',
     };
@@ -25,8 +26,8 @@ const FriendRequestCard = (props: { friendship: FriendshipDTO, onFriendRequestAc
         FriendService.acceptFriendshipRequest(friendshipDto)
           .then(function (response) {
                 console.log(response);
-                onFriendRequestAction(); // Call the callback to trigger the reload
-                setReloadComponent(true); // Set the reloadComponent state to true
+                onFriendRequestAction(); 
+                setReloadComponent(true); 
           });
       }
     
@@ -34,22 +35,25 @@ const FriendRequestCard = (props: { friendship: FriendshipDTO, onFriendRequestAc
         FriendService.declineFriendshipRequest(friendshipDto)
           .then(function (response) {
                 console.log(response);
-                onFriendRequestAction(); // Call the callback to trigger the reload
-                setReloadComponent(true); // Set the reloadComponent state to true
+                onFriendRequestAction();
+                setReloadComponent(true); 
           });
       }
-    const myFriend = friendship.receiverUser !== currentUsername ? friendship.receiverUser : friendship.senderUser;
+    const myFriend = friendship.senderUsername;
   
     return (
           <div className="user-card">
+            
             <p className="card-title">{myFriend}</p>
               <div className="btn-card-container">
-                  <button type="button" className="btn-friends" onClick={declineRequest}><FontAwesomeIcon icon={faCircleXmark} /></button>
-                  <button type="button" className="btn-friends" onClick={acceptRequest}><FontAwesomeIcon icon={faCircleCheck} /></button>
+                  <button type="button" className="btn-friends" ><FontAwesomeIcon icon={faCircleXmark} onClick={declineRequest}/></button>
+                  <button type="button" className="btn-friends" ><FontAwesomeIcon icon={faCircleCheck} onClick={acceptRequest}/></button>
               </div>
   
           </div>
       );
   }
+  //
+  //
   
   export default FriendRequestCard;

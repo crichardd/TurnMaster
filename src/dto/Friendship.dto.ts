@@ -1,9 +1,9 @@
 export interface FriendshipDTO {
     id: string;
-    senderUser: string;
-    receiverUser: string;
+    senderUsername: string;
+    receiverUsername: string;
     status: FriendshipStatus;
-    time: string; // ou vous pouvez utiliser le type `Date` à la place de `string` si vous préférez
+    time: string; 
 }
 
 export enum FriendshipStatus {

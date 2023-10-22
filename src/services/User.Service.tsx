@@ -1,7 +1,7 @@
 import axios, {CancelToken } from "axios";
 import { UserDTO } from "../dto/User.dto";
 
-const REST_API_URL = 'http://85.31.239.81:8080/api';
+const REST_API_URL = 'http://localhost:8080/api';
 
 export class UserService {
   private static instance?: UserService;
@@ -13,11 +13,17 @@ export class UserService {
     return UserService.instance;
   }
 
-  static async getUser(cancelToken?: CancelToken, username?: string): Promise<UserDTO[]> {
-    const response = await axios.get(`${REST_API_URL}/User`);
-    if (response.data && Array.isArray(response.data)) {
-        return response.data.map((e) => e);
-    } else {
+  static async getAllUsers(token: string): Promise<UserDTO[] | undefined> {
+    try {
+      const response = await axios.get(`${REST_API_URL}/user/list`, {
+          headers: {
+              Authorization: `Bearer ${token}`,
+          },
+      });
+      console.log("response.data", response.data);
+      return response.data;
+    } catch (error) {
+        console.log(error);
         return [];
     }
   }

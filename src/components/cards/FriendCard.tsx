@@ -14,8 +14,9 @@ const FriendCard = (props: { friendship: FriendshipDTO }) => {
     const currentUsername = location.state?.username;
   
     const friendshipDtoDelete: FriendshipDTO = {
-        senderUser: friendship.senderUser,
-        receiverUser: friendship.receiverUser,
+        id: friendship.id,
+        senderUsername: friendship.senderUsername,
+        receiverUsername: friendship.receiverUsername,
         status: FriendshipStatus.DECLINED,
         time: '',
     };
@@ -27,14 +28,13 @@ const FriendCard = (props: { friendship: FriendshipDTO }) => {
             });
     }
     
-    const myFriend = friendship.receiverUser !== currentUsername ? friendship.receiverUser : friendship.senderUser;
+    const myFriend = friendship.receiverUsername !== currentUsername ? friendship.receiverUsername : friendship.senderUsername;
   
     return (
         <div className="user-card">
             <p className="card-title">{myFriend}</p>
-            <button type="button" className="btn btn-card" onClick={deleteFriendship}><FontAwesomeIcon icon={faUserMinus} /></button>
+            <button type="button" className="btn btn-card" onClick={deleteFriendship}><FontAwesomeIcon icon={faUserMinus} /></button> 
         </div>
     );
   }
-  
 export default FriendCard;

@@ -1,52 +1,70 @@
 import {useEffect, useState} from 'react';
-import {UserDTO} from "../dto/User.dto";
-import {useLocation} from "react-router-dom";
 import FriendService from "../services/Friends.Service";
 import AddFriendCard from "./cards/AddFriendCard";
 import '../css/friends.css';
 import {FriendshipDTO} from "../dto/Friendship.dto";
 
 import { UserService } from "../services/User.Service";
-
+import { UserDTO } from '../dto/User.dto';
 const AddFriendsComponent = ({ token }: { token: string | null }) => {
     const [nonFriends, setNonFriends] = useState<UserDTO[]>([]);
     const [friendships, setFriendships] = useState<FriendshipDTO[]>([]);
+    const [currentUser, setCurrentUser] = useState<UserDTO | null>(null);    
   
     const handleReloadUsers = () => {
         if (token !== null) {
             UserService.getUserId(token)
                 .then((user) => {
                     if (user && user.id) {
-                        const userId = user.id; 
-                        console.log("getUserId", userId);
+                        setCurrentUser(user);
+                        const userUsername = user.username;
 
-                        FriendService.getFriendship(userId, token).then((friendships) => {
+
+                        FriendService.getAllFriendships(token).then((friendships) => {
                             setFriendships(friendships);
-                        
                             const myFriends = new Set<string>();
                             friendships.forEach((friendship) => {
-                                if (friendship.senderUser === userId) {
-                                    myFriends.add(friendship.receiverUser);
+                                if (friendship.senderUsername === userUsername) {
+                                    myFriends.add(friendship.receiverUsername);
                                 } else {
-                                    myFriends.add(friendship.senderUser);
+                                    myFriends.add(friendship.senderUsername);
                                 }
                             });
                         
-                            FriendService.getAllUsers(token).then((usersData) => {
-                                const nonFriends = usersData.filter(
-                                    (user) => user.id !== userId && !myFriends.has(user.id)
-                                );
-                        
-                                setNonFriends(nonFriends);
+                            UserService.getAllUsers(token).then((users) => {
+                                if (users && users.length > 0) {
+                                    console.log("users", users);
+                                    console.log("friends", myFriends);
+
+                                    const nonFriends = users.filter(
+                                        (user) => !myFriends.has(user.username) && user.username !== currentUser?.username
+                                    );
+
+                                    setNonFriends(nonFriends);
+                                    console.log("nonFriends", nonFriends);
+                                } else {
+                                    console.log("Aucun utilisateur n'a été récupéré.");
+                                }
+                            })
+                            .catch((error) => {
+                                console.error(error);
                             });
+
+                            
                         });
                     }
                 })
                 .catch((error) => {
                     console.error(error);
                 });
+                console.log("nonfriends", setNonFriends(nonFriends));
+                console.log("friendship", setFriendships(friendships));
+                
+
         }
     };
+
+    
   
     useEffect(() => {
         handleReloadUsers();
@@ -54,18 +72,34 @@ const AddFriendsComponent = ({ token }: { token: string | null }) => {
   
     return (
       <div className="friends-panel">
-        <h2 className="friendsTitle">AJOUTER DES AMIS</h2>
+       <h2 className="friendsTitle">AJOUTER DES AMIS</h2>
         <div>
-            {nonFriends.map((user, index) => (
-                <AddFriendCard
-                    key={`${index}-${user.id}`}
-                    user={user}
-                    onFriendAdded={handleReloadUsers}
-                />
-            ))}
+            
+        {nonFriends.map((user, index) => {
+                console.log("fr", user); 
+                return (
+                    <div>
+                        friends
+                    </div>
+                );
+            })}
         </div>
       </div>
     );
 };
   
 export default AddFriendsComponent;
+
+
+/*
+
+{nonFriends.map((user, index) => (
+                <AddFriendCard
+                    key={`${index}-${user.id}`}
+                    user={user}
+                    onFriendAdded={handleReloadUsers}
+                />
+            ))}
+            
+            */
+

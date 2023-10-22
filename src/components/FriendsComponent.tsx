@@ -5,24 +5,26 @@ import FriendRequestCard from "./cards/FriendRequestCard"
 import '../css/friends.css';
 import { FriendshipDTO, FriendshipStatus } from "../dto/Friendship.dto";
 import { UserService } from "../services/User.Service";
+import { UserDTO } from "../dto/User.dto";
 
 const FriendsComponent: React.FC<{ token: string | null }> = ({ token }) => {
     const [friends, setFriends] = useState<FriendshipDTO[]>([]);
+    const [currentUser, setCurrentUser] = useState<UserDTO | null>(null);    
 
     useEffect(() => {
         if (token !== null) { 
             UserService.getUserId(token)
                 .then((user) => {
                     if (user && user.id) {
+                        setCurrentUser(user);
                         const userId = user.id; 
-                        console.log("getUserId", userId);
-                        console.log("le token", token);
 
                         FriendService.getFriendship(userId, token).then((friendships) => {
                             const convertedFriendships: FriendshipDTO[] = friendships.map((friendship) => {
                                 return {
-                                    senderUser: friendship.senderUser,
-                                    receiverUser: friendship.receiverUser,
+                                    id: friendship.id,
+                                    senderUsername: friendship.senderUsername,
+                                    receiverUsername: friendship.receiverUsername,
                                     status: friendship.status as FriendshipStatus,
                                     time: friendship.time,
                                 };
@@ -43,15 +45,16 @@ const FriendsComponent: React.FC<{ token: string | null }> = ({ token }) => {
                 .then((user) => {
                     if (user && user.id) {
                         const userId = user.id; 
+                        const userUsername = user.username; 
                         console.log("getUserId", userId);
                         console.log("le token", token);
 
-                        // Step 2: Utilisez l'ID de l'utilisateur et le token pour obtenir la liste des amitiés
-                        FriendService.getFriendship(userId, token).then((friendships) => {
+                        FriendService.getFriendship(userUsername, token).then((friendships) => {
                             const convertedFriendships: FriendshipDTO[] = friendships.map((friendship) => {
                                 return {
-                                    senderUser: friendship.senderUser,
-                                    receiverUser: friendship.receiverUser,
+                                    id : friendship.id,
+                                    senderUsername: friendship.senderUsername,
+                                    receiverUsername: friendship.receiverUsername,
                                     status: friendship.status as FriendshipStatus,
                                     time: friendship.time,
                                 };
@@ -66,11 +69,16 @@ const FriendsComponent: React.FC<{ token: string | null }> = ({ token }) => {
         }
     }
 
-    const acceptedFriends = friends.filter((friendship) => friendship.status === FriendshipStatus.ACCEPTED);
-    const pendingFriends = friends.filter(
-        (friendship) => friendship.status === FriendshipStatus.PENDING
-    );
+    console.log("currentSUer", currentUser?.username);
 
+    const acceptedFriends = friends.filter((friendship) => friendship.status === FriendshipStatus.ACCEPTED);
+    const pendingFriends = friends.filter((friendship) => {
+        console.log("currentUser", currentUser);
+        return friendship.status === FriendshipStatus.PENDING && friendship.receiverUsername === currentUser?.username;
+    });
+    
+
+    console.log("pendingFriends", pendingFriends);
     return (
         <div className="friends-panel">
             <h2 className="friendsTitle">AMIS</h2>

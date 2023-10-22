@@ -15,22 +15,16 @@ export class LoginService {
 
   async login(username: string, password: string): Promise<string | undefined> {
     try {
-      const apiUrl = "http://85.31.239.81:8080/api/auth/authenticate";
-      
-      // Définir les en-têtes de la requête, y compris l'en-tête Origin
-      const headers = {
-        Origin: 'http://85.31.239.81:3000', // Remplacez par l'URL de votre application React
-      };
+      const apiUrl = "http://localhost:8080/api/auth/authenticate"; 
 
-      const response = await axios.post(apiUrl, { username, password }, { headers });
+      const response = await axios.post(apiUrl, { username, password });
 
       if (response.data && response.data.token) {
-        // Assuming the token is returned in the response data
         return response.data.token;
       }
       return undefined;
     } catch (error) {
-      throw error; // Rethrow the error for handling in your component
+      throw error; 
     }
   }
 }
