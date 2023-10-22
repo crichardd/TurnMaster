@@ -79,7 +79,11 @@ const AddFriendsComponent = ({ token }: { token: string | null }) => {
                 console.log("fr", user); 
                 return (
                     <div>
-                        friends
+                        <AddFriendCard
+                            key={`${index}-${user.id}`}
+                            user={user}
+                            onFriendAdded={handleReloadUsers}
+                        />
                     </div>
                 );
             })}
@@ -89,17 +93,3 @@ const AddFriendsComponent = ({ token }: { token: string | null }) => {
 };
   
 export default AddFriendsComponent;
-
-
-/*
-
-{nonFriends.map((user, index) => (
-                <AddFriendCard
-                    key={`${index}-${user.id}`}
-                    user={user}
-                    onFriendAdded={handleReloadUsers}
-                />
-            ))}
-            
-            */
-
