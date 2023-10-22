@@ -1,8 +1,9 @@
 import { GameDTO } from "../dto/Game.dto";
 import axios from "axios";
 
+const REST_API_URL = 'http://localhost:8080/api';
+
 export default class GameService {
-    private readonly baseUrl: string;
 
     private static instance?: GameService;
 
@@ -13,19 +14,19 @@ export default class GameService {
       return GameService.instance; 
     }
 
-    constructor() {
-    const REST_API_URL = 'http://localhost:8080/api';
-    this.baseUrl = "api";
-    }
-
-    async getGames(): Promise<GameDTO[]> {
-        const response = await fetch(`${this.baseUrl}/game/list`);
-        if (!response.ok) {
-            throw new Error(`Failed to fetch games: ${response.statusText}`);
-        }
-        const data = await response.json();
-        return data as GameDTO[];
-    }
+    async getGames(token: string): Promise<GameDTO[]> {
+      try {
+        const response = await axios.get(`${REST_API_URL}/game/list`, {
+          headers: {
+              Authorization: `Bearer ${token}`,
+          },
+      });
+      console.log("response.data", response.data);
+      return response.data;
+    } catch (error) {
+    console.log(error);
+    return [];}
+  }
 
     async addGame(addGame: any): Promise<GameDTO | undefined> {
       const name = await axios.post(

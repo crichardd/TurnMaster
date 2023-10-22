@@ -7,7 +7,7 @@ import {useLocation} from "react-router-dom";
 import { PartyService } from "../services/Party.service";
 import { PartyDTO } from "../dto/Party.dto";
 
-function LibraryComponents(){
+const LibraryComponents: React.FC<{ token: string | null }> = ({ token }) => {
     const location = useLocation();
     const currentUsername = location.state?.username;
     const [games, setGames] = useState<GameDTO[]>([]);
@@ -18,15 +18,18 @@ function LibraryComponents(){
   
     useEffect(() => {
         const service = new GameService();
+        if (token !== null) {
         service
-          .getGames()
+          .getGames(token)
           .then((data) => {
             setGames(data);
           })
           .catch((error) => {
             console.error(error);
           });
+        }
     }, []);
+
 
     const handleCardClick = (game: GameDTO) => {
         setSelectedGame(game); 

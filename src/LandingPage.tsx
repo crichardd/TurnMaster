@@ -41,7 +41,7 @@ function LandingPage() {
         </div>
         <div className='col-6'>
           <div className="library-container" id="bodyLib">
-            <LibraryComponents />
+            <LibraryComponents token={token} />
           </div>
           {isPopupOpen && (
             <div className="profil-container">
