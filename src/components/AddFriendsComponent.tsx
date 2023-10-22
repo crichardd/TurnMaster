@@ -35,11 +35,12 @@ const AddFriendsComponent = ({ token }: { token: string | null }) => {
                                 if (users && users.length > 0) {
                                     console.log("users", users);
                                     console.log("friends", myFriends);
-
+                                    
                                     const nonFriends = users.filter(
-                                        (user) => !myFriends.has(user.username) && user.username !== currentUser?.username
+                                        (user) => user.username !== currentUser?.username && !myFriends.has(user.username)
                                     );
-
+                                    console.log("currentUser?.username", currentUser?.username);
+                            
                                     setNonFriends(nonFriends);
                                     console.log("nonFriends", nonFriends);
                                 } else {
@@ -49,6 +50,7 @@ const AddFriendsComponent = ({ token }: { token: string | null }) => {
                             .catch((error) => {
                                 console.error(error);
                             });
+                            
 
                             
                         });
@@ -76,7 +78,6 @@ const AddFriendsComponent = ({ token }: { token: string | null }) => {
         <div>
             
         {nonFriends.map((user, index) => {
-                console.log("fr", user); 
                 return (
                     <div>
                         <AddFriendCard
