@@ -8,25 +8,22 @@ import {FriendshipDTO} from "../../dto/Friendship.dto";
 import {FriendshipStatus} from '../../dto/Friendship.dto';
 import { useState, useEffect} from 'react';
 
-const AddFriendCard = ({ user, onFriendAdded }: { user: UserDTO, onFriendAdded: () => void }) => {
+const AddFriendCard = ({ user, onFriendAdded, currentUserId, token }: { user: UserDTO, onFriendAdded: () => void, currentUserId: string, token: string | null }) => {
     const location = useLocation();
-    const currentUsername = location.state?.username;
     const [reloadComponent, setReloadComponent] = useState(false);
+
+    console.log("currentUserId", currentUserId);
   
-    const friendshipDto: FriendshipDTO = {
-        id: user.id,
-        senderUsername: currentUsername,
-        receiverUsername: user.username,
-        status: FriendshipStatus.DECLINED,
-        time: '',
-    };
   
     const sendRequest = () => {
-        FriendService.sendFriendshipRequest(friendshipDto).then(function (response) {
-            console.log(response);
-            onFriendAdded();
-        });
-    };    
+        if(token != null){
+            FriendService.sendFriendshipRequest(token, currentUserId, user.id).then(function (response) {
+                console.log(response);
+                onFriendAdded();
+            });
+        }
+        
+    };  
       
     useEffect(() => {
         if (reloadComponent) {

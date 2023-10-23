@@ -78,16 +78,17 @@ const AddFriendsComponent = ({ token }: { token: string | null }) => {
         <div>
             
         {nonFriends.map((user, index) => {
-                return (
-                    <div>
-                        <AddFriendCard
-                            key={`${index}-${user.id}`}
-                            user={user}
-                            onFriendAdded={handleReloadUsers}
-                        />
-                    </div>
-                );
-            })}
+            return (
+                <div key={`${index}-${user.id}`}>
+                    <AddFriendCard
+                        user={user}
+                        onFriendAdded={handleReloadUsers}
+                        currentUserId={currentUser?.id || ''}
+                        token={token}
+                    />
+                </div>
+            );
+        })}
         </div>
       </div>
     );

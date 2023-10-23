@@ -56,11 +56,24 @@ export default class FriendService {
         );
     }
 
-    static async sendFriendshipRequest(friendshipDto: FriendshipDTO) {
-        await axios.post(
-            `${REST_API_URL}/friendship/send-request`,
-            JSON.stringify(friendshipDto),
-            { headers: { 'Content-Type': 'application/json' } }
-        );
+    static async sendFriendshipRequest(token: string, senderUserId: string, receiverUserId: string) {
+        try {
+            const response = await axios.post(`${REST_API_URL}/friendship/send-request`,
+                {
+                    senderUserId: senderUserId,
+                    receiverUserId: receiverUserId
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            );
+            return response.data;
+        } catch (error) {
+            console.error(error);
+            return [];
+        }
     }
+    
 }
