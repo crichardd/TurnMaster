@@ -77,7 +77,7 @@ function ProfilComponent(props: ProfilProps) {
           </button>
           {errorMessage && <div className="error-message" style={{color: "red"}} >{errorMessage}</div>}
           {message && <div className="success-message" style={{color: "green"}}>{message}</div>}
-          <span className="nameLabel mt-3">{currentUser?.username ? currentUser?.username  : "Utilisateur"}</span>
+          <span className="nameLabel mt-3">{currentUser?.username ? currentUser?.username  : ""}</span>
           <span className="passWord mt-3">Mot de passe</span>
           {isEditing ? (
             <div className="passwordInputs">

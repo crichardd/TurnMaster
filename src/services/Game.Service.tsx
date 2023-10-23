@@ -15,6 +15,7 @@ export default class GameService {
     }
 
     async getGames(token: string): Promise<GameDTO[]> {
+      console.log("token voilà:", token);
       try {
         const response = await axios.get(`${REST_API_URL}/game/list`, {
           headers: {

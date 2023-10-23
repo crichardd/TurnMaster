@@ -29,7 +29,6 @@ export class UserService {
 
   static async getUserId(token: string): Promise<UserDTO | undefined> {
     try {
-      console.log("token user", token);
       const apiUrl = `${REST_API_URL}/user/user`;
       const headers = {
         Authorization: `Bearer ${token}`, 

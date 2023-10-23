@@ -78,12 +78,10 @@ const LibraryComponents: React.FC<{ token: string | null }> = ({ token }) => {
 
     async function handleCreate(addGame: any) {
         if(addGame!= null && token != null){
-            
+            console.log("token envoyé", token);
             const result = await GameService.getInstance().addGame(addGame, token);
             if(result){setGameData([result]);}
             handleCreatePopupClose();
-                
-            
         }
     }
     
@@ -98,7 +96,7 @@ const LibraryComponents: React.FC<{ token: string | null }> = ({ token }) => {
         const executablePath = event.target.executablePath.files[0];
     
         handleCreate({ name, nbMinPlayer, nbMaxPlayer, imagePath, executablePath});
-      };
+    };
 
     return (
         <div className="gameWrapper">
