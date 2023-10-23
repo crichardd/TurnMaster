@@ -18,7 +18,7 @@ function ProfilComponent(props: ProfilProps) {
   const [currentUser, setCurrentUser] = useState<UserDTO | null>(null);   
 
   useEffect(() => {
-    if (props.token !== null) { // Utilisez props.token ici
+    if (props.token !== null) { 
         UserService.getUserId(props.token)
             .then((user) => {
                 if (user && user.id) {
