@@ -31,8 +31,8 @@ export class UserService {
     try {
       const apiUrl = `${REST_API_URL}/user/user`;
       const headers = {
-        Authorization: `Bearer ${token}`, // Include the token in the headers
-        'Content-Type': 'application/json', // Ajoutez l'en-tête Content-Type si nécessaire
+        Authorization: `Bearer ${token}`, 
+        'Content-Type': 'application/json', 
       };
   
       const response = await axios.get(apiUrl, { headers });

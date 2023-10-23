@@ -4,8 +4,6 @@ import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FriendService from "../../services/Friends.Service";
 import {useLocation} from "react-router-dom";
-import {FriendshipDTO} from "../../dto/Friendship.dto";
-import {FriendshipStatus} from '../../dto/Friendship.dto';
 import { useState, useEffect} from 'react';
 
 const AddFriendCard = ({ user, onFriendAdded, currentUserId, token }: { user: UserDTO, onFriendAdded: () => void, currentUserId: string, token: string | null }) => {

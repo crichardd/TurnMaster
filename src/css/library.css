@@ -62,7 +62,7 @@ h3{
 }
 
 .card {
-  width: 15%;
+  width: 20%;
   max-width: 100%;
   box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.25);
   background-color: var(--mix-white);
