@@ -1,22 +1,36 @@
 import '../css/profil.css';
 import React, { useEffect, useState } from 'react';
 import { UserService } from '../services/User.Service';
-import { useLocation } from 'react-router-dom';
+import { UserDTO } from '../dto/User.dto';
 
 interface ProfilProps {
-  username: string;
   closePopup: () => void;
-  onPasswordChange: (newPassword: string) => void; 
+  onPasswordChange: (newPassword: string) => void;
+  token: string | null;
 }
 
 function ProfilComponent(props: ProfilProps) {
   const [isEditing, setIsEditing] = useState(false);
-  const location = useLocation();
-  const currentUsername = location.state?.username;
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState<String | null>(null);
   const [errorMessage, setErrorMessage] = useState<String | null>(null);
+  const [currentUser, setCurrentUser] = useState<UserDTO | null>(null);   
+
+  useEffect(() => {
+    if (props.token !== null) { // Utilisez props.token ici
+        UserService.getUserId(props.token)
+            .then((user) => {
+                if (user && user.id) {
+                    setCurrentUser(user);
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            }
+        );
+    }
+  }, [props.token]); 
 
   const toggleEdit = () => {
     setIsEditing(true);
@@ -38,10 +52,12 @@ function ProfilComponent(props: ProfilProps) {
 
   const handleSave = async () => {
     try {
-      await UserService.updatePassword(currentUsername, currentPassword, newPassword);
-      props.onPasswordChange(newPassword);
-      setMessage("Le changement de mot de passe a été effectué avec succès.");
-      setIsEditing(false);
+      if(currentUser!= null){
+        await UserService.updatePassword(currentUser?.username, currentPassword, newPassword);
+        props.onPasswordChange(newPassword);
+        setMessage("Le changement de mot de passe a été effectué avec succès.");
+        setIsEditing(false);
+      }
     } catch (error: any) {
       if (error.message === 'Request failed with status code 500') {
         setErrorMessage("Les identifiants sont incorrects.");
@@ -61,7 +77,7 @@ function ProfilComponent(props: ProfilProps) {
           </button>
           {errorMessage && <div className="error-message" style={{color: "red"}} >{errorMessage}</div>}
           {message && <div className="success-message" style={{color: "green"}}>{message}</div>}
-          <span className="nameLabel mt-3">{props.username ? props.username : "Utilisateur"}</span>
+          <span className="nameLabel mt-3">{currentUser?.username ? currentUser?.username  : "Utilisateur"}</span>
           <span className="passWord mt-3">Mot de passe</span>
           {isEditing ? (
             <div className="passwordInputs">
@@ -84,7 +100,7 @@ function ProfilComponent(props: ProfilProps) {
             <span className="passwordLabel mt-3">*********</span> // Display asterisks for password in non-edit mode
           )}
           <div className="d-flex flex-row justify-content-center align-items-center mt-3">
-            <span className="number">1069 Point</span>
+            <span className="number">{currentUser?.points ? currentUser?.points  : "0"} Point</span>
           </div>
           <div className="d-flex mt-2">
             {isEditing ? (

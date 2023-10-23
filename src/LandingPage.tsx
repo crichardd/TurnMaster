@@ -45,7 +45,7 @@ function LandingPage() {
           {isPopupOpen && (
             <div className="profil-container">
               <ProfilComponent
-                username={token}
+                token={token}
                 closePopup={closePopup}
                 onPasswordChange={handlePasswordChange} 
               /> 
