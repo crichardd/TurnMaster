@@ -46,7 +46,6 @@ const LibraryComponents: React.FC<{ token: string | null }> = ({ token }) => {
             gameName: selectedGame.name,
             username: currentUsername,
         };
-        console.log("test:", partyData);
 
         try {
             const createdParty = await PartyService.createParty(partyData);

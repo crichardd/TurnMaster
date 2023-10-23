@@ -26,7 +26,6 @@ export default class FriendService {
                     Authorization: `Bearer ${token}`,
                 },
             });
-            console.log("response.data", response.data);
             return response.data;
         } catch (error) {
             console.log(error);
@@ -34,12 +33,10 @@ export default class FriendService {
         }
     }
     
-    
-    static async acceptFriendshipRequest(friendshipDto: FriendshipDTO) {
+    static async acceptFriendshipRequest(id: string, token: string) {
         await axios.post(
-            `${REST_API_URL}/friendship/accept-request`,
-            JSON.stringify(friendshipDto),
-            { headers: { 'Content-Type': 'application/json' } }
+            `${REST_API_URL}/friendship/accept-request/${id}`,
+            { headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, } }
         );
     }
 

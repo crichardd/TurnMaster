@@ -18,9 +18,6 @@ function MessageComponent() {
   const [socket, setSocket] = useState<Socket | null>(null); // Utilisez directement 'Socket' sans 'DefaultEventsMap'
   const [message, setMessage] = useState('');
 
-  console.log("MessageComponent", currentUsername);
-
-
   useEffect(() => {
 
 

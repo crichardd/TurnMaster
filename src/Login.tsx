@@ -18,7 +18,6 @@ export default function Login() {
       try {
         const token = await LoginService.getInstance().login(username, password);
         if (token) {
-          console.log("Token:", token);
           localStorage.setItem('authToken', token);
           setStatus(true);
           navigate("/LandingPage", { state: { token } });

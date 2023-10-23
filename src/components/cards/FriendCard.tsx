@@ -2,16 +2,33 @@
 import '../../css/card.css'
 import { faUserMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {useLocation} from "react-router-dom";
 import {FriendshipDTO} from "../../dto/Friendship.dto";
 import FriendService from "../../services/Friends.Service";
 import { FriendshipStatus } from '../../dto/Friendship.dto';
+import {useEffect, useState} from "react";
+import { UserService } from "../../services/User.Service";
+import { UserDTO } from "../../dto/User.dto";
 
-const FriendCard = (props: { friendship: FriendshipDTO }) => {
-    const { friendship } : { friendship: FriendshipDTO } = props;
-  
-    const location = useLocation();
-    const currentUsername = location.state?.username;
+
+const FriendCard = (props: { friendship: FriendshipDTO, token: string | null }) => {
+    const { friendship, token } = props;
+    const [currentUser, setCurrentUser] = useState<UserDTO | null>(null);   
+
+    useEffect(() => {
+      if (token !== null) { 
+          UserService.getUserId(token)
+              .then((user) => {
+                  if (user && user.id) {
+                      setCurrentUser(user);
+                  }
+              })
+              .catch((error) => {
+                  console.error(error);
+              }
+          );
+
+        }
+    });
   
     const friendshipDtoDelete: FriendshipDTO = {
         id: friendship.id,
@@ -27,8 +44,7 @@ const FriendCard = (props: { friendship: FriendshipDTO }) => {
                 console.log(response);
             });
     }
-    
-    const myFriend = friendship.receiverUsername !== currentUsername ? friendship.receiverUsername : friendship.senderUsername;
+    const myFriend = friendship.receiverUsername !== currentUser?.username ? friendship.receiverUsername : friendship.senderUsername;
   
     return (
         <div className="user-card">

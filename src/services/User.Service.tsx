@@ -20,7 +20,6 @@ export class UserService {
               Authorization: `Bearer ${token}`,
           },
       });
-      console.log("response.data", response.data);
       return response.data;
     } catch (error) {
         console.log(error);
@@ -68,16 +67,13 @@ export class UserService {
           currentPassword: currentPassword,
           modifiedPassword: modifiedPassword,
         };
-  
-        console.log("Request Payload:", payload);
-        const authToken = 'YOUR_AUTH_TOKEN';
+
+        const authToken = '';
         const headers = {
           Authorization: `Bearer ${authToken}`,
         };
   
         await axios.patch(`${REST_API_URL}/user/update-password`, payload, { headers });
-  
-        console.log("Password update successful!");
       } catch (error: any) {
         console.error("Failed to update password:", (error as Error).message);
         throw new Error("Failed to update password");

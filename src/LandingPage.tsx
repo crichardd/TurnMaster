@@ -29,7 +29,6 @@ function LandingPage() {
   };
 
   const handlePasswordChange = (newPassword: string) => {
-      console.log("New password:", newPassword);
   };
 
   return (
