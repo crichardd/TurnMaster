@@ -28,10 +28,13 @@ export default class GameService {
     return [];}
   }
 
-    async addGame(addGame: any): Promise<GameDTO | undefined> {
-      const name = await axios.post(
-        "http://localhost:8080/api/game/create",
-        addGame
+    async addGame(addGame: any, token: String): Promise<GameDTO | undefined> {
+      const name = await axios.post(`${REST_API_URL}/game/create`,
+        addGame, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
   
       if (name) {

@@ -54,6 +54,7 @@ h3{
   font-weight: normal;
 }
 
+
 .wrap-cards {
   display: flex;
   flex-wrap: wrap;
@@ -61,61 +62,51 @@ h3{
   margin-top: 20px;
 }
 
-.card {
-  width: 20%;
+.card-popup {
+  width: 50%;
   max-width: 100%;
-  box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.25);
   background-color: var(--mix-white);
+
+  background-color: #fff;
 }
-.card .wrap-image {
+.card-popup .wrap-image {
   position: relative;
+
+  background-color: #fff;
 }
-.card .wrap-image img {
+.card-popup .wrap-image img {
   width: 100%;
   height: auto;
 }
-.card .wrap-image svg {
+.card-popup .wrap-image svg {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 30px;
 }
-.card .wrap-image svg polygon, .card .wrap-image svg path {
-  fill: var(--white);
-  stroke: var(--white);
-}
-.card:nth-child(4) .wrap-image svg path {
-  stroke-width: 3px;
-}
-.card:nth-child(5) .wrap-image svg path {
-  stroke-width: 4px;
-}
-.card:nth-child(6) .wrap-image svg path {
-  stroke-width: 6px;
-}
-.card .contentsGame {
+.card-popup .contentsGame {
   padding: 1rem;
 }
-.card .contentsGame h3 {
+.card-popup .contentsGame h3 {
   margin: 0 0 0.5rem;
   font-size: 1.125em;
   color: #fff;
 }
-.card .contentsGame .textGame {
+.card-popup .contentsGame .textGame {
   color: rgba(0, 0, 0, 0.5);
   line-height: 1.6;
   font-size: 0.9em;
 }
 
 @media all and (max-width: 768px) {
-  .card {
+  .card-popup {
     width: 49%;
     margin-bottom: 3rem;
   }
 }
 @media all and (max-width: 480px) {
-  .card {
+  .card-popup {
     width: 100%;
     margin-bottom: 3rem;
   }

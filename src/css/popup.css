@@ -4,7 +4,7 @@
 #container {
   padding-top: 10%;
   padding-left: 35%;
-  width: 150%;
+  width: 1500px;
   left: 50%;
   top: 0;
   transform: translate(-50%);
@@ -55,6 +55,8 @@
   justify-content: center;
   align-items: center;
   z-index: 9999; 
+  height: 100%;
+  width: 100%;
 }
   
 .addGameInput{
@@ -104,7 +106,7 @@
   top: 30%;
   left: 50%;
   transform: translate(-50%, -30%);
-  width: 50%;
+  width: 100%;
   height: 100%;
 }
 
@@ -193,4 +195,13 @@
     left: 3px;
     position: absolute;
   }
+}
+
+
+.popUp-body-create-game{
+    background-color: var(--cambridge-bleu);
+    text-align: center;
+    width: 50%;
+    height: 450px;
+    border-radius: 5%;
 }
